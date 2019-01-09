@@ -2,7 +2,8 @@
 
 Game::Game() :
 	m_window{ sf::VideoMode{ 1920, 1080, 32 }, "Space Station Rescue" },
-	m_exitGame{ false } // When true game will exit
+	m_exitGame{ false }, // When true game will exit
+	player{sf::Vector2f(400,400)}
 {
 
 }
@@ -61,6 +62,27 @@ void Game::update(sf::Time t_deltaTime)
 	else if (m_window.hasFocus()) // Ensure window is in focus before any action is taken
 	{
 		// Update...
+
+		player.update(t_deltaTime);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		{
+			player.increaseRotation();
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{
+			player.decreaseRotation();
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			player.DecreaseSpeed();
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			player.IncreaseSpeed();
+		}
 	}
 }
 
@@ -68,5 +90,6 @@ void Game::render()
 {
 	m_window.clear(sf::Color::Black);
 	// Draw...
+	player.draw(m_window);
 	m_window.display();
 }
