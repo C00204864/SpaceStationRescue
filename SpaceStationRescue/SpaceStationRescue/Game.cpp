@@ -6,7 +6,11 @@ Game::Game() :
 	player{sf::Vector2f(400,400)},
 	world{"", 60, 60}
 {
-
+	view = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
+	miniMap = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
+	miniMap.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));
+	miniMap.zoom(2.0f);
+	m_window.setView(view);
 }
 
 
@@ -84,6 +88,8 @@ void Game::update(sf::Time t_deltaTime)
 		{
 			player.IncreaseSpeed();
 		}
+
+		view.setCenter(player.getPosition());
 	}
 }
 
@@ -91,6 +97,11 @@ void Game::render()
 {
 	m_window.clear(sf::Color::Black);
 	// Draw...
+	m_window.setView(view);
+	world.render(m_window);
+	player.render(m_window);
+
+	m_window.setView(miniMap);
 	world.render(m_window);
 	player.render(m_window);
 	m_window.display();

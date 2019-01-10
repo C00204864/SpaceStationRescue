@@ -26,6 +26,9 @@ private:
 	Player player;
 
 	World world;
+
+	sf::View view;
+	sf::View miniMap;
 };
 
 #endif // !GAME_H
