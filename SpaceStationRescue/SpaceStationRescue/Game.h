@@ -23,6 +23,13 @@ private:
 
 
 	Player player;
+
+	sf::View view;
+	sf::View miniMap;
+
+	//for testing mini map
+	sf::Texture texture;
+	sf::Sprite background;
 };
 
 #endif // !GAME_H

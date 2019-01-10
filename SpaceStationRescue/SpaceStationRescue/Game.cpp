@@ -5,7 +5,19 @@ Game::Game() :
 	m_exitGame{ false }, // When true game will exit
 	player{sf::Vector2f(400,400)}
 {
+	view = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
+	miniMap = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
+	miniMap.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));
+	miniMap.zoom(2.0f);
+	m_window.setView(view);
 
+
+	if (!texture.loadFromFile("space.png"))
+	{
+
+	}
+	background.setTexture(texture);
+	background.setPosition(0, 0);
 }
 
 
@@ -84,12 +96,21 @@ void Game::update(sf::Time t_deltaTime)
 			player.IncreaseSpeed();
 		}
 	}
+	view.setCenter(player.getPosition());
 }
 
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
 	// Draw...
+	m_window.setView(view);
+	//m_window.draw(background);
 	player.draw(m_window);
+
+	m_window.setView(miniMap);
+	//m_window.draw(background);
+	player.draw(m_window);
+
+
 	m_window.display();
 }
