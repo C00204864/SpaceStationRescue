@@ -1,6 +1,8 @@
 /// <summary>
 /// Space Station Rescue
 /// 
+/// AI Project
+/// 
 /// By Liam Hickey (C00204864) and Michael Bridgette (C00205948)
 /// </summary>
 

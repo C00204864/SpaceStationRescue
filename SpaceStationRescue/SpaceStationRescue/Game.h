@@ -21,14 +21,20 @@ private:
 
 	// Private Members
 	sf::RenderWindow m_window; // main SFML window
+	sf::View m_mainView;
+	sf::View m_miniMapView;
 	bool m_exitGame; // control exiting game
+	Player m_player;
+	World m_world;
 
-	Player player;
+	sf::Texture m_backgroundTexture;
+	sf::Sprite m_backgroundSprite;
 
-	World world;
+	sf::Texture m_emptyShaderTexture;
+	sf::Sprite m_emptyShaderSprite;
 
-	sf::View view;
-	sf::View miniMap;
+	const unsigned int SCREEN_WIDTH = 1280;
+	const unsigned int SCREEN_HEIGHT = 720;
 };
 
 #endif // !GAME_H

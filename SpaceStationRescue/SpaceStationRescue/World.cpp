@@ -1,6 +1,6 @@
 #include "World.h"
 
-World::World(std::string loadFilePath, int width, int height) : m_dimensions(sf::Vector2i(width, height))
+World::World(std::string loadFilePath, int width, int height, Player & playerIn) : m_dimensions(sf::Vector2i(width, height)), m_refPlayer(playerIn)
 {
 	if (!m_tileTexture1.loadFromFile("Assets\\Images\\test.png"))
 	{
@@ -68,4 +68,14 @@ void World::render(sf::RenderWindow & window)
 			}
 		}
 	}
+}
+
+bool World::checkCollision(sf::CircleShape circle)
+{
+	return false;
+}
+
+Tile & World::getTileReference(int xIndex, int yIndex)
+{
+	return m_worldGrid[xIndex][yIndex]; // This can throw out of bounds exceptions for X and Y
 }

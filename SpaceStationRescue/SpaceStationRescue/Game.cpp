@@ -1,23 +1,30 @@
 #include "Game.h"
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 1280, 720, 32 }, "Space Station Rescue" },
+	m_window{ sf::VideoMode{ SCREEN_WIDTH, SCREEN_HEIGHT, 32 }, "Space Station Rescue" },
 	m_exitGame{ false }, // When true game will exit
-	player{sf::Vector2f(400,400)},
-	world{"Assets\\Levels\\Level.txt", 96, 96}
+	m_player{sf::Vector2f(400,400)},
+	m_world{"Assets\\Levels\\Level.txt", 96, 96, m_player }
 {
-	view = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
-	miniMap = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
-	miniMap.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));
-	miniMap.zoom(2.0f);
-	m_window.setView(view);
+	// Views
+	m_mainView = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
+	m_miniMapView = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
+	m_miniMapView.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));
+	m_miniMapView.zoom(5.f);
+	m_window.setView(m_mainView);
+
+	// Background and Shader
+	if (!m_backgroundTexture.loadFromFile("Assets\\Images\\Background.png"))
+	{
+		std::cout << "Error: Could not load background texture." << std::endl;
+	}
+	m_backgroundSprite.setTexture(m_backgroundTexture);
+	sf::FloatRect backgroundLocalBounds = m_backgroundSprite.getLocalBounds();
+	m_backgroundSprite.setScale(SCREEN_WIDTH / backgroundLocalBounds.width, SCREEN_HEIGHT / backgroundLocalBounds.height);
 }
 
 
-Game::~Game()
-{
-
-}
+Game::~Game() {}
 
 
 void Game::run()
@@ -66,43 +73,44 @@ void Game::update(sf::Time t_deltaTime)
 	}
 	else if (m_window.hasFocus()) // Ensure window is in focus before any action is taken
 	{
-		// Update...
+		m_player.update(t_deltaTime);
 
-		player.update(t_deltaTime);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
-			player.increaseRotation();
+			m_player.increaseRotation();
 		}
-
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
-			player.decreaseRotation();
+			m_player.decreaseRotation();
 		}
-
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
-			player.DecreaseSpeed();
+			m_player.DecreaseSpeed();
 		}
-
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
-			player.IncreaseSpeed();
+			m_player.IncreaseSpeed();
 		}
-
-		view.setCenter(player.getPosition());
+		sf::Vector2f playerPos = m_player.getPosition();
+		m_mainView.setCenter(playerPos);
+		m_backgroundSprite.setPosition(playerPos.x - SCREEN_WIDTH / 2.f, playerPos.y - SCREEN_HEIGHT / 2.f);
 	}
 }
 
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
-	// Draw...
-	m_window.setView(view);
-	world.render(m_window);
-	player.render(m_window);
 
-	m_window.setView(miniMap);
-	world.render(m_window);
-	player.render(m_window);
+	// Draw Main Game
+	m_window.setView(m_mainView);
+	m_window.draw(m_backgroundSprite);
+	m_world.render(m_window);
+	m_player.render(m_window);
+
+	// Draw MiniMap
+	m_window.setView(m_miniMapView);
+	m_world.render(m_window);
+	m_player.render(m_window);
+
 	m_window.display();
 }

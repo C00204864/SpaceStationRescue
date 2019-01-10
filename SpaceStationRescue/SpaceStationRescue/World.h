@@ -1,20 +1,26 @@
 #ifndef WORLD_H
 #define WORLD_H
 
+// STD Includes
 #include <fstream>
-#include <iostream>
 #include <string>
 #include <vector>
+#include <iostream> // FOR DEBUG ONLY
+
+// SFML Includes
 #include <SFML/Graphics.hpp>
+
+// Project Includes
 #include "Tile.h"
-#include "MathUtil.h"
+#include "Player.h"
 
 class World
 {
 public:
-	World(std::string loadFilePath, int width, int height);
+	World(std::string loadFilePath, int width, int height, Player & playerIn);
 	~World();
 	void render(sf::RenderWindow & window);
+	bool checkCollision(sf::CircleShape entity);
 	void update(float dt);
 	Tile & getTileReference(int xIndex, int yIndex);
 private:
@@ -27,6 +33,7 @@ private:
 
 	// Textures
 	sf::Texture m_tileTexture1;
+	Player & m_refPlayer;
 };
 
 #endif // !WORLD_H
