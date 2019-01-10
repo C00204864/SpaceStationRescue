@@ -1,4 +1,1 @@
-﻿  World.cpp
-c:\users\liamh\desktop\projectai\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(16): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\liamh\desktop\projectai\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(16): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\ProjectAI\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
+﻿  SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
