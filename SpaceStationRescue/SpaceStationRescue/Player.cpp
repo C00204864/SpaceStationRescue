@@ -4,9 +4,9 @@ Player::Player(sf::Vector2f pos)
 {
 	position = pos;
 	speed = 0;
-	if (!texture.loadFromFile("rsH6n.png"))
+	if (!texture.loadFromFile("Assets\\Images\\PlayerShip.png"))
 	{
-
+		std::cout << "Error: Could not load player sprite" << std::endl;
 	}
 	sprite.setTexture(texture);
 	sprite.setPosition(pos);
@@ -21,7 +21,7 @@ Player::~Player()
 {
 }
 
-void Player::draw(sf::RenderWindow & window)
+void Player::render(sf::RenderWindow & window)
 {
 	window.draw(sprite);
 }

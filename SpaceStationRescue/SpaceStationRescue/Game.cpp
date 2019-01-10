@@ -1,9 +1,10 @@
 #include "Game.h"
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 1920, 1080, 32 }, "Space Station Rescue" },
+	m_window{ sf::VideoMode{ 1280, 720, 32 }, "Space Station Rescue" },
 	m_exitGame{ false }, // When true game will exit
-	player{sf::Vector2f(400,400)}
+	player{sf::Vector2f(400,400)},
+	world{"", 60, 60}
 {
 
 }
@@ -90,6 +91,7 @@ void Game::render()
 {
 	m_window.clear(sf::Color::Black);
 	// Draw...
-	player.draw(m_window);
+	world.render(m_window);
+	player.render(m_window);
 	m_window.display();
 }

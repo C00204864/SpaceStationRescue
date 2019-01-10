@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <iostream>
 #include<SFML/Graphics.hpp>
 #include<SFML/Window.hpp>
 
@@ -8,7 +9,7 @@ class Player {
 public:
 	Player(sf::Vector2f pos);
 	~Player();
-	void draw(sf::RenderWindow &window);
+	void render(sf::RenderWindow &window);
 	void update(sf::Time dt);
 
 	void increaseRotation();

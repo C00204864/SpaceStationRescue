@@ -2,7 +2,9 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
-#include"Player.h"
+#include "Player.h"
+#include "World.h"
+
 class Game
 {
 public:
@@ -21,8 +23,9 @@ private:
 	sf::RenderWindow m_window; // main SFML window
 	bool m_exitGame; // control exiting game
 
-
 	Player player;
+
+	World world;
 };
 
 #endif // !GAME_H
