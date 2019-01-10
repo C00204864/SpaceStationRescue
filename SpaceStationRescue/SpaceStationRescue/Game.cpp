@@ -4,7 +4,7 @@ Game::Game() :
 	m_window{ sf::VideoMode{ 1280, 720, 32 }, "Space Station Rescue" },
 	m_exitGame{ false }, // When true game will exit
 	player{sf::Vector2f(400,400)},
-	world{"", 60, 60}
+	world{"Assets\\Levels\\Level.txt", 96, 96}
 {
 	view = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
 	miniMap = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());

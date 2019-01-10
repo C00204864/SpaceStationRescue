@@ -7,16 +7,18 @@ class Tile
 {
 public:
 	// Public Methods
-	Tile();
+	Tile(float xPos, float yPos);
 	~Tile();
-	void setParameters(float xPos, float yPos, float sideLength, sf::Texture & texture);
 	void render(sf::RenderWindow & window);
-	bool checkCollision();
+	void setAsWall(sf::Texture & texture, float sideLength);
+	bool isWall();
 	sf::Vector2f getPosition();
+	sf::FloatRect getGlobalBounds();
 
 private:
 	// Private Members
 	sf::Sprite m_sprite;
+	bool m_isWall;
 };
 
 #endif // !TILE_H
