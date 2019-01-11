@@ -5,7 +5,7 @@
 #include "Player.h"
 #include "Bullet.h"
 #include "World.h"
-
+#include"PowerUp.h"
 class Game
 {
 public:
@@ -41,14 +41,10 @@ private:
 	const unsigned int SCREEN_HEIGHT = 720;
 
 
-
-
-	//bullet test
-	Bullet * bullet;
-
-
 	sf::Clock bulletClock;
 	sf::Time timeElapsed;
+
+	PowerUp * shield;
 
 };
 

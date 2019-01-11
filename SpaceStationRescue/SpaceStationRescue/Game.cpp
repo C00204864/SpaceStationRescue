@@ -39,6 +39,11 @@ Game::Game() :
 	m_emptyShaderSprite.setScale(1.f * SCREEN_WIDTH / shaderLocalBounds.width, 1.f * SCREEN_HEIGHT / shaderLocalBounds.height);
 
 
+
+
+	//powerups
+	shield = new PowerUp(sf::Vector2f(500,500));
+
 }
 
 
@@ -132,6 +137,14 @@ void Game::update(sf::Time t_deltaTime)
 		m_emptyShaderSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
 		
 
+		shield->update();
+
+		if (shield->collisionCheck(m_player.getSprite()) == true)
+		{
+			shield->setAlive(false);
+			m_player.activateTheShield();
+		}
+
 	}
 }
 
@@ -145,6 +158,7 @@ void Game::render()
 	m_window.draw(m_emptyShaderSprite, &m_shader);
 	m_world.render(m_window);
 	m_player.render(m_window);
+	shield->draw(m_window);
 
 	// Draw MiniMap
 	m_window.setView(m_miniMapView);
