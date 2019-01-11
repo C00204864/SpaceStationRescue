@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include "Bullet.h"
 #include "World.h"
 
 class Game
@@ -38,6 +39,17 @@ private:
 
 	const unsigned int SCREEN_WIDTH = 1280;
 	const unsigned int SCREEN_HEIGHT = 720;
+
+
+
+
+	//bullet test
+	Bullet * bullet;
+
+
+	sf::Clock bulletClock;
+	sf::Time timeElapsed;
+
 };
 
 #endif // !GAME_H

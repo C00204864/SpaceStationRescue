@@ -23,6 +23,11 @@ Player::~Player()
 
 void Player::render(sf::RenderWindow & window)
 {
+	for (auto b : m_bullets)
+	{
+		b->draw(window);
+	}
+
 	window.draw(sprite);
 }
 
@@ -30,6 +35,21 @@ void Player::update(sf::Time dt)
 {
 	sprite.setPosition((sprite.getPosition().x + cos(rotation*(acos(-1) / 180))*speed), (sprite.getPosition().y + sin(rotation*(acos(-1) / 180))*speed));
 	sprite.setRotation(rotation);
+
+	for (auto b : m_bullets)
+	{
+		b->update();
+	}
+
+
+	for (int i = 0; i < m_bullets.size(); i++)
+	{
+		if (m_bullets.at(i)->isAlive() == false)
+		{
+			m_bullets.at(i)->~Bullet();
+			m_bullets.erase(m_bullets.begin() + i);
+		}
+	}
 }
 
 void Player::increaseRotation()
@@ -84,4 +104,9 @@ float Player::getSpeed()
 float Player::getRotation()
 {
 	return rotation;
+}
+
+void Player::SpawnBullet()
+{
+	m_bullets.push_back(new Bullet(sprite));
 }

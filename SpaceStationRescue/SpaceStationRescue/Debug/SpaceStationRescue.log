@@ -1,3 +1,23 @@
-﻿  Game.cpp
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(29): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
-  SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
+﻿  Bullet.cpp
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\bullet.cpp(28): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\bullet.cpp(41): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\bullet.cpp(42): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Game.cpp
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(29): warning C4244: 'argument': conversion from 'const unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Player.cpp
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(15): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(45): warning C4018: '<': signed/unsigned mismatch
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(82): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(90): warning C4305: '-=': truncation from 'double' to 'float'
+  World.cpp
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(35): warning C4018: '<': signed/unsigned mismatch
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(41): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  main.cpp
+  Generating Code...
+  SpaceStationRescue.vcxproj -> C:\Users\micha\Documents\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
