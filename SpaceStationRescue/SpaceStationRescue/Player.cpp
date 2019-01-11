@@ -15,6 +15,17 @@ Player::Player(sf::Vector2f pos)
 	sprite.setScale(0.2, 0.2);
 	rotation = 0;
 	orientation = 0;
+
+	activateShield = false;
+
+
+	m_shieldShape.setRadius(50);
+	m_shieldShape.setFillColor(sf::Color(0, 0, 255, 125));
+	m_shieldShape.setOutlineThickness(2);
+	m_shieldShape.setOutlineColor(sf::Color(255,0,255,125));
+	m_shieldShape.setOrigin(m_shieldShape.getGlobalBounds().width / 2, m_shieldShape.getGlobalBounds().height / 2);
+	m_shieldShape.setPosition(sprite.getPosition());
+	
 }
 
 Player::~Player()
@@ -29,6 +40,12 @@ void Player::render(sf::RenderWindow & window)
 	}
 
 	window.draw(sprite);
+
+	if (activateShield)
+	{
+		window.draw(m_shieldShape);
+	}
+	
 }
 
 void Player::update(sf::Time dt)
@@ -50,6 +67,21 @@ void Player::update(sf::Time dt)
 			m_bullets.erase(m_bullets.begin() + i);
 		}
 	}
+
+
+
+	if (activateShield)
+	{
+		m_shieldTime = m_shieldClock.getElapsedTime();
+
+		if (m_shieldTime.asSeconds() > 15)
+		{
+			m_shieldClock.restart();
+			activateShield = false;
+		}
+	}
+
+	m_shieldShape.setPosition(sprite.getPosition());
 }
 
 void Player::increaseRotation()
@@ -109,4 +141,14 @@ float Player::getRotation()
 void Player::SpawnBullet()
 {
 	m_bullets.push_back(new Bullet(sprite));
+}
+
+sf::Sprite & Player::getSprite()
+{
+	return sprite;
+}
+
+void Player::activateTheShield()
+{
+	activateShield = true;
 }

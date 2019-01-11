@@ -28,6 +28,10 @@ public:
 
 	void SpawnBullet();
 
+	sf::Sprite & getSprite();
+
+	void activateTheShield();
+
 private:
 	sf::Vector2f position;
 	float speed;
@@ -39,6 +43,14 @@ private:
 	float orientation;
 
 	std::vector<Bullet *> m_bullets;
+
+
+	sf::Clock m_shieldClock;
+	sf::Time m_shieldTime;
+	bool activateShield;
+
+
+	sf::CircleShape m_shieldShape;
 
 };
 
