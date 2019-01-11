@@ -10,7 +10,7 @@ Game::Game() :
 	m_mainView = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
 	m_miniMapView = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
 	m_miniMapView.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));
-	m_miniMapView.zoom(5.f);
+	m_miniMapView.zoom(8.f);
 	m_window.setView(m_mainView);
 
 	// Background and Shader
@@ -37,6 +37,8 @@ Game::Game() :
 	m_emptyShaderSprite.setTexture(m_emptyShaderTexture);
 	sf::FloatRect shaderLocalBounds = m_emptyShaderSprite.getLocalBounds();
 	m_emptyShaderSprite.setScale(1.f * SCREEN_WIDTH / shaderLocalBounds.width, 1.f * SCREEN_HEIGHT / shaderLocalBounds.height);
+
+
 }
 
 
@@ -62,7 +64,7 @@ void Game::run()
 			//std::cout << timeCounter << std::endl;
 			m_shader.setUniform("time", timeCounter);
 		}
-		std::cout << timeCounter << std::endl;
+		//std::cout << timeCounter << std::endl;
 		render(); // As many as possible
 	}
 }
@@ -112,11 +114,24 @@ void Game::update(sf::Time t_deltaTime)
 		{
 			m_player.IncreaseSpeed();
 		}
+
+
+		timeElapsed = bulletClock.getElapsedTime();
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && timeElapsed.asSeconds() > 0.5f)
+		{
+			bulletClock.restart();
+			m_player.SpawnBullet();
+		}
+
+
 		sf::Vector2f playerPos = m_player.getPosition();
 		m_mainView.setCenter(playerPos);
 		//std::cout << playerPos.x << "," << playerPos.y << std::endl;
 		m_backgroundSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
 		m_emptyShaderSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
+		
+
 	}
 }
 
