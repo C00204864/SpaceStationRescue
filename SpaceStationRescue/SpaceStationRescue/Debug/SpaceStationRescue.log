@@ -1,4 +1,3 @@
 ﻿  Game.cpp
-  main.cpp
-  Generating Code...
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(29): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
   SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe

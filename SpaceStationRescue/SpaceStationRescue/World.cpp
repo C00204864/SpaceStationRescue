@@ -2,10 +2,10 @@
 
 World::World(std::string loadFilePath, int width, int height, Player & playerIn) : m_dimensions(sf::Vector2i(width, height)), m_refPlayer(playerIn)
 {
-	if (!m_tileTexture1.loadFromFile("Assets\\Images\\test.png"))
-	{
-		std::cout << "Error: Could not load tile texture" << std::endl;
-	}
+	//if (!m_tileTexture1.loadFromFile("Assets\\Images\\test.png"))
+	//{
+	//	std::cout << "Error: Could not load tile texture" << std::endl;
+	//}
 
 	for (int i = 1; i <= TILE_TYPES; ++i)
 	{

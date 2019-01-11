@@ -1,7 +1,7 @@
 #include "Game.h"
 
 Game::Game() :
-	m_window{ sf::VideoMode{ SCREEN_WIDTH, SCREEN_HEIGHT, 32 }, "Space Station Rescue" },
+	m_window{ sf::VideoMode{ 1280, 720, 32 }, "Space Station Rescue" },
 	m_exitGame{ false }, // When true game will exit
 	m_player{sf::Vector2f(400,400)},
 	m_world{"Assets\\Levels\\Level.txt", 96, 96, m_player }
@@ -18,9 +18,25 @@ Game::Game() :
 	{
 		std::cout << "Error: Could not load background texture." << std::endl;
 	}
+	if (!m_emptyShaderTexture.loadFromFile("Assets\\Images\\Blank.png"))
+	{
+		std::cout << "Error: Could not load texture used for shader" << std::endl;
+	}
+	if (!m_shader.loadFromFile("Assets\\Shaders\\Stars.txt", sf::Shader::Fragment))
+	{
+		std::cout << "Error: Could not load shader" << std::endl;
+	}
+	m_shader.setUniform("resolution", sf::Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
+
+	// Background
 	m_backgroundSprite.setTexture(m_backgroundTexture);
 	sf::FloatRect backgroundLocalBounds = m_backgroundSprite.getLocalBounds();
-	m_backgroundSprite.setScale(SCREEN_WIDTH / backgroundLocalBounds.width, SCREEN_HEIGHT / backgroundLocalBounds.height);
+	m_backgroundSprite.setScale(1.f * SCREEN_WIDTH / backgroundLocalBounds.width, 1.f * SCREEN_HEIGHT / backgroundLocalBounds.height);
+
+	// Shader
+	m_emptyShaderSprite.setTexture(m_emptyShaderTexture);
+	sf::FloatRect shaderLocalBounds = m_emptyShaderSprite.getLocalBounds();
+	m_emptyShaderSprite.setScale(1.f * SCREEN_WIDTH / shaderLocalBounds.width, 1.f * SCREEN_HEIGHT / shaderLocalBounds.height);
 }
 
 
@@ -31,7 +47,8 @@ void Game::run()
 {
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
-	sf::Time timePerFrame = sf::seconds(1.f / 60.f); // 960 fps
+	sf::Time timePerFrame = sf::seconds(1.f / 60.f); // 60 fps
+	//float timeCounter = 0.f;
 	while (m_window.isOpen())
 	{
 		processEvents(); // As many as possible
@@ -41,7 +58,11 @@ void Game::run()
 			timeSinceLastUpdate -= timePerFrame;
 			processEvents(); // At least 60 fps
 			update(timePerFrame); // 60 fps
+			timeCounter += timePerFrame.asSeconds();
+			//std::cout << timeCounter << std::endl;
+			m_shader.setUniform("time", timeCounter);
 		}
+		std::cout << timeCounter << std::endl;
 		render(); // As many as possible
 	}
 }
@@ -93,7 +114,9 @@ void Game::update(sf::Time t_deltaTime)
 		}
 		sf::Vector2f playerPos = m_player.getPosition();
 		m_mainView.setCenter(playerPos);
-		m_backgroundSprite.setPosition(playerPos.x - SCREEN_WIDTH / 2.f, playerPos.y - SCREEN_HEIGHT / 2.f);
+		//std::cout << playerPos.x << "," << playerPos.y << std::endl;
+		m_backgroundSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
+		m_emptyShaderSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
 	}
 }
 
@@ -104,6 +127,7 @@ void Game::render()
 	// Draw Main Game
 	m_window.setView(m_mainView);
 	m_window.draw(m_backgroundSprite);
+	m_window.draw(m_emptyShaderSprite, &m_shader);
 	m_world.render(m_window);
 	m_player.render(m_window);
 
