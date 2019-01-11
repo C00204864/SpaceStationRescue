@@ -13,6 +13,8 @@ Player::Player(sf::Vector2f pos)
 	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
 	sprite.setRotation(0);
 	sprite.setScale(0.2, 0.2);
+	sf::FloatRect spriteBounds = sprite.getGlobalBounds();
+	m_collisionCircle.setRadius(sqrt((spriteBounds.width) * (spriteBounds.width) + (spriteBounds.height) * (spriteBounds.height)));
 	rotation = 0;
 	orientation = 0;
 }
@@ -33,7 +35,9 @@ void Player::render(sf::RenderWindow & window)
 
 void Player::update(sf::Time dt)
 {
+	m_lastPosition = sprite.getPosition();
 	sprite.setPosition((sprite.getPosition().x + cos(rotation*(acos(-1) / 180))*speed), (sprite.getPosition().y + sin(rotation*(acos(-1) / 180))*speed));
+	m_collisionCircle.setPosition(sprite.getPosition());
 	sprite.setRotation(rotation);
 
 	for (auto b : m_bullets)
@@ -49,6 +53,16 @@ void Player::update(sf::Time dt)
 			m_bullets.at(i)->~Bullet();
 			m_bullets.erase(m_bullets.begin() + i);
 		}
+	}
+}
+
+void Player::checkCollision(sf::FloatRect tileRect)
+{
+	if (!checkCircleRectangleCollision(m_collisionCircle, tileRect))
+	{
+		speed = 0;
+		m_collisionCircle.setPosition(m_lastPosition);
+		sprite.setPosition(m_lastPosition);
 	}
 }
 

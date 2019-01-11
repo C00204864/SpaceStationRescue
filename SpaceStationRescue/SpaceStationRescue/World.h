@@ -19,9 +19,8 @@ class World
 public:
 	World(std::string loadFilePath, int width, int height, Player & playerIn);
 	~World();
-	void render(sf::RenderWindow & window);
-	bool checkCollision(sf::CircleShape entity);
 	void update(float dt);
+	void render(sf::RenderWindow & window);
 	Tile & getTileReference(int xIndex, int yIndex);
 private:
 	std::vector<std::vector<Tile>> m_worldGrid;
@@ -31,8 +30,6 @@ private:
 	const int TILE_SIDE_LENGTH = 60;
 	const int TILE_TYPES = 9;
 
-	// Textures
-	sf::Texture m_tileTexture1;
 	Player & m_refPlayer;
 };
 

@@ -7,6 +7,7 @@
 
 #include<vector>
 #include"Bullet.h"
+#include "MathUtil.h"
 
 class Player {
 public:
@@ -14,6 +15,7 @@ public:
 	~Player();
 	void render(sf::RenderWindow &window);
 	void update(sf::Time dt);
+	void checkCollision(sf::FloatRect tileRect);
 
 	void increaseRotation();
 	void decreaseRotation();
@@ -30,11 +32,13 @@ public:
 
 private:
 	sf::Vector2f position;
+	sf::Vector2f m_lastPosition;
 	float speed;
 
 	sf::Vector2f velocity;
 	sf::Texture texture;
 	sf::Sprite sprite;
+	sf::CircleShape m_collisionCircle;
 	float rotation;
 	float orientation;
 
