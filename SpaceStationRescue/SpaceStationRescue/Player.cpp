@@ -14,9 +14,11 @@ Player::Player(sf::Vector2f pos)
 	sprite.setRotation(0);
 	sprite.setScale(0.2, 0.2);
 	sf::FloatRect spriteBounds = sprite.getGlobalBounds();
-	m_collisionCircle.setRadius(sqrt((spriteBounds.width) * (spriteBounds.width) + (spriteBounds.height) * (spriteBounds.height)));
+	m_collisionCircle.setRadius(sqrt((spriteBounds.width) * (spriteBounds.width) + (spriteBounds.height) * (spriteBounds.height)) / 2.f);
 	rotation = 0;
 	orientation = 0;
+	m_collisionCircle.setFillColor(sf::Color(125, 125, 125, 125));
+	m_collisionCircle.setOrigin(m_collisionCircle.getRadius(), m_collisionCircle.getRadius());
 }
 
 Player::~Player()
@@ -29,7 +31,7 @@ void Player::render(sf::RenderWindow & window)
 	{
 		b->draw(window);
 	}
-
+	window.draw(m_collisionCircle);
 	window.draw(sprite);
 }
 
@@ -58,7 +60,7 @@ void Player::update(sf::Time dt)
 
 void Player::checkCollision(sf::FloatRect tileRect)
 {
-	if (!checkCircleRectangleCollision(m_collisionCircle, tileRect))
+	if (checkCircleRectangleCollision(m_collisionCircle, tileRect))
 	{
 		speed = 0;
 		m_collisionCircle.setPosition(m_lastPosition);
