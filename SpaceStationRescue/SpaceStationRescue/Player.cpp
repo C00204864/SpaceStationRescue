@@ -13,8 +13,15 @@ Player::Player(sf::Vector2f pos)
 	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
 	sprite.setRotation(0);
 	sprite.setScale(0.2, 0.2);
+
+	sf::FloatRect spriteBounds = sprite.getGlobalBounds();
+	m_collisionCircle.setRadius(sqrt((spriteBounds.width) * (spriteBounds.width) + (spriteBounds.height) * (spriteBounds.height)) / 2.f);
+
 	rotation = 0;
 	orientation = 0;
+
+	m_collisionCircle.setFillColor(sf::Color(125, 125, 125, 125));
+	m_collisionCircle.setOrigin(m_collisionCircle.getRadius(), m_collisionCircle.getRadius());
 
 	activateShield = false;
 
@@ -39,6 +46,8 @@ void Player::render(sf::RenderWindow & window)
 		b->draw(window);
 	}
 
+	window.draw(m_collisionCircle);
+
 	window.draw(sprite);
 
 	if (activateShield)
@@ -50,7 +59,10 @@ void Player::render(sf::RenderWindow & window)
 
 void Player::update(sf::Time dt)
 {
+	m_lastPosition = sprite.getPosition();
+
 	sprite.setPosition((sprite.getPosition().x + cos(rotation*(acos(-1) / 180))*speed), (sprite.getPosition().y + sin(rotation*(acos(-1) / 180))*speed));
+	m_collisionCircle.setPosition(sprite.getPosition());
 	sprite.setRotation(rotation);
 
 	for (auto b : m_bullets)
@@ -83,6 +95,17 @@ void Player::update(sf::Time dt)
 
 	m_shieldShape.setPosition(sprite.getPosition());
 }
+
+void Player::checkCollision(sf::FloatRect tileRect)
+{
+	if (checkCircleRectangleCollision(m_collisionCircle, tileRect))
+	{
+		speed = 0;
+		m_collisionCircle.setPosition(m_lastPosition);
+		sprite.setPosition(m_lastPosition);
+	}
+}
+
 
 void Player::increaseRotation()
 {

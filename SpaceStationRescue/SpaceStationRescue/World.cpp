@@ -2,11 +2,6 @@
 
 World::World(std::string loadFilePath, int width, int height, Player & playerIn) : m_dimensions(sf::Vector2i(width, height)), m_refPlayer(playerIn)
 {
-	//if (!m_tileTexture1.loadFromFile("Assets\\Images\\test.png"))
-	//{
-	//	std::cout << "Error: Could not load tile texture" << std::endl;
-	//}
-
 	for (int i = 1; i <= TILE_TYPES; ++i)
 	{
 		m_tileTextures.push_back(sf::Texture());
@@ -49,6 +44,36 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 
 World::~World() {}
 
+void World::update(float dt)
+{
+	sf::Vector2f playerPos = m_refPlayer.getPosition();
+	int indexX = playerPos.x / TILE_SIDE_LENGTH;
+	int indexY = playerPos.y / TILE_SIDE_LENGTH;
+	std::cout << indexX << ", " << indexY << std::endl;
+	int startX = indexX - 1;
+	int endX = indexX + 1;
+	int startY = indexY - 1;
+	int endY = indexY + 1;
+	for (int i = indexX - 1; i <= indexX + 1; ++i)
+	{
+		if (i >= 0 && i < m_dimensions.x)
+		{
+			for (int j = indexY - 1; j <= indexY + 1; ++j)
+			{
+				if (j >= 0 && j < m_dimensions.y)
+				{
+					Tile & tile = m_worldGrid[i][j];
+					if (tile.isWall())
+					{
+						m_refPlayer.checkCollision(tile.getGlobalBounds());
+					}
+				}
+			}
+		}
+	}
+}
+
+
 void World::render(sf::RenderWindow & window)
 {
 	sf::View currentView = window.getView();
@@ -68,11 +93,6 @@ void World::render(sf::RenderWindow & window)
 			}
 		}
 	}
-}
-
-bool World::checkCollision(sf::CircleShape circle)
-{
-	return false;
 }
 
 Tile & World::getTileReference(int xIndex, int yIndex)

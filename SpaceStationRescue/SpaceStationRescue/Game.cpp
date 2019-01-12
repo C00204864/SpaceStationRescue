@@ -129,6 +129,7 @@ void Game::update(sf::Time t_deltaTime)
 			m_player.SpawnBullet();
 		}
 
+		m_world.update(t_deltaTime.asSeconds());
 
 		sf::Vector2f playerPos = m_player.getPosition();
 		m_mainView.setCenter(playerPos);
