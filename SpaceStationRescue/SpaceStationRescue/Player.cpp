@@ -32,6 +32,8 @@ Player::Player(sf::Vector2f pos)
 	m_shieldShape.setOutlineColor(sf::Color(255,0,255,125));
 	m_shieldShape.setOrigin(m_shieldShape.getGlobalBounds().width / 2, m_shieldShape.getGlobalBounds().height / 2);
 	m_shieldShape.setPosition(sprite.getPosition());
+
+	maxSpeed = 5;
 	
 }
 
@@ -93,6 +95,32 @@ void Player::update(sf::Time dt)
 		}
 	}
 
+
+
+	//std::cout << "Speed Time: " << m_speedTime.asSeconds() << std::endl;
+	if (activateSpeedBoost)
+	{
+		m_speedTime = m_speedClock.getElapsedTime();
+
+		if (m_speedTime.asSeconds() > 15)
+		{
+			m_speedClock.restart();
+			activateSpeedBoost = false;
+			maxSpeed = 5;
+
+
+
+			if (speed > maxSpeed)
+			{
+				speed = maxSpeed;
+			}
+			else if (-speed < -maxSpeed)
+			{
+				speed = maxSpeed;
+			}
+		}
+	}
+
 	m_shieldShape.setPosition(sprite.getPosition());
 }
 
@@ -132,7 +160,7 @@ void Player::SetSpeed(float s)
 
 void Player::IncreaseSpeed()
 {
-	if (speed < 5)
+	if (speed < maxSpeed)
 	{
 		speed += 0.1;
 	}
@@ -140,7 +168,7 @@ void Player::IncreaseSpeed()
 
 void Player::DecreaseSpeed()
 {
-	if (speed > -5)
+	if (speed > -maxSpeed)
 	{
 		speed -= 0.1;
 	}
@@ -173,5 +201,26 @@ sf::Sprite & Player::getSprite()
 
 void Player::activateTheShield()
 {
-	activateShield = true;
+	if (activateShield == false)
+	{
+		activateShield = true;
+	}
+	else
+	{
+		m_shieldClock.restart();
+	}
+}
+
+void Player::activateTheSpeedBoost()
+{
+	if (activateSpeedBoost == false)
+	{
+		activateSpeedBoost = true;
+		maxSpeed = 20;
+	}
+	else
+	{
+		m_speedClock.restart();
+	}
+	
 }

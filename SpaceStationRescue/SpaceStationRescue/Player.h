@@ -38,6 +38,9 @@ public:
 
 	void activateTheShield();
 
+	void activateTheSpeedBoost();
+
+
 private:
 	sf::Vector2f position;
 	sf::Vector2f m_lastPosition;
@@ -56,7 +59,14 @@ private:
 	sf::Time m_shieldTime;
 	bool activateShield;
 
+	sf::Clock m_speedClock;
+	sf::Time m_speedTime;
+	bool activateSpeedBoost;
+
 	sf::CircleShape m_shieldShape;
+
+
+	int maxSpeed;
 };
 
 #endif // !PLAYER_H

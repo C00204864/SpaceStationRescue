@@ -1,16 +1,36 @@
 #include "PowerUp.h"
 
-PowerUp::PowerUp(sf::Vector2f position)
+PowerUp::PowerUp(sf::Vector2f position, PowerType type)
 {
-	if (!m_texture.loadFromFile("Assets\\Images\\shield.png"))
-	{
-		std::cout << "Failed to load shield texture" << std::endl;
-	}
-	m_sprite.setTexture(m_texture);
-	m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2, m_sprite.getGlobalBounds().height / 2);
-	m_sprite.setScale(0.3,0.3);
+	
+	
 	m_sprite.setPosition(position);
-	m_type = PowerType::SHIELD;
+	m_type = type;
+
+	if (m_type == PowerType::SHIELD)
+	{
+		if (!m_texture.loadFromFile("Assets\\Images\\shield.png"))
+		{
+			std::cout << "Failed to load shield texture" << std::endl;
+		}
+
+		m_sprite.setTexture(m_texture);
+		m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2, m_sprite.getGlobalBounds().height / 2);
+		m_sprite.setScale(0.3, 0.3);
+	}
+	else
+	{
+		if (!m_texture.loadFromFile("Assets\\Images\\speed.png"))
+		{
+			std::cout << "Failed to load shield texture" << std::endl;
+		}
+
+		m_sprite.setTexture(m_texture);
+		m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2, m_sprite.getGlobalBounds().height / 2);
+		m_sprite.setScale(0.2, 0.2);
+	}
+
+
 	m_isAlive = true;
 }
 
@@ -46,4 +66,9 @@ bool PowerUp::collisionCheck(sf::Sprite sprite)
 void PowerUp::setAlive(bool b)
 {
 	m_isAlive = b;
+}
+
+PowerType PowerUp::getType()
+{
+	return m_type;
 }

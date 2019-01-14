@@ -31,6 +31,10 @@ private:
 	sf::Texture m_backgroundTexture;
 	sf::Sprite m_backgroundSprite;
 
+	sf::Texture m_minimapTexture;
+	sf::Sprite m_minimapBackground;
+
+
 	sf::Texture m_emptyShaderTexture;
 	sf::Sprite m_emptyShaderSprite;
 	sf::Shader m_shader;
@@ -44,7 +48,7 @@ private:
 	sf::Clock bulletClock;
 	sf::Time timeElapsed;
 
-	PowerUp * shield;
+	std::vector<PowerUp *> powerUps;
 
 };
 
