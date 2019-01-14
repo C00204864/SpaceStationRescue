@@ -1,12 +1,13 @@
 #ifndef MISSILE_H
 #define MISSILE_H
 
-#include<SFML/Graphics.hpp>
+#include <iostream>
+#include <SFML/Graphics.hpp>
 
 class Missile {
 
 public:
-	Missile(sf::Sprite sprite);
+	Missile(sf::Sprite nestSprite);
 	~Missile();
 
 	void update(sf::Sprite sprite);

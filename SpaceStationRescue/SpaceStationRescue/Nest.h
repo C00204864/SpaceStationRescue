@@ -1,9 +1,16 @@
 #ifndef NEST_H
 #define NEST_H
 
-#include<SFML/Graphics.hpp>
-#include"Player.h"
-#include"Missile.h"
+// STD Inlcudes
+#include <iostream>
+
+// SFML Includes
+#include <SFML/Graphics.hpp>
+
+// Project Includes
+#include "Player.h"
+#include "Missile.h"
+
 class Nest
 {
 public:
@@ -11,7 +18,7 @@ public:
 	~Nest();
 	void update();
 	void draw(sf::RenderWindow & m_window);
-	void spawnNewPred();
+	void spawnNewPredator();
 	void spawnNewMissile();
 	sf::Sprite getSprite();
 
@@ -20,9 +27,7 @@ private:
 	sf::Sprite m_sprite;
 	sf::CircleShape m_circle;
 	Player & m_player;
-
 	std::vector<Missile *> m_missiles;
-
 };
 #endif // !NEST_H
 

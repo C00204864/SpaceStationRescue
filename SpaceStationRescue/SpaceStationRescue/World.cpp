@@ -16,7 +16,7 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 		m_worldGrid.push_back(std::vector<Tile>());
 		for (int j = 0; j < height; ++j)
 		{
-			m_worldGrid[i].push_back(Tile(i * TILE_SIDE_LENGTH, j * TILE_SIDE_LENGTH));
+			m_worldGrid[i].push_back(Tile(i, j, TILE_SIDE_LENGTH));
 		}
 	}
 
@@ -40,6 +40,8 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 		}
 		++yCounter;
 	}
+	sf::Vector2f playerPos = m_refPlayer.getPosition();
+	setFlowField(playerPos.x / TILE_SIDE_LENGTH, playerPos.y / TILE_SIDE_LENGTH, true);
 }
 
 World::~World() {}
@@ -49,11 +51,6 @@ void World::update(float dt)
 	sf::Vector2f playerPos = m_refPlayer.getPosition();
 	int indexX = playerPos.x / TILE_SIDE_LENGTH;
 	int indexY = playerPos.y / TILE_SIDE_LENGTH;
-	std::cout << indexX << ", " << indexY << std::endl;
-	int startX = indexX - 1;
-	int endX = indexX + 1;
-	int startY = indexY - 1;
-	int endY = indexY + 1;
 	for (int i = indexX - 1; i <= indexX + 1; ++i)
 	{
 		if (i >= 0 && i < m_dimensions.x)
@@ -71,6 +68,7 @@ void World::update(float dt)
 			}
 		}
 	}
+	setFlowField(indexX, indexY, false); // Set flow field for AI
 }
 
 
@@ -98,4 +96,60 @@ void World::render(sf::RenderWindow & window)
 Tile & World::getTileReference(int xIndex, int yIndex)
 {
 	return m_worldGrid[xIndex][yIndex]; // This can throw out of bounds exceptions for X and Y
+}
+
+void World::setFlowField(int playerIndexX, int playerIndexY, bool processToCompletion)
+{
+	int count = 0;
+	if (m_flowFieldQueue.empty())
+	{
+		for (auto & vec : m_worldGrid)
+		{
+			for (auto & tile : vec)
+			{
+				if (!tile.isWall())
+				{
+					tile.setVisited(false);
+				}
+			}
+		}
+		m_flowFieldQueue.push(&m_worldGrid[playerIndexX][playerIndexY]);
+	}
+	while (!m_flowFieldQueue.empty() && (processToCompletion || !(count > FLOW_FIELD_LOOP_COUNT)))
+	{
+		expand(m_flowFieldQueue.front());
+		m_flowFieldQueue.pop();
+		++count;
+	}
+}
+
+void World::expand(Tile * tile)
+{
+	sf::Vector2i indices = tile->getIndices();
+	int x = indices.x;
+	int y = indices.y;
+	if (x > 0 && !m_worldGrid[x - 1][y].isWall() && !m_worldGrid[x - 1][y].isVisited())
+	{
+		m_worldGrid[x - 1][y].setVisited(true);
+		m_worldGrid[x - 1][y].setNext(tile);
+		m_flowFieldQueue.push(&m_worldGrid[x - 1][y]);
+	}
+	if (y > 0 && !m_worldGrid[x][y - 1].isWall() && !m_worldGrid[x][y - 1].isVisited())
+	{
+		m_worldGrid[x][y - 1].setVisited(true);
+		m_worldGrid[x][y - 1].setNext(tile);
+		m_flowFieldQueue.push(&m_worldGrid[x][y - 1]);
+	}
+	if (x < m_dimensions.x - 1 && !m_worldGrid[x + 1][y].isWall() && !m_worldGrid[x + 1][y].isVisited())
+	{
+		m_worldGrid[x + 1][y].setVisited(true);
+		m_worldGrid[x + 1][y].setNext(tile);
+		m_flowFieldQueue.push(&m_worldGrid[x + 1][y]);
+	}
+	if (y < m_dimensions.y - 1 && !m_worldGrid[x][y + 1].isWall() && !m_worldGrid[x][y + 1].isVisited())
+	{
+		m_worldGrid[x][y + 1].setVisited(true);
+		m_worldGrid[x][y + 1].setNext(tile);
+		m_flowFieldQueue.push(&m_worldGrid[x][y + 1]);
+	}
 }

@@ -3,9 +3,9 @@
 Nest::Nest(sf::Vector2f pos, Player & player):
 	m_player{player}
 {
-	if (!m_texture.loadFromFile("Assets\\Images\\nest.png"))
+	if (!m_texture.loadFromFile("Assets\\Images\\Nest.png"))
 	{
-
+		std::cout << "Error: Could not load nest textrue" << std::endl;
 	}
 	m_sprite.setTexture(m_texture);
 	m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2, m_sprite.getGlobalBounds().height / 2);
@@ -17,12 +17,9 @@ Nest::Nest(sf::Vector2f pos, Player & player):
 	
 	m_circle.setOrigin(m_circle.getGlobalBounds().width / 2.f, m_circle.getGlobalBounds().height / 2.f);
 	m_circle.setPosition(m_sprite.getPosition());
-
 }
 
-Nest::~Nest()
-{
-}
+Nest::~Nest() {}
 
 void Nest::update()
 {
@@ -42,7 +39,7 @@ void Nest::draw(sf::RenderWindow & m_window)
 	}
 }
 
-void Nest::spawnNewPred()
+void Nest::spawnNewPredator()
 {
 }
 

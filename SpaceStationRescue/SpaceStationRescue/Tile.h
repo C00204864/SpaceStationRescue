@@ -7,18 +7,25 @@ class Tile
 {
 public:
 	// Public Methods
-	Tile(float xPos, float yPos);
+	Tile(int xIndexIn, int yIndexIn, int sideLength);
 	~Tile();
 	void render(sf::RenderWindow & window);
 	void setAsWall(sf::Texture & texture, float sideLength);
 	bool isWall();
+	bool isVisited();
+	void setVisited(bool state);
+	void setNext(Tile * nextTile);
 	sf::Vector2f getPosition();
 	sf::FloatRect getGlobalBounds();
+	sf::Vector2i getIndices();
 
 private:
 	// Private Members
+	Tile * p_nextTile;
+	sf::Vector2i m_indices;
 	sf::Sprite m_sprite;
 	bool m_isWall;
+	bool m_isVisited;
 };
 
 #endif // !TILE_H
