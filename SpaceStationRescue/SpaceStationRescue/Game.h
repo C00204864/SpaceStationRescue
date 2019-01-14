@@ -6,6 +6,9 @@
 #include "Bullet.h"
 #include "World.h"
 #include"PowerUp.h"
+#include"Nest.h"
+#include"Missile.h"
+
 class Game
 {
 public:
@@ -50,6 +53,8 @@ private:
 
 	std::vector<PowerUp *> powerUps;
 
+	Nest * m_nest;
+	Missile * missile;
 };
 
 #endif // !GAME_H

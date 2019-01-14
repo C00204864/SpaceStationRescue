@@ -4,4 +4,11 @@ c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescu
           [
               T=float
           ]
+  Missile.cpp
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\missile.cpp(26): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\missile.cpp(65): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\missile.cpp(72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Nest.cpp
+  main.cpp
+  Generating Code...
   SpaceStationRescue.vcxproj -> C:\Users\micha\Documents\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
