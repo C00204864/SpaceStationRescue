@@ -12,12 +12,13 @@ enum PowerType
 
 class PowerUp {
 public:
-	PowerUp(sf::Vector2f position);
+	PowerUp(sf::Vector2f position, PowerType type);
 	~PowerUp();
 	void update();
 	void draw(sf::RenderWindow & window);
 	bool collisionCheck(sf::Sprite sprite);
 	void setAlive(bool b);
+	PowerType getType();
 private:
 	bool m_isAlive;
 	sf::Texture m_texture;
