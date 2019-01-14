@@ -57,6 +57,8 @@ Game::Game() :
 	powerUps.push_back(new PowerUp(sf::Vector2f(500,500), PowerType::SPEED));
 	powerUps.push_back(new PowerUp(sf::Vector2f(600, 600), PowerType::SHIELD));
 
+	m_nest = new Nest(sf::Vector2f(700,700), m_player);
+	missile = new Missile(m_nest->getSprite());
 }
 
 
@@ -132,7 +134,10 @@ void Game::update(sf::Time t_deltaTime)
 		{
 			m_player.IncreaseSpeed();
 		}
-
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::J))
+		{
+			m_nest->spawnNewMissile();
+		}
 
 		timeElapsed = bulletClock.getElapsedTime();
 
@@ -151,6 +156,9 @@ void Game::update(sf::Time t_deltaTime)
 		m_emptyShaderSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
 		
 
+		//missile->update(m_player.getSprite());
+
+		m_nest->update();
 
 		for (auto & p : powerUps)
 		{
@@ -183,6 +191,8 @@ void Game::render()
 	m_window.draw(m_emptyShaderSprite, &m_shader);
 	m_world.render(m_window);
 	m_player.render(m_window);
+	m_nest->draw(m_window);
+	//missile->draw(m_window);
 	
 	for (auto & p : powerUps)
 	{
