@@ -3,6 +3,8 @@ c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\
   Predator.cpp
 c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\predator.cpp(13): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\predator.cpp(14): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Tile.cpp
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\tile.cpp(7): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   World.cpp
 c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(40): warning C4018: '<': signed/unsigned mismatch
 c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(46): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
@@ -11,4 +13,5 @@ c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\
 c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(73): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   main.cpp
   Generating Code...
+  LINK : C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe not found or not built by the last incremental link; performing full link
   SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
