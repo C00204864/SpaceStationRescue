@@ -23,6 +23,7 @@ private:
 	// Private Members
 	Tile * p_nextTile;
 	sf::Vector2i m_indices;
+	sf::Vector2f m_centerPos;
 	sf::Sprite m_sprite;
 	bool m_isWall;
 	bool m_isVisited;

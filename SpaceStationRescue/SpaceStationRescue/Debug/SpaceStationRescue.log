@@ -1,10 +1,13 @@
 ﻿  Game.cpp
-c:\users\liamh\desktop\temp\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(29): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(29): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
+  Tile.cpp
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\tile.cpp(7): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  World.cpp
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(30): warning C4018: '<': signed/unsigned mismatch
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(36): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(52): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(53): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   main.cpp
-  Missile.cpp
-c:\users\liamh\desktop\temp\spacestationrescue\spacestationrescue\spacestationrescue\missile.cpp(26): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\liamh\desktop\temp\spacestationrescue\spacestationrescue\spacestationrescue\missile.cpp(65): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\liamh\desktop\temp\spacestationrescue\spacestationrescue\spacestationrescue\missile.cpp(72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Nest.cpp
   Generating Code...
-  SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\TEMP\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
+  SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe

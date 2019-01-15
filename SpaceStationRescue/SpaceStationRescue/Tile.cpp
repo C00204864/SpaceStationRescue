@@ -5,6 +5,7 @@ Tile::Tile(int xIndexIn, int yIndexIn, int sideLength)
 	m_isWall(false) 
 {
 	m_sprite.setPosition(xIndexIn * sideLength, yIndexIn * sideLength);
+	m_centerPos = sf::Vector2f(xIndexIn * sideLength + sideLength / 2.f, yIndexIn * sideLength + sideLength / 2.f);
 }
 
 Tile::~Tile() {}
