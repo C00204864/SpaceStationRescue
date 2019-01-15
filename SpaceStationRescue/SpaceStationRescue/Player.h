@@ -20,26 +20,18 @@ public:
 	void render(sf::RenderWindow &window);
 	void update(sf::Time dt);
 	void checkCollision(sf::FloatRect tileRect);
-
 	void increaseRotation();
 	void decreaseRotation();
 	void SetSpeed(float s);
-
 	void IncreaseSpeed();
 	void DecreaseSpeed();
-
 	sf::Vector2f getPosition();
 	float getSpeed();
 	float getRotation();
-
 	void SpawnBullet();
-
 	sf::Sprite & getSprite();
-
 	void activateTheShield();
-
 	void activateTheSpeedBoost();
-
 
 private:
 	sf::Vector2f position;

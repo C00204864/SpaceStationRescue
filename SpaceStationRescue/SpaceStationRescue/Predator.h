@@ -1,5 +1,8 @@
-#ifndef PREADTOR_H
+#ifndef PREDATOR_H
 #define PREDATOR_H
+
+// Predefinition to deal woth circular references
+class World;
 
 // STD Inlcudes
 #include <iostream>
@@ -13,14 +16,14 @@
 class Predator
 {
 public:
-	Predator(World & world, sf::Vector2f positionIn);
+	Predator(World * world, sf::Vector2f positionIn);
 	~Predator();
 	void update(float dt);
 	void render(sf::RenderWindow & window);
 	bool isAlive();
 	void seek(sf::Vector2f pos);
 private:
-	World & m_refWorld;
+	World * p_world;
 	Tile * targetTile;
 	bool m_isAlive;
 	sf::Texture m_texture;

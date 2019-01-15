@@ -17,4 +17,9 @@ static bool checkCircleRectangleCollision(sf::CircleShape & circle, sf::FloatRec
 	return distanceSquared < (circleRad * circleRad);
 }
 
+static float getDistance(sf::Vector2f v1, sf::Vector2f v2)
+{
+	return sqrt((v1.x - v2.x) * (v1.x - v2.x) + (v1.y - v2.y) * (v1.y - v2.y));
+}
+
 #endif // !MATHUTIL_H

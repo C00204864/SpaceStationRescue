@@ -9,8 +9,6 @@
 #include "Nest.h"
 #include "Missile.h"
 
-#include "Predator.h"
-
 class Game
 {
 public:
@@ -57,7 +55,7 @@ private:
 
 	Nest * m_nest;
 	Missile * missile;
-	Predator pred;
+	//Predator pred;
 };
 
 #endif // !GAME_H

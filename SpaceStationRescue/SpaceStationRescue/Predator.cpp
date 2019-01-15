@@ -1,6 +1,6 @@
 #include "Predator.h"
 
-Predator::Predator(World & world, sf::Vector2f positionIn) : m_refWorld(world), m_isAlive(true)
+Predator::Predator(World * world, sf::Vector2f positionIn) : p_world(world), m_isAlive(true)
 {
 	if (!m_texture.loadFromFile("Assets\\Images\\PlayerShip.png"))
 	{
@@ -11,7 +11,7 @@ Predator::Predator(World & world, sf::Vector2f positionIn) : m_refWorld(world), 
 	m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2, m_sprite.getGlobalBounds().height / 2);
 	m_sprite.setRotation(0);
 	m_sprite.setScale(0.2, 0.2);
-	targetTile = m_refWorld.getTilePointer(positionIn.x / m_refWorld.getTileWidth(), positionIn.y / m_refWorld.getTileWidth());
+	targetTile = p_world->getTilePointer(positionIn.x / p_world->getTileWidth(), positionIn.y / p_world->getTileWidth());
 }
 
 Predator::~Predator()

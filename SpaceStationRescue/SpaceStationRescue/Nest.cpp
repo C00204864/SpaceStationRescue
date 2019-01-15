@@ -1,7 +1,7 @@
 #include "Nest.h"
 
-Nest::Nest(sf::Vector2f pos, Player & player):
-	m_player{player}
+Nest::Nest(sf::Vector2f pos, Player & player, World * world):
+	m_refPlayer{player}
 {
 	if (!m_texture.loadFromFile("Assets\\Images\\Nest.png"))
 	{
@@ -12,30 +12,39 @@ Nest::Nest(sf::Vector2f pos, Player & player):
 	m_sprite.setPosition(pos);
 	m_sprite.setScale(0.1f, 0.1f);
 	
-	m_circle.setFillColor(sf::Color(255, 0, 0, 125));
+	m_circle.setFillColor(sf::Color(255, 0, 0, 45));
 	m_circle.setRadius(400);
 	
 	m_circle.setOrigin(m_circle.getGlobalBounds().width / 2.f, m_circle.getGlobalBounds().height / 2.f);
 	m_circle.setPosition(m_sprite.getPosition());
+
+	m_missile = new Missile(m_refPlayer);
 }
 
-Nest::~Nest() {}
+Nest::~Nest() 
+{
+	delete m_missile;
+}
 
 void Nest::update()
 {
-	for (auto &m : m_missiles)
+	if (m_missile->isAlive())
 	{
-		m->update(m_player.getSprite());
+		m_missile->update();
+	}
+	else if (getDistance(m_refPlayer.getPosition(), m_sprite.getPosition()) < m_circle.getRadius())
+	{
+		m_missile->reset(m_sprite.getPosition(), m_sprite.getRotation());
 	}
 }
 
-void Nest::draw(sf::RenderWindow & m_window)
+void Nest::render(sf::RenderWindow & m_window)
 {
 	m_window.draw(m_circle);
 	m_window.draw(m_sprite);
-	for (auto &m : m_missiles)
+	if (m_missile->isAlive())
 	{
-		m->draw(m_window);
+		m_missile->render(m_window);
 	}
 }
 
@@ -45,7 +54,7 @@ void Nest::spawnNewPredator()
 
 void Nest::spawnNewMissile()
 {
-	m_missiles.push_back(new Missile(m_sprite));
+	//m_missiles.push_back(new Missile(m_sprite));
 }
 
 sf::Sprite Nest::getSprite()

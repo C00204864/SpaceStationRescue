@@ -4,8 +4,8 @@ Game::Game() :
 	m_window{ sf::VideoMode{ 1280, 720, 32 }, "Space Station Rescue" },
 	m_exitGame{ false }, // When true game will exit
 	m_player{sf::Vector2f(400,400)},
-	m_world{"Assets\\Levels\\Level.txt", 96, 96, m_player },
-	pred{m_world, sf::Vector2f(450, 450)}
+	m_world{"Assets\\Levels\\Level.txt", 96, 96, m_player }
+	//pred{m_world, sf::Vector2f(450, 450)}
 {
 	// Views
 	m_mainView = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
@@ -58,8 +58,8 @@ Game::Game() :
 	powerUps.push_back(new PowerUp(sf::Vector2f(500,500), PowerType::SPEED));
 	powerUps.push_back(new PowerUp(sf::Vector2f(600, 600), PowerType::SHIELD));
 
-	m_nest = new Nest(sf::Vector2f(700,700), m_player);
-	missile = new Missile(m_nest->getSprite());
+	//m_nest = new Nest(sf::Vector2f(700,700), m_player);
+	//missile = new Missile(m_nest->getSprite());
 }
 
 
@@ -137,7 +137,7 @@ void Game::update(sf::Time t_deltaTime)
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::J))
 		{
-			m_nest->spawnNewMissile();
+			//m_nest->spawnNewMissile();
 		}
 
 		timeElapsed = bulletClock.getElapsedTime();
@@ -151,7 +151,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_world.update(t_deltaTime.asSeconds());
 
 		sf::Vector2f playerPos = m_player.getPosition();
-		pred.update(t_deltaTime.asSeconds());
+		//pred.update(t_deltaTime.asSeconds());
 		m_mainView.setCenter(playerPos);
 		//std::cout << playerPos.x << "," << playerPos.y << std::endl;
 		m_backgroundSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
@@ -160,7 +160,7 @@ void Game::update(sf::Time t_deltaTime)
 
 		//missile->update(m_player.getSprite());
 
-		m_nest->update();
+		//m_nest->update();
 
 		for (auto & p : powerUps)
 		{
@@ -193,8 +193,8 @@ void Game::render()
 	m_window.draw(m_emptyShaderSprite, &m_shader);
 	m_world.render(m_window);
 	m_player.render(m_window);
-	pred.render(m_window);
-	m_nest->draw(m_window);
+	//pred.render(m_window);
+	//m_nest->render(m_window);
 	//missile->draw(m_window);
 	
 	for (auto & p : powerUps)
@@ -208,6 +208,6 @@ void Game::render()
 	m_window.draw(m_minimapBackground);
 	m_world.render(m_window);
 	m_player.render(m_window);
-	pred.render(m_window);
+	//pred.render(m_window);
 	m_window.display();
 }

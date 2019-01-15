@@ -45,7 +45,14 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 				{
 					m_worldGrid[i][yCounter].setAsWall(m_tileTextures[(int)levelLine[i] - 49], TILE_SIDE_LENGTH);
 				}
-
+				else if (isalpha(levelLine[i]))
+				{
+					sf::Vector2f entityPos = sf::Vector2f(i * TILE_SIDE_LENGTH + TILE_SIDE_LENGTH / 2.f, yCounter * TILE_SIDE_LENGTH + TILE_SIDE_LENGTH / 2.f);
+					if ('n' == levelLine[i])
+					{
+						m_nests.push_back(new Nest(entityPos, m_refPlayer, this));
+					}
+				}
 			}
 		}
 		++yCounter;
@@ -67,7 +74,7 @@ World::~World() {}
 /// <param name="dt">delta time since the last update</param>
 void World::update(float dt)
 {
-	// Handle Collisions
+	// Handle Player Collisions
 	sf::Vector2f playerPos = m_refPlayer.getPosition();
 	int indexX = playerPos.x / TILE_SIDE_LENGTH;
 	int indexY = playerPos.y / TILE_SIDE_LENGTH;
@@ -87,6 +94,12 @@ void World::update(float dt)
 				}
 			}
 		}
+	}
+
+	// Process AI
+	for (auto & nest : m_nests)
+	{
+		nest->update();
 	}
 
 	// Set flow field for AI
@@ -117,6 +130,10 @@ void World::render(sf::RenderWindow & window)
 				tile.render(window);
 			}
 		}
+	}
+	for (auto & nest : m_nests)
+	{
+		nest->render(window);
 	}
 }
 

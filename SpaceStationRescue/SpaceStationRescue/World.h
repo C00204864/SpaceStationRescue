@@ -1,6 +1,10 @@
 #ifndef WORLD_H
 #define WORLD_H
 
+// Predefinitions to deal woth circular references
+class Nest;
+class Predator;
+
 // STD Includes
 #include <queue>
 #include <fstream>
@@ -14,6 +18,9 @@
 // Project Includes
 #include "Tile.h"
 #include "Player.h"
+#include "Nest.h"
+
+class Predator;
 
 class World
 {
@@ -39,6 +46,7 @@ private:
 	const int TILE_TYPES = 9;
 	const int FLOW_FIELD_LOOP_COUNT = 200;
 	Player & m_refPlayer;
+	std::vector<Nest *> m_nests;
 };
 
 #endif // !WORLD_H
