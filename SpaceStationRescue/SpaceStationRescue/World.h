@@ -6,7 +6,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <iostream> // FOR DEBUG ONLY
+#include <iostream>
 
 // SFML Includes
 #include <SFML/Graphics.hpp>
@@ -23,7 +23,8 @@ public:
 	~World();
 	void update(float dt);
 	void render(sf::RenderWindow & window);
-	Tile & getTileReference(int xIndex, int yIndex);
+	Tile * getTilePointer(int xIndex, int yIndex);
+	int getTileWidth();
 private:
 	// Private Functions
 	void setFlowField(int playerIndexX, int playerIndexY, bool processToCompletion);

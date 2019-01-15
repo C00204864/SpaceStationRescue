@@ -15,7 +15,9 @@ public:
 	bool isVisited();
 	void setVisited(bool state);
 	void setNext(Tile * nextTile);
+	Tile * getNext();
 	sf::Vector2f getPosition();
+	sf::Vector2f getCenterPosition();
 	sf::FloatRect getGlobalBounds();
 	sf::Vector2i getIndices();
 

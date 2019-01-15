@@ -42,9 +42,19 @@ void Tile::setNext(Tile * nextTile)
 	p_nextTile = nextTile;
 }
 
+Tile * Tile::getNext()
+{
+	return p_nextTile;
+}
+
 sf::Vector2f Tile::getPosition()
 {
 	return m_sprite.getPosition();
+}
+
+sf::Vector2f Tile::getCenterPosition()
+{
+	return m_centerPos;
 }
 
 sf::FloatRect Tile::getGlobalBounds()

@@ -4,7 +4,8 @@ Game::Game() :
 	m_window{ sf::VideoMode{ 1280, 720, 32 }, "Space Station Rescue" },
 	m_exitGame{ false }, // When true game will exit
 	m_player{sf::Vector2f(400,400)},
-	m_world{"Assets\\Levels\\Level.txt", 96, 96, m_player }
+	m_world{"Assets\\Levels\\Level.txt", 96, 96, m_player },
+	pred{m_world, sf::Vector2f(450, 450)}
 {
 	// Views
 	m_mainView = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
@@ -150,6 +151,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_world.update(t_deltaTime.asSeconds());
 
 		sf::Vector2f playerPos = m_player.getPosition();
+		pred.update(t_deltaTime.asSeconds());
 		m_mainView.setCenter(playerPos);
 		//std::cout << playerPos.x << "," << playerPos.y << std::endl;
 		m_backgroundSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
@@ -191,6 +193,7 @@ void Game::render()
 	m_window.draw(m_emptyShaderSprite, &m_shader);
 	m_world.render(m_window);
 	m_player.render(m_window);
+	pred.render(m_window);
 	m_nest->draw(m_window);
 	//missile->draw(m_window);
 	
@@ -205,6 +208,6 @@ void Game::render()
 	m_window.draw(m_minimapBackground);
 	m_world.render(m_window);
 	m_player.render(m_window);
-
+	pred.render(m_window);
 	m_window.display();
 }

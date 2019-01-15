@@ -32,6 +32,6 @@ private:
 	float rotation;
 
 	float timer;
-}
+};
 
 #endif // !PREADTOR_H

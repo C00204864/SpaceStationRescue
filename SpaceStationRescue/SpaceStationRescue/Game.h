@@ -5,9 +5,11 @@
 #include "Player.h"
 #include "Bullet.h"
 #include "World.h"
-#include"PowerUp.h"
-#include"Nest.h"
-#include"Missile.h"
+#include "PowerUp.h"
+#include "Nest.h"
+#include "Missile.h"
+
+#include "Predator.h"
 
 class Game
 {
@@ -55,6 +57,7 @@ private:
 
 	Nest * m_nest;
 	Missile * missile;
+	Predator pred;
 };
 
 #endif // !GAME_H
