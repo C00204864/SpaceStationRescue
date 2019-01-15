@@ -9,7 +9,7 @@
 /// <param name="playerIn">Reference to the player</param>
 World::World(std::string loadFilePath, int width, int height, Player & playerIn) : m_dimensions(sf::Vector2i(width, height)), m_refPlayer(playerIn)
 {
-	// Load etxtures for all the tiles, don't do this in the tile class itself to save memory
+	// Load textures for all the tiles, don't do this in the tile class itself to save memory
 	for (int i = 1; i <= TILE_TYPES; ++i)
 	{
 		m_tileTextures.push_back(sf::Texture());
