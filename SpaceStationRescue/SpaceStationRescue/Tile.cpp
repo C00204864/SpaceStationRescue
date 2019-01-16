@@ -7,8 +7,9 @@
 /// <param name="yIndexIn">Y Index of the tile in relation to the world grid containing it</param>
 /// <param name="sideLength">The desired length for the sides of the tile</param>
 Tile::Tile(int xIndexIn, int yIndexIn, int sideLength)
-	: m_indices(xIndexIn, yIndexIn),
-	m_isWall(false) 
+	: p_nextTile(nullptr),
+	m_indices(xIndexIn, yIndexIn),
+	m_isWall(false)
 {
 	m_sprite.setPosition(xIndexIn * sideLength, yIndexIn * sideLength);
 	m_centerPos = sf::Vector2f(xIndexIn * sideLength + sideLength / 2.f, yIndexIn * sideLength + sideLength / 2.f);

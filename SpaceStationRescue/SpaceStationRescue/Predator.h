@@ -37,8 +37,8 @@ private:
 	float rotation;
 	float timer;
 	const float MAX_SPEED = 5.f;
-	const float MAX_ROTATION = 15.f;
-	const float TILE_DISTANCE_THRESHOLD = 30.f;
+	const float MAX_ROTATION = 5.f;
+	const float TILE_DISTANCE_THRESHOLD = 50.f;
 	const float PLAYER_DISTANCE_THRESHOLD = 250.f;
 };
 

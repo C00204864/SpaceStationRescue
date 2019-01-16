@@ -2,7 +2,7 @@
 
 Predator::Predator(World * world, Player & player) : p_world(world), m_isAlive(false), m_refPlayer(player)
 {
-	if (!m_texture.loadFromFile("Assets\\Images\\PlayerShip.png"))
+	if (!m_texture.loadFromFile("Assets\\Images\\Predator.png"))
 	{
 		std::cout << "Error: Could not load predator texture" << std::endl;
 	}
@@ -20,7 +20,11 @@ void Predator::reset(sf::Vector2f positionIn)
 {
 	m_isAlive = true;
 	m_sprite.setPosition(positionIn);
-	targetTile = p_world->getTilePointer(positionIn.x / p_world->getTileWidth(), positionIn.y / p_world->getTileWidth());
+	Tile * nextTile = p_world->getTilePointer(positionIn.x / p_world->getTileWidth(), positionIn.y / p_world->getTileWidth());
+	if (nullptr != nextTile)
+	{
+		targetTile = nextTile;
+	}
 }
 
 void Predator::explode()
@@ -37,12 +41,20 @@ void Predator::update(float dt)
 		if (getDistance(playerPos, m_sprite.getPosition()) < PLAYER_DISTANCE_THRESHOLD)
 		{
 			seek(playerPos);
-			targetTile = p_world->getTilePointer(position.x / p_world->getTileWidth(), position.y / p_world->getTileWidth());
+			Tile * nextTile = p_world->getTilePointer(position.x / p_world->getTileWidth(), position.y / p_world->getTileWidth());
+			if (nullptr != nextTile)
+			{
+				targetTile = nextTile;
+			}
 		}
 		else
 		{
+			if (nullptr == targetTile)
+			{
+				std::cout << "Error" << std::endl;
+			}
 			sf::Vector2f targetPos = targetTile->getCenterPosition();
-			seek(targetTile->getCenterPosition());
+			seek(targetPos);
 			if (getDistance(m_sprite.getPosition(), targetPos) < TILE_DISTANCE_THRESHOLD)
 			{
 				targetTile = targetTile->getNext();
@@ -66,16 +78,49 @@ bool Predator::isAlive()
 
 void Predator::seek(sf::Vector2f targetPosition)
 {
-	float dx = targetPosition.x - m_sprite.getPosition().x;
-	float dy = targetPosition.y - m_sprite.getPosition().y;
-
-	rotation = atan2(dy, dx)*(180 / acos(-1));
-
-	if (rotation < 0)
+	sf::Vector2f position = m_sprite.getPosition();
+	sf::Vector2f vectorBetween = targetPosition - position;
+	float orientation = m_sprite.getRotation();// / 180.f * acos(-1);
+	if (orientation < 0)
 	{
-		rotation = 360 - (-rotation);
+		orientation += 360.f;
+	}
+	float desiredOrientationDegrees = atan2(vectorBetween.y, vectorBetween.x) * 180.f / acos(-1);
+	if (desiredOrientationDegrees < 0)
+	{
+		desiredOrientationDegrees += 360.f;
 	}
 
-	m_sprite.setPosition((m_sprite.getPosition().x + cos(rotation*(acos(-1) / 180))* 3.5f), (m_sprite.getPosition().y + sin(rotation*(acos(-1) / 180)) * 3.5f));
-	m_sprite.setRotation(std::round(rotation));
+	//if (orientation < 0 || orientation > 360)
+	//{
+	//	std::cout << orientation << std::endl;
+	//}
+	//if (desiredOrientationDegrees < 0 || desiredOrientationDegrees > 360)
+	//{
+	//	std::cout << desiredOrientationDegrees << std::endl;
+	//}
+
+	float requiredRotation = orientation - desiredOrientationDegrees;
+	if (requiredRotation > 180)
+	{
+		requiredRotation -= 360.f;
+	}
+	else if (requiredRotation < -180.f)
+	{
+		requiredRotation += 360.f;
+	}
+	//if (requiredRotation > 180 || requiredRotation < -180)
+	//{
+	//	std::cout << requiredRotation << std::endl;
+	//}
+	if (requiredRotation < MAX_ROTATION && requiredRotation > -MAX_ROTATION)
+	{
+		orientation = desiredOrientationDegrees;
+	}
+	else
+	{
+		orientation += requiredRotation < 0 ? MAX_ROTATION : -MAX_ROTATION;
+	}
+	m_sprite.setRotation(orientation);
+	m_sprite.setPosition((m_sprite.getPosition().x + cos(orientation*(acos(-1) / 180))* 3.5f), (m_sprite.getPosition().y + sin(orientation*(acos(-1) / 180)) * 3.5f));
 }

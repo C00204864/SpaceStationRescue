@@ -63,7 +63,7 @@ void Player::update(sf::Time dt)
 {
 	m_lastPosition = sprite.getPosition();
 
-	sprite.setPosition((sprite.getPosition().x + cos(rotation*(acos(-1) / 180))*speed), (sprite.getPosition().y + sin(rotation*(acos(-1) / 180))*speed));
+	sprite.setPosition((sprite.getPosition().x + cos(rotation*(acos(-1) / 180)) * speed), (sprite.getPosition().y + sin(rotation*(acos(-1) / 180)) * speed));
 	m_collisionCircle.setPosition(sprite.getPosition());
 	sprite.setRotation(rotation);
 
@@ -82,8 +82,6 @@ void Player::update(sf::Time dt)
 		}
 	}
 
-
-
 	if (activateShield)
 	{
 		m_shieldTime = m_shieldClock.getElapsedTime();
@@ -95,9 +93,6 @@ void Player::update(sf::Time dt)
 		}
 	}
 
-
-
-	//std::cout << "Speed Time: " << m_speedTime.asSeconds() << std::endl;
 	if (activateSpeedBoost)
 	{
 		m_speedTime = m_speedClock.getElapsedTime();
@@ -128,9 +123,22 @@ void Player::checkCollision(sf::FloatRect tileRect)
 {
 	if (checkCircleRectangleCollision(m_collisionCircle, tileRect))
 	{
-		speed = 0;
-		m_collisionCircle.setPosition(m_lastPosition);
-		sprite.setPosition(m_lastPosition);
+		sf::Vector2f currentPosition = sprite.getPosition();
+		sf::Vector2f floatRectCenter = getFloatRectCenter(tileRect);
+		sf::Vector2f between = currentPosition - floatRectCenter;
+		if (abs(between.x) > abs(between.y))
+		{
+			between.y = 0;
+		}
+		else
+		{
+			between.x = 0;
+		}
+		currentPosition -= between;
+		between = setVecSize(between, tileRect.width / 2.f + m_collisionCircle.getRadius());
+		currentPosition += between;
+		m_collisionCircle.setPosition(currentPosition);
+		sprite.setPosition(currentPosition);
 	}
 }
 
