@@ -5,13 +5,11 @@ Game::Game() :
 	m_exitGame{ false }, // When true game will exit
 	m_player{sf::Vector2f(400,400)},
 	m_world{"Assets\\Levels\\Level.txt", 96, 96, m_player }
-	//pred{m_world, sf::Vector2f(450, 450)}
 {
 	// Views
 	m_mainView = sf::View(m_window.getView().getCenter(), m_window.getView().getSize());
 	m_miniMapView = sf::View(sf::Vector2f(2880, 2880), sf::Vector2f(5760, 5760));
 	m_miniMapView.setViewport(sf::FloatRect(0.735f, 0.025f, 0.25f, 0.25f));
-	//m_miniMapView.zoom(10.f);
 	m_window.setView(m_mainView);
 
 	// Background and Shader
@@ -39,9 +37,6 @@ Game::Game() :
 	sf::FloatRect shaderLocalBounds = m_emptyShaderSprite.getLocalBounds();
 	m_emptyShaderSprite.setScale(1.f * SCREEN_WIDTH / shaderLocalBounds.width, 1.f * SCREEN_HEIGHT / shaderLocalBounds.height);
 
-
-
-
 	if (!m_minimapTexture.loadFromFile("Assets\\Images\\minimap.png"))
 	{
 		std::cout << "Error: Could not load background texture." << std::endl;
@@ -52,26 +47,18 @@ Game::Game() :
 	m_minimapBackground.scale(10, 10);
 
 
-	//powerups
-
-
+	// Powerups
 	powerUps.push_back(new PowerUp(sf::Vector2f(500,500), PowerType::SPEED));
 	powerUps.push_back(new PowerUp(sf::Vector2f(600, 600), PowerType::SHIELD));
-
-	//m_nest = new Nest(sf::Vector2f(700,700), m_player);
-	//missile = new Missile(m_nest->getSprite());
 }
 
-
 Game::~Game() {}
-
 
 void Game::run()
 {
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	sf::Time timePerFrame = sf::seconds(1.f / 60.f); // 60 fps
-	//float timeCounter = 0.f;
 	while (m_window.isOpen())
 	{
 		processEvents(); // As many as possible
@@ -82,10 +69,8 @@ void Game::run()
 			processEvents(); // At least 60 fps
 			update(timePerFrame); // 60 fps
 			timeCounter += timePerFrame.asSeconds();
-			//std::cout << timeCounter << std::endl;
 			m_shader.setUniform("time", timeCounter);
 		}
-		//std::cout << timeCounter << std::endl;
 		render(); // As many as possible
 	}
 }
@@ -135,10 +120,10 @@ void Game::update(sf::Time t_deltaTime)
 		{
 			m_player.IncreaseSpeed();
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::J))
-		{
-			//m_nest->spawnNewMissile();
-		}
+		//if (sf::Keyboard::isKeyPressed(sf::Keyboard::J))
+		//{
+		//	//m_nest->spawnNewMissile();
+		//}
 
 		timeElapsed = bulletClock.getElapsedTime();
 
@@ -151,16 +136,9 @@ void Game::update(sf::Time t_deltaTime)
 		m_world.update(t_deltaTime.asSeconds());
 
 		sf::Vector2f playerPos = m_player.getPosition();
-		//pred.update(t_deltaTime.asSeconds());
 		m_mainView.setCenter(playerPos);
-		//std::cout << playerPos.x << "," << playerPos.y << std::endl;
 		m_backgroundSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
 		m_emptyShaderSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
-		
-
-		//missile->update(m_player.getSprite());
-
-		//m_nest->update();
 
 		for (auto & p : powerUps)
 		{
@@ -179,7 +157,6 @@ void Game::update(sf::Time t_deltaTime)
 				}
 			}
 		}
-
 	}
 }
 
@@ -193,21 +170,17 @@ void Game::render()
 	m_window.draw(m_emptyShaderSprite, &m_shader);
 	m_world.render(m_window);
 	m_player.render(m_window);
-	//pred.render(m_window);
-	//m_nest->render(m_window);
-	//missile->draw(m_window);
 	
 	for (auto & p : powerUps)
 	{
 		p->draw(m_window);
 	}
 
-	// Draw MiniMap
+	// Draw Mini-Map
 	m_window.setView(m_miniMapView);
 	//m_window.clear(sf::Color::Black);
 	m_window.draw(m_minimapBackground);
 	m_world.render(m_window);
 	m_player.render(m_window);
-	//pred.render(m_window);
 	m_window.display();
 }
