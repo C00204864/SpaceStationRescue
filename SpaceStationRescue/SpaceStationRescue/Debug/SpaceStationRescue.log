@@ -1,2 +1,3 @@
-﻿  Nest.cpp
+﻿  Game.cpp
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(28): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
   SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe

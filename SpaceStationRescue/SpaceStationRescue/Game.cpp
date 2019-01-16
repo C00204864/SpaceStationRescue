@@ -30,7 +30,7 @@ Game::Game() :
 	// Background
 	m_backgroundSprite.setTexture(m_backgroundTexture);
 	sf::FloatRect backgroundLocalBounds = m_backgroundSprite.getLocalBounds();
-	m_backgroundSprite.setScale(1.f * SCREEN_WIDTH / backgroundLocalBounds.width, 1.f * SCREEN_HEIGHT / backgroundLocalBounds.height);
+	m_backgroundSprite.setScale(2.8f * SCREEN_WIDTH / backgroundLocalBounds.width, 2.8f * SCREEN_HEIGHT / backgroundLocalBounds.height);
 
 	// Shader
 	m_emptyShaderSprite.setTexture(m_emptyShaderTexture);
@@ -120,10 +120,6 @@ void Game::update(sf::Time t_deltaTime)
 		{
 			m_player.IncreaseSpeed();
 		}
-		//if (sf::Keyboard::isKeyPressed(sf::Keyboard::J))
-		//{
-		//	//m_nest->spawnNewMissile();
-		//}
 
 		timeElapsed = bulletClock.getElapsedTime();
 
@@ -137,7 +133,7 @@ void Game::update(sf::Time t_deltaTime)
 
 		sf::Vector2f playerPos = m_player.getPosition();
 		m_mainView.setCenter(playerPos);
-		m_backgroundSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
+		m_backgroundSprite.setPosition(playerPos.x * 0.8f - SCREEN_WIDTH / 2.f - 180.f, playerPos.y * 0.8f - SCREEN_HEIGHT / 2.f - 180.f);
 		m_emptyShaderSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
 
 		for (auto & p : powerUps)
