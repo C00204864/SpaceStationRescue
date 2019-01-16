@@ -3,6 +3,7 @@
 Nest::Nest(sf::Vector2f pos, Player & player, World * world):
 	m_refPlayer{player}
 {
+	// Setup Nest
 	if (!m_texture.loadFromFile("Assets\\Images\\Nest.png"))
 	{
 		std::cout << "Error: Could not load nest textrue" << std::endl;
@@ -18,7 +19,12 @@ Nest::Nest(sf::Vector2f pos, Player & player, World * world):
 	m_circle.setOrigin(m_circle.getGlobalBounds().width / 2.f, m_circle.getGlobalBounds().height / 2.f);
 	m_circle.setPosition(m_sprite.getPosition());
 
+	// Setup Missiles and Predators
 	m_missile = new Missile(m_refPlayer);
+	for (int i = 0; i < PREADTOR_COUNT; ++i)
+	{
+		m_predators.push_back(new Predator(world, player));
+	}
 }
 
 Nest::~Nest() 
@@ -26,36 +32,47 @@ Nest::~Nest()
 	delete m_missile;
 }
 
-void Nest::update()
+void Nest::update(float dt)
 {
-	if (m_missile->isAlive())
-	{
-		m_missile->update();
-	}
-	else if (getDistance(m_refPlayer.getPosition(), m_sprite.getPosition()) < m_circle.getRadius())
+	m_missile->update();
+	if (!m_missile->isAlive() && getDistance(m_refPlayer.getPosition(), m_sprite.getPosition()) < m_circle.getRadius())
 	{
 		m_missile->reset(m_sprite.getPosition(), m_sprite.getRotation());
 	}
+	for (auto & predator : m_predators)
+	{
+		if (!predator->isAlive())
+		{
+			predatorSpawnSeconds += dt;
+			if(PREDATOR_SPAWN_TIME < predatorSpawnSeconds)
+			{
+				predatorSpawnSeconds = 0.f;
+				predator->reset(m_sprite.getPosition());
+			}
+		}
+		else
+		{
+			predator->update(dt);
+		}
+	}
 }
 
-void Nest::render(sf::RenderWindow & m_window)
+void Nest::render(sf::RenderWindow & window)
 {
-	m_window.draw(m_circle);
-	m_window.draw(m_sprite);
-	if (m_missile->isAlive())
+	window.draw(m_circle);
+	window.draw(m_sprite);
+	m_missile->render(window);
+	for (auto & predator : m_predators)
 	{
-		m_missile->render(m_window);
+		predator->render(window);
 	}
 }
 
 void Nest::spawnNewPredator()
 {
+
 }
 
-void Nest::spawnNewMissile()
-{
-	//m_missiles.push_back(new Missile(m_sprite));
-}
 
 sf::Sprite Nest::getSprite()
 {

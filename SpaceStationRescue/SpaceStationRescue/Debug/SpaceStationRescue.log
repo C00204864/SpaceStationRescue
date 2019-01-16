@@ -1,5 +1,2 @@
-﻿  Missile.cpp
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\missile.cpp(20): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\missile.cpp(73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\missile.cpp(80): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+﻿  Nest.cpp
   SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe

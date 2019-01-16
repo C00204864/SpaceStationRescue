@@ -43,19 +43,25 @@ void Missile::explode()
 
 void Missile::update()
 {
-	if (lifeClock.getElapsedTime().asSeconds() > 5.f)
+	if (m_isAlive)
 	{
-		explode();
-	}
-	else
-	{
-		seek(m_refPlayer.getPosition());
+		if (lifeClock.getElapsedTime().asSeconds() > 5.f)
+		{
+			explode();
+		}
+		else
+		{
+			seek(m_refPlayer.getPosition());
+		}
 	}
 }
 
 void Missile::render(sf::RenderWindow & window)
 {
-	window.draw(m_sprite);
+	if (m_isAlive)
+	{
+		window.draw(m_sprite);
+	}
 }
 
 bool Missile::isAlive()

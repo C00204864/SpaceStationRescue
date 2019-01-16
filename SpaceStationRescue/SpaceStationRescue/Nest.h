@@ -22,10 +22,9 @@ class Nest
 public:
 	Nest(sf::Vector2f pos, Player & player, World * world);
 	~Nest();
-	void update();
+	void update(float dt);
 	void render(sf::RenderWindow & m_window);
 	void spawnNewPredator();
-	void spawnNewMissile();
 	sf::Sprite getSprite();
 
 private:
@@ -33,10 +32,11 @@ private:
 	sf::Sprite m_sprite;
 	sf::CircleShape m_circle;
 	Player & m_refPlayer;
-	//std::vector<Missile *> m_missiles;
 	Missile * m_missile;
 	std::vector<Predator *> m_predators;
 	const int PREADTOR_COUNT = 2;
+	float predatorSpawnSeconds;
+	const float PREDATOR_SPAWN_TIME = 1.5f;
 };
 #endif // !NEST_H
 

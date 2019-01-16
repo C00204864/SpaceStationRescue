@@ -99,7 +99,7 @@ void World::update(float dt)
 	// Process AI
 	for (auto & nest : m_nests)
 	{
-		nest->update();
+		nest->update(dt);
 	}
 
 	// Set flow field for AI
