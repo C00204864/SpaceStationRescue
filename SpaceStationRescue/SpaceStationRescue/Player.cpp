@@ -203,6 +203,7 @@ void Player::activateTheShield()
 {
 	if (activateShield == false)
 	{
+		m_shieldClock.restart();
 		activateShield = true;
 	}
 	else
@@ -215,6 +216,7 @@ void Player::activateTheSpeedBoost()
 {
 	if (activateSpeedBoost == false)
 	{
+		m_speedClock.restart();
 		activateSpeedBoost = true;
 		maxSpeed = 20;
 	}

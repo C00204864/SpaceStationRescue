@@ -50,6 +50,8 @@ Game::Game() :
 	// Powerups
 	powerUps.push_back(new PowerUp(sf::Vector2f(500,500), PowerType::SPEED));
 	powerUps.push_back(new PowerUp(sf::Vector2f(600, 600), PowerType::SHIELD));
+
+	worker = new Worker(sf::Vector2f(500, 400));
 }
 
 Game::~Game() {}
@@ -166,6 +168,7 @@ void Game::render()
 	m_window.draw(m_emptyShaderSprite, &m_shader);
 	m_world.render(m_window);
 	m_player.render(m_window);
+	worker->draw(m_window);
 	
 	for (auto & p : powerUps)
 	{
