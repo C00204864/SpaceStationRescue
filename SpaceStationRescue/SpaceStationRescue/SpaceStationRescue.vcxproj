@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{22005CC6-BFE2-4BB5-A50F-BDC45B4F66C2}</ProjectGuid>
     <RootNamespace>SpaceStationRescue</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -123,29 +123,47 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CheckBox.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="Label.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenuScreen.cpp" />
     <ClCompile Include="Missile.cpp" />
     <ClCompile Include="Nest.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PowerUp.cpp" />
     <ClCompile Include="Predator.cpp" />
+    <ClCompile Include="RadioButton.cpp" />
+    <ClCompile Include="Slider.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="Widget.cpp" />
     <ClCompile Include="Worker.cpp" />
     <ClCompile Include="World.cpp" />
+    <ClCompile Include="XBOX360CONTROLLER.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="CheckBox.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GUI.h" />
+    <ClInclude Include="Label.h" />
+    <ClInclude Include="MainMenuScreen.h" />
     <ClInclude Include="MathUtil.h" />
     <ClInclude Include="Missile.h" />
     <ClInclude Include="Nest.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PowerUp.h" />
     <ClInclude Include="Predator.h" />
+    <ClInclude Include="RadioButton.h" />
+    <ClInclude Include="Slider.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="Widget.h" />
     <ClInclude Include="Worker.h" />
     <ClInclude Include="World.h" />
+    <ClInclude Include="XBOX360CONTROLLER.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

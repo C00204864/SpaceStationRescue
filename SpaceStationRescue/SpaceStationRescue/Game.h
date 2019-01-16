@@ -10,6 +10,15 @@
 #include "Missile.h"
 #include "Worker.h"
 
+#include "MainMenuScreen.h"
+
+class Menu;
+
+enum State{
+	MAINMENU,
+	PLAY
+};
+
 class Game
 {
 public:
@@ -17,7 +26,8 @@ public:
 	Game();
 	~Game();
 	void run();
-
+	void setGameState(State state);
+	void endGame();
 private:
 	// Private Methods
 	void processEvents();
@@ -58,6 +68,10 @@ private:
 	Missile * missile;
 	//Predator pred;
 	Worker * worker;
+
+	State m_state;
+
+	Menu * menu;
 
 };
 

@@ -52,6 +52,11 @@ Game::Game() :
 	powerUps.push_back(new PowerUp(sf::Vector2f(600, 600), PowerType::SHIELD));
 
 	worker = new Worker(sf::Vector2f(500, 400));
+
+
+
+	menu = new Menu(SCREEN_WIDTH, SCREEN_HEIGHT, *this, m_window);
+	m_state = State::MAINMENU;
 }
 
 Game::~Game() {}
@@ -77,6 +82,16 @@ void Game::run()
 	}
 }
 
+void Game::setGameState(State state)
+{
+	m_state = state;
+}
+
+void Game::endGame()
+{
+	m_window.close();
+}
+
 void Game::processEvents()
 {
 	sf::Event event;
@@ -98,88 +113,118 @@ void Game::processEvents()
 
 void Game::update(sf::Time t_deltaTime)
 {
-	if (m_exitGame)
+
+
+	switch (m_state)
 	{
-		m_window.close();
-	}
-	else if (m_window.hasFocus()) // Ensure window is in focus before any action is taken
-	{
-		m_player.update(t_deltaTime);
+	case MAINMENU:
+		menu->update();
+		break;
+	case PLAY:
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		if (m_exitGame)
 		{
-			m_player.increaseRotation();
+			m_window.close();
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		else if (m_window.hasFocus()) // Ensure window is in focus before any action is taken
 		{
-			m_player.decreaseRotation();
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		{
-			m_player.DecreaseSpeed();
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		{
-			m_player.IncreaseSpeed();
-		}
+			m_player.update(t_deltaTime);
 
-		timeElapsed = bulletClock.getElapsedTime();
-
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && timeElapsed.asSeconds() > 0.5f)
-		{
-			bulletClock.restart();
-			m_player.SpawnBullet();
-		}
-
-		m_world.update(t_deltaTime.asSeconds());
-
-		sf::Vector2f playerPos = m_player.getPosition();
-		m_mainView.setCenter(playerPos);
-		m_backgroundSprite.setPosition(playerPos.x * 0.8f - SCREEN_WIDTH / 2.f - 180.f, playerPos.y * 0.8f - SCREEN_HEIGHT / 2.f - 180.f);
-		m_emptyShaderSprite.setPosition(playerPos.x - SCREEN_WIDTH / 2.f, playerPos.y - SCREEN_HEIGHT / 2.f);
-
-		for (auto & p : powerUps)
-		{
-			p->update();
-			if (p->collisionCheck(m_player.getSprite()))
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 			{
-				p->setAlive(false);
+				m_player.increaseRotation();
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+			{
+				m_player.decreaseRotation();
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+			{
+				m_player.DecreaseSpeed();
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+			{
+				m_player.IncreaseSpeed();
+			}
 
-				if (p->getType() == PowerType::SHIELD)
+			timeElapsed = bulletClock.getElapsedTime();
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && timeElapsed.asSeconds() > 0.5f)
+			{
+				bulletClock.restart();
+				m_player.SpawnBullet();
+			}
+
+			m_world.update(t_deltaTime.asSeconds());
+
+			sf::Vector2f playerPos = m_player.getPosition();
+			m_mainView.setCenter(playerPos);
+			m_backgroundSprite.setPosition(playerPos.x * 0.8f - SCREEN_WIDTH / 2.f - 180.f, playerPos.y * 0.8f - SCREEN_HEIGHT / 2.f - 180.f);
+			m_emptyShaderSprite.setPosition(playerPos.x - SCREEN_WIDTH / 2.f, playerPos.y - SCREEN_HEIGHT / 2.f);
+
+			for (auto & p : powerUps)
+			{
+				p->update();
+				if (p->collisionCheck(m_player.getSprite()))
 				{
-					m_player.activateTheShield();
-				}
-				else
-				{
-					m_player.activateTheSpeedBoost();
+					p->setAlive(false);
+
+					if (p->getType() == PowerType::SHIELD)
+					{
+						m_player.activateTheShield();
+					}
+					else
+					{
+						m_player.activateTheSpeedBoost();
+					}
 				}
 			}
 		}
+		break;
+	default:
+		break;
 	}
+
+	
 }
 
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
 
-	// Draw Main Game
-	m_window.setView(m_mainView);
-	m_window.draw(m_backgroundSprite);
-	m_window.draw(m_emptyShaderSprite, &m_shader);
-	m_world.render(m_window);
-	m_player.render(m_window);
-	worker->draw(m_window);
-	
-	for (auto & p : powerUps)
+
+	switch (m_state)
 	{
-		p->draw(m_window);
+	case MAINMENU:
+		menu->draw();
+		m_window.display();
+		break;
+	case PLAY:
+		// Draw Main Game
+		m_window.setView(m_mainView);
+		m_window.draw(m_backgroundSprite);
+		m_window.draw(m_emptyShaderSprite, &m_shader);
+		m_world.render(m_window);
+		m_player.render(m_window);
+		worker->draw(m_window);
+
+		for (auto & p : powerUps)
+		{
+			p->draw(m_window);
+		}
+
+		// Draw Mini-Map
+		m_window.setView(m_miniMapView);
+		//m_window.clear(sf::Color::Black);
+		m_window.draw(m_minimapBackground);
+		m_world.render(m_window);
+		m_player.render(m_window);
+		m_window.display();
+		break;
+	default:
+		break;
 	}
 
-	// Draw Mini-Map
-	m_window.setView(m_miniMapView);
-	//m_window.clear(sf::Color::Black);
-	m_window.draw(m_minimapBackground);
-	m_world.render(m_window);
-	m_player.render(m_window);
-	m_window.display();
+
+	
 }
