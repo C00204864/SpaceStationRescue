@@ -44,7 +44,7 @@ private:
 	sf::Vector2i m_dimensions;
 	const int TILE_SIDE_LENGTH = 60;
 	const int TILE_TYPES = 9;
-	const int FLOW_FIELD_LOOP_COUNT = 200;
+	const int FLOW_FIELD_LOOP_COUNT = 1000;
 	Player & m_refPlayer;
 	std::vector<Nest *> m_nests;
 };
