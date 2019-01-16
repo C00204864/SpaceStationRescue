@@ -8,6 +8,7 @@
 #include "PowerUp.h"
 #include "Nest.h"
 #include "Missile.h"
+#include "Worker.h"
 
 class Game
 {
@@ -56,6 +57,8 @@ private:
 	Nest * m_nest;
 	Missile * missile;
 	//Predator pred;
+	Worker * worker;
+
 };
 
 #endif // !GAME_H
