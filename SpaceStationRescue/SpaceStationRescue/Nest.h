@@ -36,7 +36,7 @@ private:
 	std::vector<Predator *> m_predators;
 	const int PREADTOR_COUNT = 2;
 	float predatorSpawnSeconds;
-	const float PREDATOR_SPAWN_TIME = 1.5f;
+	const float PREDATOR_SPAWN_TIME = 10.f;
 };
 #endif // !NEST_H
 
