@@ -32,12 +32,21 @@ void Predator::update(float dt)
 {
 	if (m_isAlive)
 	{
-		timer += dt;
-		if (timer > 0.25f)
+		sf::Vector2f position = m_sprite.getPosition();
+		sf::Vector2f playerPos = m_refPlayer.getPosition();
+		if (getDistance(playerPos, m_sprite.getPosition()) < PLAYER_DISTANCE_THRESHOLD)
 		{
-			timer = 0;
-			m_sprite.setPosition(targetTile->getCenterPosition());
-			targetTile = targetTile->getNext();
+			seek(playerPos);
+			targetTile = p_world->getTilePointer(position.x / p_world->getTileWidth(), position.y / p_world->getTileWidth());
+		}
+		else
+		{
+			sf::Vector2f targetPos = targetTile->getCenterPosition();
+			seek(targetTile->getCenterPosition());
+			if (getDistance(m_sprite.getPosition(), targetPos) < TILE_DISTANCE_THRESHOLD)
+			{
+				targetTile = targetTile->getNext();
+			}
 		}
 	}
 }
@@ -55,7 +64,18 @@ bool Predator::isAlive()
 	return m_isAlive;
 }
 
-void Predator::seek(sf::Vector2f pos)
+void Predator::seek(sf::Vector2f targetPosition)
 {
+	float dx = targetPosition.x - m_sprite.getPosition().x;
+	float dy = targetPosition.y - m_sprite.getPosition().y;
 
+	rotation = atan2(dy, dx)*(180 / acos(-1));
+
+	if (rotation < 0)
+	{
+		rotation = 360 - (-rotation);
+	}
+
+	m_sprite.setPosition((m_sprite.getPosition().x + cos(rotation*(acos(-1) / 180))* 3.5f), (m_sprite.getPosition().y + sin(rotation*(acos(-1) / 180)) * 3.5f));
+	m_sprite.setRotation(std::round(rotation));
 }
