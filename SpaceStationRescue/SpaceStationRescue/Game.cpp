@@ -35,7 +35,7 @@ Game::Game() :
 	// Shader
 	m_emptyShaderSprite.setTexture(m_emptyShaderTexture);
 	sf::FloatRect shaderLocalBounds = m_emptyShaderSprite.getLocalBounds();
-	m_emptyShaderSprite.setScale(1.f * SCREEN_WIDTH / shaderLocalBounds.width, 1.f * SCREEN_HEIGHT / shaderLocalBounds.height);
+	m_emptyShaderSprite.setScale(SCREEN_WIDTH / shaderLocalBounds.width, SCREEN_HEIGHT / shaderLocalBounds.height);
 
 	if (!m_minimapTexture.loadFromFile("Assets\\Images\\minimap.png"))
 	{
@@ -134,7 +134,7 @@ void Game::update(sf::Time t_deltaTime)
 		sf::Vector2f playerPos = m_player.getPosition();
 		m_mainView.setCenter(playerPos);
 		m_backgroundSprite.setPosition(playerPos.x * 0.8f - SCREEN_WIDTH / 2.f - 180.f, playerPos.y * 0.8f - SCREEN_HEIGHT / 2.f - 180.f);
-		m_emptyShaderSprite.setPosition(playerPos.x * 1.f - SCREEN_WIDTH / 2.f, playerPos.y * 1.f - SCREEN_HEIGHT / 2.f);
+		m_emptyShaderSprite.setPosition(playerPos.x - SCREEN_WIDTH / 2.f, playerPos.y - SCREEN_HEIGHT / 2.f);
 
 		for (auto & p : powerUps)
 		{
