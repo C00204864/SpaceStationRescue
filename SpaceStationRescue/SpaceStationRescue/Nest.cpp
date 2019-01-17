@@ -25,6 +25,15 @@ Nest::Nest(sf::Vector2f pos, Player & player, World * world):
 	{
 		m_predators.push_back(new Predator(world, player));
 	}
+
+
+	if (m_explos.loadFromFile("Assets\\Images\\boom.png"))
+	{
+
+	}
+	m_animation = new Animation(&m_explos, sf::Vector2u(14, 1), 0.05f);
+	m_animation->PlayAnimationOnce(true);
+	m_animating = false;
 }
 
 Nest::~Nest() 
@@ -55,6 +64,22 @@ void Nest::update(float dt)
 			predator->update(dt);
 		}
 	}
+
+
+	if (m_animating)
+	{
+		if (m_animation->isAnimFinished())
+		{
+			m_animating = false;
+		}
+		m_animation->update(0, dt);
+		m_sprite.setScale(1, 1);
+		m_sprite.setTexture(m_explos);
+		m_sprite.setTextureRect(m_animation->uvRect);
+		m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2.f, m_sprite.getLocalBounds().height / 2.f);
+
+	}
+
 }
 
 void Nest::render(sf::RenderWindow & window)
