@@ -22,4 +22,16 @@ static float getDistance(sf::Vector2f v1, sf::Vector2f v2)
 	return sqrt((v1.x - v2.x) * (v1.x - v2.x) + (v1.y - v2.y) * (v1.y - v2.y));
 }
 
+static sf::Vector2f getFloatRectCenter(sf::FloatRect rect)
+{
+	return sf::Vector2f(rect.left + (rect.width / 2.f), rect.top + (rect.height / 2.f));
+}
+
+static sf::Vector2f setVecSize(sf::Vector2f vec, float size)
+{
+	float magnitude = sqrt((vec.x * vec.x) + (vec.y * vec.y));
+	return sf::Vector2f(vec.x / magnitude * size, vec.y / magnitude * size);
+}
+
+
 #endif // !MATHUTIL_H
