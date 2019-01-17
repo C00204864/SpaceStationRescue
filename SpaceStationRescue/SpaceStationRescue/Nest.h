@@ -16,6 +16,7 @@ class World;
 #include "World.h"
 #include "Predator.h"
 #include "MathUtil.h"
+#include "Animation.h"
 
 class Nest
 {
@@ -38,6 +39,12 @@ private:
 	const int PREADTOR_COUNT = 2;
 	float predatorSpawnSeconds;
 	const float PREDATOR_SPAWN_TIME = 10.f;
+
+
+	sf::Texture m_explos;
+	Animation * m_animation;
+	bool m_animating;
+
 };
 #endif // !NEST_H
 
