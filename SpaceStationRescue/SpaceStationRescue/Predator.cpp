@@ -2,14 +2,14 @@
 
 Predator::Predator(World * world, Player & player) : p_world(world), m_isAlive(false), m_refPlayer(player)
 {
-	if (!m_texture.loadFromFile("Assets\\Images\\PlayerShip.png"))
+	if (!m_texture.loadFromFile("Assets\\Images\\Predator.png"))
 	{
 		std::cout << "Error: Could not load predator texture" << std::endl;
 	}
 	m_sprite.setTexture(m_texture);
 	m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2, m_sprite.getGlobalBounds().height / 2);
 	m_sprite.setRotation(0);
-	m_sprite.setScale(0.2, 0.2);
+	m_sprite.setScale(0.06, 0.06);
 
 	sf::FloatRect spriteBounds = m_sprite.getGlobalBounds();
 	m_collisionCircle.setRadius(sqrt((spriteBounds.width / 2.f) * (spriteBounds.width / 2.f) + (spriteBounds.height / 2.f) * (spriteBounds.height / 2.f)));
@@ -130,13 +130,23 @@ void Predator::checkCollision(sf::FloatRect tileRect)
 		sf::Vector2f currentPosition = m_sprite.getPosition();
 		sf::Vector2f floatRectCenter = getFloatRectCenter(tileRect);
 		sf::Vector2f between = currentPosition - floatRectCenter;
-		if (abs(between.x) > abs(between.y))
+		float absX = abs(between.x);
+		float absY = abs(between.y);
+
+		if (absX > absY + 0.1f)
 		{
 			between.y = 0;
 		}
-		else
+		else if(absX + 0.1f < absY )
 		{
 			between.x = 0;
+		}
+		else
+		{
+			currentPosition -= between;
+			between = setVecSize(between, sqrt(2 * (tileRect.width * tileRect.width)));
+			currentPosition += between;
+			return;
 		}
 		currentPosition -= between;
 		between = setVecSize(between, tileRect.width / 2.f + m_collisionCircle.getRadius());

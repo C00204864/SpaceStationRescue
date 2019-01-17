@@ -230,62 +230,79 @@ void World::expand(Tile * tile)
 	int down = y + 1;
 	if (x > 0)
 	{
-		if (!m_worldGrid[left][y].isWall() && !m_worldGrid[left][y].isVisited())
+		if (!m_worldGrid[left][y].isWall())
 		{
-			m_worldGrid[left][y].setVisited(true);
-			m_worldGrid[left][y].setNext(tile);
-			m_flowFieldQueue.push(&m_worldGrid[left][y]);
+			if (!m_worldGrid[left][y].isVisited())
+			{
+				m_worldGrid[left][y].setVisited(true);
+				m_worldGrid[left][y].setNext(tile);
+				m_flowFieldQueue.push(&m_worldGrid[left][y]);
+			}
+			if (y > 0 && !m_worldGrid[left][up].isWall() && !m_worldGrid[x][up].isWall() && !m_worldGrid[left][up].isVisited())
+			{
+				m_worldGrid[left][up].setVisited(true);
+				m_worldGrid[left][up].setNext(tile);
+				m_flowFieldQueue.push(&m_worldGrid[left][up]);
+			}
 		}
-		if (y > 0 && !m_worldGrid[left][up].isWall() && !m_worldGrid[left][up].isVisited())
-		{
-			m_worldGrid[left][up].setVisited(true);
-			m_worldGrid[left][up].setNext(tile);
-			m_flowFieldQueue.push(&m_worldGrid[left][up]);
-		}
+
 	}
 	if (y > 0)
 	{
-		if (!m_worldGrid[x][up].isWall() && !m_worldGrid[x][up].isVisited())
+		if (!m_worldGrid[x][up].isWall())
 		{
-			m_worldGrid[x][up].setVisited(true);
-			m_worldGrid[x][up].setNext(tile);
-			m_flowFieldQueue.push(&m_worldGrid[x][up]);
+			if (!m_worldGrid[x][up].isVisited())
+			{
+				m_worldGrid[x][up].setVisited(true);
+				m_worldGrid[x][up].setNext(tile);
+				m_flowFieldQueue.push(&m_worldGrid[x][up]);
+			}
+			if (x < m_dimensions.x - 1 && !m_worldGrid[right][up].isWall() && !m_worldGrid[right][y].isWall() && !m_worldGrid[right][up].isVisited())
+			{
+				m_worldGrid[right][up].setVisited(true);
+				m_worldGrid[right][up].setNext(tile);
+				m_flowFieldQueue.push(&m_worldGrid[right][up]);
+			}
 		}
-		if (x < m_dimensions.x - 1 && !m_worldGrid[right][up].isWall() && !m_worldGrid[right][up].isVisited())
-		{
-			m_worldGrid[right][up].setVisited(true);
-			m_worldGrid[right][up].setNext(tile);
-			m_flowFieldQueue.push(&m_worldGrid[right][up]);
-		}
+
 	}
 	if (x < m_dimensions.x - 1)
 	{
-		if (!m_worldGrid[right][y].isWall() && !m_worldGrid[right][y].isVisited())
+		if (!m_worldGrid[right][y].isWall())
 		{
-			m_worldGrid[right][y].setVisited(true);
-			m_worldGrid[right][y].setNext(tile);
-			m_flowFieldQueue.push(&m_worldGrid[right][y]);
+			if (!m_worldGrid[right][y].isVisited())
+			{
+				m_worldGrid[right][y].setVisited(true);
+				m_worldGrid[right][y].setNext(tile);
+				m_flowFieldQueue.push(&m_worldGrid[right][y]);
+			}
+			if (y < m_dimensions.y - 1 && !m_worldGrid[right][down].isWall() && !m_worldGrid[x][down].isWall() && !m_worldGrid[right][down].isVisited())
+			{
+				m_worldGrid[right][down].setVisited(true);
+				m_worldGrid[right][down].setNext(tile);
+				m_flowFieldQueue.push(&m_worldGrid[right][down]);
+			}
 		}
-		if (y < m_dimensions.y - 1 && !m_worldGrid[right][down].isWall() && !m_worldGrid[right][down].isVisited())
-		{
-			m_worldGrid[right][down].setVisited(true);
-			m_worldGrid[right][down].setNext(tile);
-			m_flowFieldQueue.push(&m_worldGrid[right][down]);
-		}
+
 	}
 	if (y < m_dimensions.y - 1)
 	{
-		if (!m_worldGrid[x][down].isWall() && !m_worldGrid[x][down].isVisited())
+		if (!m_worldGrid[x][down].isWall())
 		{
-			m_worldGrid[x][down].setVisited(true);
-			m_worldGrid[x][down].setNext(tile);
-			m_flowFieldQueue.push(&m_worldGrid[x][down]);
+			if (!m_worldGrid[x][down].isVisited())
+			{
+				m_worldGrid[x][down].setVisited(true);
+				m_worldGrid[x][down].setNext(tile);
+				m_flowFieldQueue.push(&m_worldGrid[x][down]);
+			}
+			if (x > 0 && !m_worldGrid[left][down].isWall() && !m_worldGrid[left][y].isWall() && !m_worldGrid[left][down].isVisited())
+			{
+				m_worldGrid[left][down].setVisited(true);
+				m_worldGrid[left][down].setNext(tile);
+				m_flowFieldQueue.push(&m_worldGrid[left][down]);
+			}
 		}
-		if (x > 0 && !m_worldGrid[left][down].isWall() && !m_worldGrid[left][down].isVisited())
-		{
-			m_worldGrid[left][down].setVisited(true);
-			m_worldGrid[left][down].setNext(tile);
-			m_flowFieldQueue.push(&m_worldGrid[left][down]);
-		}
+
+
 	}
 }

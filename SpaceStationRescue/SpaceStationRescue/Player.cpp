@@ -12,7 +12,7 @@ Player::Player(sf::Vector2f pos)
 	sprite.setPosition(pos);
 	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
 	sprite.setRotation(0);
-	sprite.setScale(0.2, 0.2);
+	sprite.setScale(0.15, 0.15);
 
 	sf::FloatRect spriteBounds = sprite.getGlobalBounds();
 	m_collisionCircle.setRadius(sqrt((spriteBounds.width / 2.f) * (spriteBounds.width / 2.f) + (spriteBounds.height / 2.f) * (spriteBounds.height / 2.f)));
@@ -34,7 +34,6 @@ Player::Player(sf::Vector2f pos)
 	m_shieldShape.setPosition(sprite.getPosition());
 
 	maxSpeed = 5;
-	
 }
 
 Player::~Player()
@@ -143,6 +142,7 @@ void Player::checkCollision(sf::FloatRect tileRect)
 		between = setVecSize(between, tileRect.width / 2.f + m_collisionCircle.getRadius());
 		currentPosition += between;
 		m_collisionCircle.setPosition(currentPosition);
+		m_shieldShape.setPosition(currentPosition);
 		sprite.setPosition(currentPosition);
 	}
 }
