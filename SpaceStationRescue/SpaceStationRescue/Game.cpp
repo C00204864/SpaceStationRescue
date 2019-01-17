@@ -57,6 +57,8 @@ Game::Game() :
 
 	menu = new Menu(SCREEN_WIDTH, SCREEN_HEIGHT, *this, m_window);
 	m_state = State::MAINMENU;
+
+	hud = new Hud(m_player);
 }
 
 Game::~Game() {}
@@ -121,7 +123,7 @@ void Game::update(sf::Time t_deltaTime)
 		menu->update();
 		break;
 	case PLAY:
-
+		
 		if (m_exitGame)
 		{
 			m_window.close();
@@ -180,6 +182,7 @@ void Game::update(sf::Time t_deltaTime)
 				}
 			}
 		}
+		hud->update(m_mainView.getCenter());
 		break;
 	default:
 		break;
@@ -212,10 +215,10 @@ void Game::render()
 		{
 			p->draw(m_window);
 		}
+		hud->draw(m_window);
 
 		// Draw Mini-Map
 		m_window.setView(m_miniMapView);
-		//m_window.clear(sf::Color::Black);
 		m_window.draw(m_minimapBackground);
 		m_world.render(m_window);
 		m_player.render(m_window);

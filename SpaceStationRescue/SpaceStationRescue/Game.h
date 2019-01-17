@@ -12,6 +12,8 @@
 
 #include "MainMenuScreen.h"
 
+#include "Hud.h"
+
 class Menu;
 
 enum State{
@@ -72,6 +74,8 @@ private:
 	State m_state;
 
 	Menu * menu;
+
+	Hud * hud;
 
 };
 

@@ -34,6 +34,9 @@ Player::Player(sf::Vector2f pos)
 	m_shieldShape.setPosition(sprite.getPosition());
 
 	maxSpeed = 5;
+
+	m_health = 100;
+	m_amountOfWorkers = 0;
 }
 
 Player::~Player()
@@ -238,4 +241,24 @@ void Player::activateTheSpeedBoost()
 		m_speedClock.restart();
 	}
 	
+}
+
+int Player::getHealth()
+{
+	return m_health;
+}
+
+int Player::getWorkersAmount()
+{
+	return m_amountOfWorkers;
+}
+
+void Player::updateHealth(int amount)
+{
+
+	m_health += amount;
+	if (m_health < 0)
+	{
+		m_health = 0;
+	}
 }

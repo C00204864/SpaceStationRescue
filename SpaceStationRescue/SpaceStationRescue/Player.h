@@ -32,6 +32,9 @@ public:
 	sf::Sprite & getSprite();
 	void activateTheShield();
 	void activateTheSpeedBoost();
+	int getHealth();
+	int getWorkersAmount();
+	void updateHealth(int amount);
 
 private:
 	sf::Vector2f position;
@@ -59,6 +62,9 @@ private:
 
 
 	int maxSpeed;
+
+	int m_health;
+	int m_amountOfWorkers;
 };
 
 #endif // !PLAYER_H
