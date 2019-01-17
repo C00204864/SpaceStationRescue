@@ -1,9 +1,17 @@
-﻿  Player.cpp
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(15): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(76): warning C4018: '<': signed/unsigned mismatch
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(115): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(119): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(179): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(187): warning C4305: '-=': truncation from 'double' to 'float'
-  SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
+﻿  Bullet.cpp
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\bullet.cpp(28): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\bullet.cpp(41): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\bullet.cpp(42): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Player.cpp
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(15): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(78): warning C4018: '<': signed/unsigned mismatch
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(117): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(121): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(181): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(189): warning C4305: '-=': truncation from 'double' to 'float'
+  PowerUp.cpp
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\powerup.cpp(19): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\powerup.cpp(30): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating Code...
+  SpaceStationRescue.vcxproj -> C:\Users\micha\Documents\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
