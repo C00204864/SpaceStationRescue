@@ -15,7 +15,7 @@ Player::Player(sf::Vector2f pos)
 	sprite.setScale(0.2, 0.2);
 
 	sf::FloatRect spriteBounds = sprite.getGlobalBounds();
-	m_collisionCircle.setRadius(sqrt((spriteBounds.width) * (spriteBounds.width) + (spriteBounds.height) * (spriteBounds.height)) / 2.f);
+	m_collisionCircle.setRadius(sqrt((spriteBounds.width / 2.f) * (spriteBounds.width / 2.f) + (spriteBounds.height / 2.f) * (spriteBounds.height / 2.f)));
 
 	rotation = 0;
 	orientation = 0;

@@ -24,7 +24,9 @@ public:
 	void update(float dt);
 	void render(sf::RenderWindow & window);
 	bool isAlive();
+	sf::Vector2f getPosition();
 	void seek(sf::Vector2f pos);
+	void checkCollision(sf::FloatRect tileRect);
 private:
 	World * p_world;
 	Tile * targetTile;
@@ -32,7 +34,7 @@ private:
 	bool m_isAlive;
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
-	sf::CircleShape m_shape;
+	sf::CircleShape m_collisionCircle;
 	sf::Vector2f m_velocity;
 	float rotation;
 	float timer;

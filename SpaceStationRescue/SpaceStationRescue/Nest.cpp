@@ -78,3 +78,8 @@ sf::Sprite Nest::getSprite()
 {
 	return m_sprite;
 }
+
+std::vector<Predator *> & Nest::getPredatorVector()
+{
+	return m_predators;
+}

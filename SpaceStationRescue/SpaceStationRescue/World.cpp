@@ -100,6 +100,29 @@ void World::update(float dt)
 	for (auto & nest : m_nests)
 	{
 		nest->update(dt);
+		for(auto & predator : nest->getPredatorVector())
+		{
+			sf::Vector2f predatorPos = predator->getPosition();
+			int predIndexX = predatorPos.x / TILE_SIDE_LENGTH;
+			int predIndexY = predatorPos.y / TILE_SIDE_LENGTH;
+			for (int i = predIndexX - 1; i <= predIndexX + 1; ++i)
+			{
+				if (i >= 0 && i < m_dimensions.x)
+				{
+					for (int j = predIndexY - 1; j <= predIndexY + 1; ++j)
+					{
+						if (j >= 0 && j < m_dimensions.y)
+						{
+							Tile & tile = m_worldGrid[i][j];
+							if (tile.isWall())
+							{
+								predator->checkCollision(tile.getGlobalBounds());
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	// Set flow field for AI

@@ -26,6 +26,7 @@ public:
 	void render(sf::RenderWindow & m_window);
 	void spawnNewPredator();
 	sf::Sprite getSprite();
+	std::vector<Predator *> & getPredatorVector();
 
 private:
 	sf::Texture m_texture;

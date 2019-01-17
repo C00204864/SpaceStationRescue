@@ -10,6 +10,11 @@ Predator::Predator(World * world, Player & player) : p_world(world), m_isAlive(f
 	m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2, m_sprite.getGlobalBounds().height / 2);
 	m_sprite.setRotation(0);
 	m_sprite.setScale(0.2, 0.2);
+
+	sf::FloatRect spriteBounds = m_sprite.getGlobalBounds();
+	m_collisionCircle.setRadius(sqrt((spriteBounds.width / 2.f) * (spriteBounds.width / 2.f) + (spriteBounds.height / 2.f) * (spriteBounds.height / 2.f)));
+	m_collisionCircle.setFillColor(sf::Color(255, 0, 0, 125));
+	m_collisionCircle.setOrigin(m_collisionCircle.getRadius(), m_collisionCircle.getRadius());
 }
 
 Predator::~Predator()
@@ -67,6 +72,7 @@ void Predator::render(sf::RenderWindow & window)
 {
 	if (m_isAlive)
 	{
+		window.draw(m_collisionCircle);
 		window.draw(m_sprite);
 	}
 }
@@ -109,4 +115,34 @@ void Predator::seek(sf::Vector2f targetPosition)
 	}
 	m_sprite.setRotation(orientation);
 	m_sprite.setPosition((m_sprite.getPosition().x + cos(orientation*(acos(-1) / 180))* 3.5f), (m_sprite.getPosition().y + sin(orientation*(acos(-1) / 180)) * 3.5f));
+	m_collisionCircle.setPosition(m_sprite.getPosition());
 }
+
+sf::Vector2f Predator::getPosition()
+{
+	return m_sprite.getPosition();
+}
+
+void Predator::checkCollision(sf::FloatRect tileRect)
+{
+	if (checkCircleRectangleCollision(m_collisionCircle, tileRect))
+	{
+		sf::Vector2f currentPosition = m_sprite.getPosition();
+		sf::Vector2f floatRectCenter = getFloatRectCenter(tileRect);
+		sf::Vector2f between = currentPosition - floatRectCenter;
+		if (abs(between.x) > abs(between.y))
+		{
+			between.y = 0;
+		}
+		else
+		{
+			between.x = 0;
+		}
+		currentPosition -= between;
+		between = setVecSize(between, tileRect.width / 2.f + m_collisionCircle.getRadius());
+		currentPosition += between;
+		m_collisionCircle.setPosition(currentPosition);
+		m_sprite.setPosition(currentPosition);
+	}
+}
+
