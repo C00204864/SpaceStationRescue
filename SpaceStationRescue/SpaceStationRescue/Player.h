@@ -41,8 +41,10 @@ public:
 	void updateHealth(int amount);
 	void updateWorkers(int amount);
 	std::vector<Bullet *> & getBullets();
+	void reset();
 
 private:
+	sf::Vector2f m_startPos;
 	sf::Vector2f position;
 	sf::Vector2f m_lastPosition;
 	float speed;

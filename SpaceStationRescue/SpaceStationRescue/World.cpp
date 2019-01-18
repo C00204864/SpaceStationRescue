@@ -31,6 +31,36 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 		}
 	}
 
+	load(loadFilePath);
+}
+
+/// <summary>
+/// Destructor function for the world class
+/// </summary>
+World::~World() {}
+
+void World::reset(std::string loadFilePath)
+{
+	for (auto & nest : m_nests)
+	{
+		delete nest;
+	}
+	for (auto & worker : m_workers)
+	{
+		delete worker;
+	}
+	for (auto & sweeper : m_sweepers)
+	{
+		delete sweeper;
+	}
+	m_nests.clear();
+	m_workers.clear();
+	m_sweepers.clear();
+	load(loadFilePath);
+}
+
+void World::load(std::string loadFilePath)
+{
 	// Load the level
 	std::ifstream loader;
 	std::string levelLine;
@@ -44,7 +74,7 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 		{
 			if ('0' != levelLine[i])
 			{
-				if (isdigit(levelLine[i]))
+				if (isdigit(levelLine[i]) && !m_worldGrid[i][yCounter].isWall())
 				{
 					m_worldGrid[i][yCounter].setAsWall(m_tileTextures[(int)levelLine[i] - 49], TILE_SIDE_LENGTH);
 				}
@@ -83,11 +113,6 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 	sf::Vector2f playerPos = m_refPlayer.getPosition();
 	setFlowField(playerPos.x / TILE_SIDE_LENGTH, playerPos.y / TILE_SIDE_LENGTH, true);
 }
-
-/// <summary>
-/// Destructor function for the world class
-/// </summary>
-World::~World() {}
 
 /// <summary>
 /// World update function, used to check collisions and update the pathfinding flow field

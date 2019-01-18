@@ -59,6 +59,7 @@ Nest::~Nest()
 	{
 		delete m_predators.at(i);
 	}
+	m_predators.clear();
 }
 
 /// <summary>

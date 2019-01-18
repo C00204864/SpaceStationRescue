@@ -6,7 +6,7 @@
 Game::Game() :
 	m_window{ sf::VideoMode{ 1280, 720, 32 }, "Space Station Rescue" },
 	m_exitGame{ false }, // When true game will exit
-	m_player{sf::Vector2f(400,400)},
+	m_player{ sf::Vector2f(2900,2850) },
 	m_world{"Assets\\Levels\\Level.txt", 96, 96, m_player }
 {
 	// Views
@@ -170,6 +170,15 @@ void Game::update(sf::Time t_deltaTime)
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 			{
 				m_player.IncreaseSpeed();
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+			{
+				m_world.reset("Assets\\Levels\\Level.txt");
+				m_player.reset();
+				for (auto & p : powerUps)
+				{
+					p->setAlive(true);
+				}
 			}
 
 			timeElapsed = bulletClock.getElapsedTime();
