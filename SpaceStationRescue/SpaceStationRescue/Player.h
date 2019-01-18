@@ -13,6 +13,9 @@
 #include "Bullet.h"
 #include "MathUtil.h"
 
+/// <summary>
+/// The player controlled character
+/// </summary>
 class Player {
 public:
 	Player(sf::Vector2f pos);

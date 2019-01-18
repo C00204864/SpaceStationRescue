@@ -1,5 +1,8 @@
 #include "Game.h"
 
+/// <summary>
+/// Constructor for the game object
+/// </summary>
 Game::Game() :
 	m_window{ sf::VideoMode{ 1280, 720, 32 }, "Space Station Rescue" },
 	m_exitGame{ false }, // When true game will exit
@@ -64,8 +67,14 @@ Game::Game() :
 	hud = new Hud(m_player);
 }
 
+/// <summary>
+/// Destructor for the game object
+/// </summary>
 Game::~Game() {}
 
+/// <summary>
+/// Run the Game
+/// </summary>
 void Game::run()
 {
 	sf::Clock clock;
@@ -87,16 +96,26 @@ void Game::run()
 	}
 }
 
+/// <summary>
+/// Set the State for the Game
+/// </summary>
+/// <param name="state">The state that the game will be set to</param>
 void Game::setGameState(State state)
 {
 	m_state = state;
 }
 
+/// <summary>
+/// Close the game window
+/// </summary>
 void Game::endGame()
 {
 	m_window.close();
 }
 
+/// <summary>
+/// Process the game events
+/// </summary>
 void Game::processEvents()
 {
 	sf::Event event;
@@ -116,6 +135,10 @@ void Game::processEvents()
 	}
 }
 
+/// <summary>
+/// Update loop for the game
+/// </summary>
+/// <param name="t_deltaTime">deltatime</param>
 void Game::update(sf::Time t_deltaTime)
 {
 
@@ -201,6 +224,9 @@ void Game::update(sf::Time t_deltaTime)
 	
 }
 
+/// <summary>
+/// Draw loop for the game
+/// </summary>
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
