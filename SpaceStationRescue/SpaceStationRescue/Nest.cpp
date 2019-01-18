@@ -1,5 +1,11 @@
 #include "Nest.h"
 
+/// <summary>
+/// Nest object that spawns missiles and predators
+/// </summary>
+/// <param name="pos">Position to spawn at</param>
+/// <param name="player">Ref to the player</param>
+/// <param name="world">The world object</param>
 Nest::Nest(sf::Vector2f pos, Player & player, World * world):
 	m_refPlayer{player},
 	m_health{4},
@@ -42,6 +48,9 @@ Nest::Nest(sf::Vector2f pos, Player & player, World * world):
 	m_animating = false;
 }
 
+/// <summary>
+/// Destructor for the nest
+/// </summary>
 Nest::~Nest() 
 {
 	delete m_animation;
@@ -52,6 +61,10 @@ Nest::~Nest()
 	}
 }
 
+/// <summary>
+/// Update loop for the nest
+/// </summary>
+/// <param name="dt">Deltatime</param>
 void Nest::update(float dt)
 {
 	m_missile->update();
@@ -124,6 +137,10 @@ void Nest::update(float dt)
 	}
 }
 
+/// <summary>
+/// Draw loop for the Nest
+/// </summary>
+/// <param name="window">Window for drawing</param>
 void Nest::render(sf::RenderWindow & window)
 {
 	if (m_alive)
@@ -138,11 +155,19 @@ void Nest::render(sf::RenderWindow & window)
 	}
 }
 
+/// <summary>
+/// Get the Sprite of the nest
+/// </summary>
+/// <returns>The sprite of the nest</returns>
 sf::Sprite Nest::getSprite()
 {
 	return m_sprite;
 }
 
+/// <summary>
+/// Get the vector of the predators
+/// </summary>
+/// <returns>The vector of predators</returns>
 std::vector<Predator *> & Nest::getPredatorVector()
 {
 	return m_predators;

@@ -1,5 +1,8 @@
 #include "Player.h"
-
+/// <summary>
+/// Entity the user controls 
+/// </summary>
+/// <param name="pos"> Spawn Position for the player</param>
 Player::Player(sf::Vector2f pos)
 {
 	position = pos;
@@ -36,11 +39,17 @@ Player::Player(sf::Vector2f pos)
 	m_health = 100;
 	m_amountOfWorkers = 0;
 }
-
+/// <summary>
+/// Destructor
+/// </summary>
 Player::~Player()
 {
 }
 
+/// <summary>
+/// Draw function for the player and its shield powerup
+/// </summary>
+/// <param name="window">RenderWindow for drawing to the screen</param>
 void Player::render(sf::RenderWindow & window)
 {
 	for (auto b : m_bullets)
@@ -55,6 +64,10 @@ void Player::render(sf::RenderWindow & window)
 	}
 }
 
+/// <summary>
+/// Update loop for the player
+/// </summary>
+/// <param name="dt">Deltatime</param>
 void Player::update(sf::Time dt)
 {
 	m_lastPosition = sprite.getPosition();
@@ -113,12 +126,19 @@ void Player::update(sf::Time dt)
 
 	m_shieldShape.setPosition(sprite.getPosition());
 }
-
+/// <summary>
+/// Circle for collision
+/// </summary>
+/// <returns>Collision Circle</returns>
 sf::CircleShape Player::getCollisionCircle()
 {
 	return m_collisionCircle;
 }
 
+/// <summary>
+/// Check the collision with a map tile
+/// </summary>
+/// <param name="tileRect">Tile to be checked</param>
 void Player::checkCollision(sf::FloatRect tileRect)
 {
 	if (checkCircleRectangleCollision(m_collisionCircle, tileRect))
@@ -143,7 +163,9 @@ void Player::checkCollision(sf::FloatRect tileRect)
 	}
 }
 
-
+/// <summary>
+/// Increase the players rotation
+/// </summary>
 void Player::increaseRotation()
 {
 	rotation += 5;
@@ -153,6 +175,9 @@ void Player::increaseRotation()
 	}
 }
 
+/// <summary>
+/// Decrease the players rotation
+/// </summary>
 void Player::decreaseRotation()
 {
 	rotation -= 5;
@@ -162,11 +187,18 @@ void Player::decreaseRotation()
 	}
 }
 
+/// <summary>
+/// Set the speed value for the player
+/// </summary>
+/// <param name="s">The value to set speed to</param>
 void Player::SetSpeed(float s)
 {
 	speed = s;
 }
 
+/// <summary>
+/// Increase the player speed
+/// </summary>
 void Player::IncreaseSpeed()
 {
 	if (speed < maxSpeed)
@@ -175,6 +207,9 @@ void Player::IncreaseSpeed()
 	}
 }
 
+/// <summary>
+/// Decrease the player speed
+/// </summary>
 void Player::DecreaseSpeed()
 {
 	if (speed > -maxSpeed)
@@ -183,31 +218,53 @@ void Player::DecreaseSpeed()
 	}
 }
 
+/// <summary>
+/// Get the current position of the player
+/// </summary>
+/// <returns>the position of the player</returns>
 sf::Vector2f Player::getPosition()
 {
 	return sprite.getPosition();
 }
 
+/// <summary>
+/// Get the current speed of the player
+/// </summary>
+/// <returns>The speed of the player</returns>
 float Player::getSpeed()
 {
 	return speed;
 }
 
+/// <summary>
+/// Get the current rotation of the player
+/// </summary>
+/// <returns></returns>
 float Player::getRotation()
 {
 	return rotation;
 }
 
+/// <summary>
+/// Create a new bullet and add it to the bullet vector
+/// </summary>
 void Player::SpawnBullet()
 {
 	m_bullets.push_back(new Bullet(sprite.getPosition(), sprite.getRotation()));
 }
 
+/// <summary>
+/// Get the player sprite object
+/// </summary>
+/// <returns>The sprite of the player</returns>
 sf::Sprite & Player::getSprite()
 {
 	return sprite;
 }
 
+/// <summary>
+/// Activate the shield powerup
+/// </summary>
 void Player::activateShield()
 {
 	if (m_shieldActive == false)
@@ -221,6 +278,9 @@ void Player::activateShield()
 	}
 }
 
+/// <summary>
+/// Activate the speed boost powerup
+/// </summary>
 void Player::activateSpeedBoost()
 {
 	if (m_speedBoostActive == false)
@@ -236,16 +296,28 @@ void Player::activateSpeedBoost()
 	
 }
 
+/// <summary>
+/// Get the players current health
+/// </summary>
+/// <returns>The health of the player</returns>
 int Player::getHealth()
 {
 	return m_health;
 }
 
+/// <summary>
+/// Get the current amount of workers the player has
+/// </summary>
+/// <returns>The number of workers</returns>
 int Player::getWorkersAmount()
 {
 	return m_amountOfWorkers;
 }
 
+/// <summary>
+/// Update the current health value of the player
+/// </summary>
+/// <param name="amount">The amount of health to be added or taken away</param>
 void Player::updateHealth(int amount)
 {
 	m_health += amount;
@@ -255,6 +327,10 @@ void Player::updateHealth(int amount)
 	}
 }
 
+/// <summary>
+/// Get the bullet vector
+/// </summary>
+/// <returns>The vector of bullets</returns>
 std::vector<Bullet *> & Player::getBullets()
 {
 	return m_bullets;
