@@ -20,6 +20,18 @@ Sweeper::Sweeper(sf::Vector2f pos, Player & player, std::vector<Worker *> & work
 	m_targetPosition.x = cos(randRotation / 180.f * acos(-1)) * SEEK_DISTANCE;
 	m_targetPosition.y = sin(randRotation / 180.f * acos(-1)) * SEEK_DISTANCE;
 	m_targetPosition += pos;
+
+
+	if (!m_explosion.loadFromFile("Assets\\Images\\Explosion.png"))
+	{
+		std::cout << "Error: Could not load explosion texture" << std::endl;
+	}
+	m_animation = new Animation(&m_explosion, sf::Vector2u(14, 1), 0.05f);
+	m_animation->PlayAnimationOnce(true);
+	m_animating = false;
+
+
+	rect = m_sprite.getTextureRect();
 }
 
 Sweeper::~Sweeper() {}
@@ -35,7 +47,23 @@ void Sweeper::update(float dt)
 		m_targetPosition += m_sprite.getPosition();
 		timer = 0.f;
 	}
-	if (m_alive)
+
+
+	if (m_animating)
+	{
+		if (m_animation->isAnimFinished())
+		{
+			m_animating = false;
+			m_alive = false;
+		}
+		m_animation->update(0, dt);
+		m_sprite.setScale(1, 1);
+		m_sprite.setTexture(m_explosion);
+		m_sprite.setTextureRect(m_animation->uvRect);
+		m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2.f, m_sprite.getLocalBounds().height / 2.f);
+	}
+
+	if (m_alive || !m_animating)
 	{
 		sf::Vector2f pos = m_sprite.getPosition();
 		sf::Vector2f playerPos = m_refPlayer.getPosition();
@@ -64,7 +92,8 @@ void Sweeper::update(float dt)
 		if (checkCircleCollision(m_collisionCircle, m_refPlayer.getCollisionCircle()))
 		{
 			m_refPlayer.updateWorkers(workerCount);
-			m_alive = false;
+			//m_alive = false;
+			m_animating = true;
 			m_refPlayer.updateHealth(-5);
 
 		}
@@ -73,7 +102,8 @@ void Sweeper::update(float dt)
 			if (checkCircleCollision(m_collisionCircle, bullet->getCollisionCircle()))
 			{
 				m_refPlayer.updateWorkers(workerCount);
-				m_alive = false;
+				//m_alive = false;
+				m_animating = true;
 			}
 		}
 		for (auto & worker : m_refWorkers)

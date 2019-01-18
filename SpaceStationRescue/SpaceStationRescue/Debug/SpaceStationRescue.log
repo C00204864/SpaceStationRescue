@@ -1,6 +1,27 @@
-﻿  Game.cpp
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(33): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(61): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(62): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
-c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(63): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
-  SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
+﻿  Sweeper.cpp
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\sweeper.cpp(14): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\sweeper.cpp(19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\sweeper.cpp(20): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\sweeper.cpp(21): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\sweeper.cpp(44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\sweeper.cpp(45): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\sweeper.cpp(46): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\sweeper.cpp(143): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\sweeper.cpp(166): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  SpaceStationRescue.vcxproj -> C:\Users\micha\Documents\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
