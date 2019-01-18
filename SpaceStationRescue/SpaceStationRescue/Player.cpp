@@ -296,7 +296,7 @@ void Player::activateSpeedBoost()
 	{
 		m_speedClock.restart();
 		m_speedBoostActive = true;
-		maxSpeed = 20;
+		maxSpeed = 10;
 	}
 	else
 	{
