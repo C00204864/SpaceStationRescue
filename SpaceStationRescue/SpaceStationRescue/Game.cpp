@@ -183,6 +183,10 @@ void Game::update(sf::Time t_deltaTime)
 			{
 				bulletClock.restart();
 				m_player.SpawnBullet();
+				for (auto & p : powerUps)
+				{
+					p->setAlive(true);
+				}
 			}
 
 			m_world.update(t_deltaTime.asSeconds());
