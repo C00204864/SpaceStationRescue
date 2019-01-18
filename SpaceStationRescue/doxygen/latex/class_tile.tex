@@ -1,0 +1,229 @@
+\hypertarget{class_tile}{}\section{Tile Class Reference}
+\label{class_tile}\index{Tile@{Tile}}
+
+
+{\ttfamily \#include $<$Tile.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tile_a6019448815dd11c1a95d93b83fbda899}{Tile}} (int x\+Index\+In, int y\+Index\+In, int side\+Length)
+\begin{DoxyCompactList}\small\item\em Constructor function for the tile class \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tile_a98634abbd93fa13d0578d7103202d03d}{$\sim$\+Tile}} ()
+\begin{DoxyCompactList}\small\item\em Destructor function for the tile class \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tile_a57444de210a362d359197d5a6b5e16e9}{render}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Render function for the tile class \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tile_accf1f91aace03c7b43bc17b57db57a71}{set\+As\+Wall}} (sf\+::\+Texture \&texture, float side\+Length)
+\begin{DoxyCompactList}\small\item\em Fubction used to set a tile as a wall tile, thus enabling collisions with it \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_tile_a59472890fde600cb1f11367147c92e74}{is\+Wall}} ()
+\begin{DoxyCompactList}\small\item\em Function returns a boolean representing whether a tile is a wall or not \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_tile_a980db52575b7707886daaf3fcb925bb7}{is\+Visited}} ()
+\begin{DoxyCompactList}\small\item\em Function used during flow field processing to check whether a cell has been visited oor not \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tile_a9df4805affe8338658a3cfb683a38d20}{set\+Visited}} (bool state)
+\begin{DoxyCompactList}\small\item\em Function used to set the visited state fo a tile during flow field processing \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tile_aaac2503794e22ce2fb2911dc1951b87f}{set\+Next}} (\mbox{\hyperlink{class_tile}{Tile}} $\ast$next\+Tile)
+\begin{DoxyCompactList}\small\item\em Function used to set the next tile pointed to by {\itshape this} in a flow field \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_tile_a43a4d61ae6e7e98c4a37ae525151a0e9}{get\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Function used to get the next tile pointed to by {\itshape this} in a flow field \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_tile_afd69da1519691d4f82bfe0534db4f01c}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Function gets a vector representing the position of a tile \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_tile_a5885cec63f2e1bb1d2eccc927b606184}{get\+Center\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Function gets a vector representing the center position of a tile \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_tile_a7bd5a68ec8be3d8bd46ad109bfc7fb08}{get\+Global\+Bounds}} ()
+\begin{DoxyCompactList}\small\item\em Functions get the global bounds of the tile\textquotesingle{}s sprite \end{DoxyCompactList}\item 
+sf\+::\+Vector2i \mbox{\hyperlink{class_tile_a34aba68a8504064fbed9fb9eeec98c6b}{get\+Indices}} ()
+\begin{DoxyCompactList}\small\item\em Function gets the X index and Y index of a tile \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_tile_a6019448815dd11c1a95d93b83fbda899}\label{class_tile_a6019448815dd11c1a95d93b83fbda899}} 
+\index{Tile@{Tile}!Tile@{Tile}}
+\index{Tile@{Tile}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{Tile()}{Tile()}}
+{\footnotesize\ttfamily Tile\+::\+Tile (\begin{DoxyParamCaption}\item[{int}]{x\+Index\+In,  }\item[{int}]{y\+Index\+In,  }\item[{int}]{side\+Length }\end{DoxyParamCaption})}
+
+
+
+Constructor function for the tile class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Index\+In} & X Index of the tile in relation to the world grid containing it\\
+\hline
+{\em y\+Index\+In} & Y Index of the tile in relation to the world grid containing it\\
+\hline
+{\em side\+Length} & The desired length for the sides of the tile\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_tile_a98634abbd93fa13d0578d7103202d03d}\label{class_tile_a98634abbd93fa13d0578d7103202d03d}} 
+\index{Tile@{Tile}!````~Tile@{$\sim$Tile}}
+\index{````~Tile@{$\sim$Tile}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{$\sim$Tile()}{~Tile()}}
+{\footnotesize\ttfamily Tile\+::$\sim$\+Tile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor function for the tile class 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tile_a5885cec63f2e1bb1d2eccc927b606184}\label{class_tile_a5885cec63f2e1bb1d2eccc927b606184}} 
+\index{Tile@{Tile}!getCenterPosition@{getCenterPosition}}
+\index{getCenterPosition@{getCenterPosition}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{getCenterPosition()}{getCenterPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Tile\+::get\+Center\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function gets a vector representing the center position of a tile 
+
+\begin{DoxyReturn}{Returns}
+sf\+::\+Vector2f representing the center position of a tile
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tile_a7bd5a68ec8be3d8bd46ad109bfc7fb08}\label{class_tile_a7bd5a68ec8be3d8bd46ad109bfc7fb08}} 
+\index{Tile@{Tile}!getGlobalBounds@{getGlobalBounds}}
+\index{getGlobalBounds@{getGlobalBounds}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{getGlobalBounds()}{getGlobalBounds()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect Tile\+::get\+Global\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Functions get the global bounds of the tile\textquotesingle{}s sprite 
+
+\begin{DoxyReturn}{Returns}
+sf\+::\+Float\+Rect representing the tile\textquotesingle{}s bounds
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tile_a34aba68a8504064fbed9fb9eeec98c6b}\label{class_tile_a34aba68a8504064fbed9fb9eeec98c6b}} 
+\index{Tile@{Tile}!getIndices@{getIndices}}
+\index{getIndices@{getIndices}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{getIndices()}{getIndices()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Tile\+::get\+Indices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function gets the X index and Y index of a tile 
+
+\begin{DoxyReturn}{Returns}
+sf\+::\+Vector2i representing the tile\textquotesingle{}s indices
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tile_a43a4d61ae6e7e98c4a37ae525151a0e9}\label{class_tile_a43a4d61ae6e7e98c4a37ae525151a0e9}} 
+\index{Tile@{Tile}!getNext@{getNext}}
+\index{getNext@{getNext}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{getNext()}{getNext()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tile}{Tile}} $\ast$ Tile\+::get\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function used to get the next tile pointed to by {\itshape this} in a flow field 
+
+\begin{DoxyReturn}{Returns}
+The next tile pointed to
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tile_afd69da1519691d4f82bfe0534db4f01c}\label{class_tile_afd69da1519691d4f82bfe0534db4f01c}} 
+\index{Tile@{Tile}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Tile\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function gets a vector representing the position of a tile 
+
+\begin{DoxyReturn}{Returns}
+sf\+::\+Vector2f representing the top left position of a tile
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tile_a980db52575b7707886daaf3fcb925bb7}\label{class_tile_a980db52575b7707886daaf3fcb925bb7}} 
+\index{Tile@{Tile}!isVisited@{isVisited}}
+\index{isVisited@{isVisited}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{isVisited()}{isVisited()}}
+{\footnotesize\ttfamily bool Tile\+::is\+Visited (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function used during flow field processing to check whether a cell has been visited oor not 
+
+\begin{DoxyReturn}{Returns}
+Boolean representing whether a tile has been visited or not
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tile_a59472890fde600cb1f11367147c92e74}\label{class_tile_a59472890fde600cb1f11367147c92e74}} 
+\index{Tile@{Tile}!isWall@{isWall}}
+\index{isWall@{isWall}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{isWall()}{isWall()}}
+{\footnotesize\ttfamily bool Tile\+::is\+Wall (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function returns a boolean representing whether a tile is a wall or not 
+
+\begin{DoxyReturn}{Returns}
+Boolean representing whether a tile is a wall or not
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tile_a57444de210a362d359197d5a6b5e16e9}\label{class_tile_a57444de210a362d359197d5a6b5e16e9}} 
+\index{Tile@{Tile}!render@{render}}
+\index{render@{render}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Tile\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Render function for the tile class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Reference to the window used for drawing\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_tile_accf1f91aace03c7b43bc17b57db57a71}\label{class_tile_accf1f91aace03c7b43bc17b57db57a71}} 
+\index{Tile@{Tile}!setAsWall@{setAsWall}}
+\index{setAsWall@{setAsWall}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{setAsWall()}{setAsWall()}}
+{\footnotesize\ttfamily void Tile\+::set\+As\+Wall (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \&}]{texture,  }\item[{float}]{side\+Length }\end{DoxyParamCaption})}
+
+
+
+Fubction used to set a tile as a wall tile, thus enabling collisions with it 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & The texture the tile is to use to represent the wall\\
+\hline
+{\em side\+Length} & The length of the sides of a tile\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_tile_aaac2503794e22ce2fb2911dc1951b87f}\label{class_tile_aaac2503794e22ce2fb2911dc1951b87f}} 
+\index{Tile@{Tile}!setNext@{setNext}}
+\index{setNext@{setNext}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{setNext()}{setNext()}}
+{\footnotesize\ttfamily void Tile\+::set\+Next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tile}{Tile}} $\ast$}]{next\+Tile }\end{DoxyParamCaption})}
+
+
+
+Function used to set the next tile pointed to by {\itshape this} in a flow field 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+Tile} & The tile this tile is to be pointed to\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_tile_a9df4805affe8338658a3cfb683a38d20}\label{class_tile_a9df4805affe8338658a3cfb683a38d20}} 
+\index{Tile@{Tile}!setVisited@{setVisited}}
+\index{setVisited@{setVisited}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{setVisited()}{setVisited()}}
+{\footnotesize\ttfamily void Tile\+::set\+Visited (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Function used to set the visited state fo a tile during flow field processing 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & Desireed visited state\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_tile_8h}{Tile.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_tile_8cpp}{Tile.\+cpp}}\end{DoxyCompactItemize}

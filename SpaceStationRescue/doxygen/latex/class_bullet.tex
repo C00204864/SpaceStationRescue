@@ -1,0 +1,128 @@
+\hypertarget{class_bullet}{}\section{Bullet Class Reference}
+\label{class_bullet}\index{Bullet@{Bullet}}
+
+
+{\ttfamily \#include $<$Bullet.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_bullet_aaa125020f55e7d86e6c46212f412f15d}{Bullet}} (sf\+::\+Vector2f position, float rotation)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_bullet}{Bullet}} Object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_bullet_aaeb5cb41d7db89f49007b08b41f1bfcf}{$\sim$\+Bullet}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bullet_a32f4a0611fe2dd245fee955d14ca1f68}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update loop \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bullet_aa128a7449171a208a057a73a19ec2837}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draw loop \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_bullet_ae23f1f04ccd644d823184feb0da3c6b2}{is\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em Returns the bullets alive state \end{DoxyCompactList}\item 
+sf\+::\+Circle\+Shape \mbox{\hyperlink{class_bullet_a62f499c863d9a0801a0ac7661e4bdf14}{get\+Collision\+Circle}} ()
+\begin{DoxyCompactList}\small\item\em Get the collision circle \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bullet_a502360f46d88c3640d022bffd5b99db5}{set\+Alive\+Status}} (bool status)
+\begin{DoxyCompactList}\small\item\em Set whether the bullet is alive or not \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_bullet_aaa125020f55e7d86e6c46212f412f15d}\label{class_bullet_aaa125020f55e7d86e6c46212f412f15d}} 
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{Bullet()}{Bullet()}}
+{\footnotesize\ttfamily Bullet\+::\+Bullet (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{position,  }\item[{float}]{rotation }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_bullet}{Bullet}} Object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & position to spawn at\\
+\hline
+{\em rotation} & rotation to spawn with\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bullet_aaeb5cb41d7db89f49007b08b41f1bfcf}\label{class_bullet_aaeb5cb41d7db89f49007b08b41f1bfcf}} 
+\index{Bullet@{Bullet}!````~Bullet@{$\sim$Bullet}}
+\index{````~Bullet@{$\sim$Bullet}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{$\sim$Bullet()}{~Bullet()}}
+{\footnotesize\ttfamily Bullet\+::$\sim$\+Bullet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+destructor 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bullet_aa128a7449171a208a057a73a19ec2837}\label{class_bullet_aa128a7449171a208a057a73a19ec2837}} 
+\index{Bullet@{Bullet}!draw@{draw}}
+\index{draw@{draw}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Bullet\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Draw loop 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Window to draw sprite\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bullet_a62f499c863d9a0801a0ac7661e4bdf14}\label{class_bullet_a62f499c863d9a0801a0ac7661e4bdf14}} 
+\index{Bullet@{Bullet}!getCollisionCircle@{getCollisionCircle}}
+\index{getCollisionCircle@{getCollisionCircle}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{getCollisionCircle()}{getCollisionCircle()}}
+{\footnotesize\ttfamily sf\+::\+Circle\+Shape Bullet\+::get\+Collision\+Circle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the collision circle 
+
+\begin{DoxyReturn}{Returns}
+the collision circle
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_bullet_ae23f1f04ccd644d823184feb0da3c6b2}\label{class_bullet_ae23f1f04ccd644d823184feb0da3c6b2}} 
+\index{Bullet@{Bullet}!isAlive@{isAlive}}
+\index{isAlive@{isAlive}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{isAlive()}{isAlive()}}
+{\footnotesize\ttfamily bool Bullet\+::is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the bullets alive state 
+
+\begin{DoxyReturn}{Returns}
+bool for if alive or not
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_bullet_a502360f46d88c3640d022bffd5b99db5}\label{class_bullet_a502360f46d88c3640d022bffd5b99db5}} 
+\index{Bullet@{Bullet}!setAliveStatus@{setAliveStatus}}
+\index{setAliveStatus@{setAliveStatus}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{setAliveStatus()}{setAliveStatus()}}
+{\footnotesize\ttfamily void Bullet\+::set\+Alive\+Status (\begin{DoxyParamCaption}\item[{bool}]{status }\end{DoxyParamCaption})}
+
+
+
+Set whether the bullet is alive or not 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status} & the bool for alive or dead\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bullet_a32f4a0611fe2dd245fee955d14ca1f68}\label{class_bullet_a32f4a0611fe2dd245fee955d14ca1f68}} 
+\index{Bullet@{Bullet}!update@{update}}
+\index{update@{update}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Bullet\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update loop 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_bullet_8h}{Bullet.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_bullet_8cpp}{Bullet.\+cpp}}\end{DoxyCompactItemize}

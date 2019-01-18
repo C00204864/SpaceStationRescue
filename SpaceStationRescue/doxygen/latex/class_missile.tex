@@ -1,0 +1,157 @@
+\hypertarget{class_missile}{}\section{Missile Class Reference}
+\label{class_missile}\index{Missile@{Missile}}
+
+
+{\ttfamily \#include $<$Missile.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_missile_a69e2217677e4a23b74539f6a5a277bfb}{Missile}} (\mbox{\hyperlink{class_player}{Player}} \&player)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_missile}{Missile}} Contructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_missile_ad42379e48a46ec3556056f98ce8bd912}{$\sim$\+Missile}} ()
+\begin{DoxyCompactList}\small\item\em Destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_missile_ac3e41d15fab89b6bf92b5437b039d5e3}{reset}} (sf\+::\+Vector2f position\+In, float rotation\+In)
+\begin{DoxyCompactList}\small\item\em Reset Function \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_missile_a0f251515e9706d3377e81ef9f5563eb1}{explode}} ()
+\begin{DoxyCompactList}\small\item\em Set the missile dead \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_missile_a2ef82438ddc6320bbdfb05227fed047b}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update loop for the missile \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_missile_a882289a30763d8307727a674655c7367}{render}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draw loop for the missile \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_missile_a66d42fcf18ac58c36a4fee4440d48435}{is\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em Get the alive state of the missile \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_missile_ad2b1a2c22fa692e1e91a52fec411704e}{set\+Alive\+Status}} (bool status)
+\begin{DoxyCompactList}\small\item\em Set whether the missile is alive or dead \end{DoxyCompactList}\item 
+sf\+::\+Circle\+Shape \mbox{\hyperlink{class_missile_a3e4feeb61af3c1a333f5d0efa8b5bda5}{get\+Collision\+Circle}} ()
+\begin{DoxyCompactList}\small\item\em Get the collision circle of the missile \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_missile_a69e2217677e4a23b74539f6a5a277bfb}\label{class_missile_a69e2217677e4a23b74539f6a5a277bfb}} 
+\index{Missile@{Missile}!Missile@{Missile}}
+\index{Missile@{Missile}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{Missile()}{Missile()}}
+{\footnotesize\ttfamily Missile\+::\+Missile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{player }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_missile}{Missile}} Contructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Ref to the player\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_missile_ad42379e48a46ec3556056f98ce8bd912}\label{class_missile_ad42379e48a46ec3556056f98ce8bd912}} 
+\index{Missile@{Missile}!````~Missile@{$\sim$Missile}}
+\index{````~Missile@{$\sim$Missile}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{$\sim$Missile()}{~Missile()}}
+{\footnotesize\ttfamily Missile\+::$\sim$\+Missile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_missile_a0f251515e9706d3377e81ef9f5563eb1}\label{class_missile_a0f251515e9706d3377e81ef9f5563eb1}} 
+\index{Missile@{Missile}!explode@{explode}}
+\index{explode@{explode}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{explode()}{explode()}}
+{\footnotesize\ttfamily void Missile\+::explode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set the missile dead 
+
+\mbox{\Hypertarget{class_missile_a3e4feeb61af3c1a333f5d0efa8b5bda5}\label{class_missile_a3e4feeb61af3c1a333f5d0efa8b5bda5}} 
+\index{Missile@{Missile}!getCollisionCircle@{getCollisionCircle}}
+\index{getCollisionCircle@{getCollisionCircle}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{getCollisionCircle()}{getCollisionCircle()}}
+{\footnotesize\ttfamily sf\+::\+Circle\+Shape Missile\+::get\+Collision\+Circle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the collision circle of the missile 
+
+\begin{DoxyReturn}{Returns}
+The collision circle of the missile
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_missile_a66d42fcf18ac58c36a4fee4440d48435}\label{class_missile_a66d42fcf18ac58c36a4fee4440d48435}} 
+\index{Missile@{Missile}!isAlive@{isAlive}}
+\index{isAlive@{isAlive}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{isAlive()}{isAlive()}}
+{\footnotesize\ttfamily bool Missile\+::is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the alive state of the missile 
+
+\begin{DoxyReturn}{Returns}
+bool for alive or dead
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_missile_a882289a30763d8307727a674655c7367}\label{class_missile_a882289a30763d8307727a674655c7367}} 
+\index{Missile@{Missile}!render@{render}}
+\index{render@{render}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Missile\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Draw loop for the missile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Window for drawing the sprite\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_missile_ac3e41d15fab89b6bf92b5437b039d5e3}\label{class_missile_ac3e41d15fab89b6bf92b5437b039d5e3}} 
+\index{Missile@{Missile}!reset@{reset}}
+\index{reset@{reset}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Missile\+::reset (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{position\+In,  }\item[{float}]{rotation\+In }\end{DoxyParamCaption})}
+
+
+
+Reset Function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position\+In} & reset pos\\
+\hline
+{\em rotation\+In} & reset rotation\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_missile_ad2b1a2c22fa692e1e91a52fec411704e}\label{class_missile_ad2b1a2c22fa692e1e91a52fec411704e}} 
+\index{Missile@{Missile}!setAliveStatus@{setAliveStatus}}
+\index{setAliveStatus@{setAliveStatus}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{setAliveStatus()}{setAliveStatus()}}
+{\footnotesize\ttfamily void Missile\+::set\+Alive\+Status (\begin{DoxyParamCaption}\item[{bool}]{status }\end{DoxyParamCaption})}
+
+
+
+Set whether the missile is alive or dead 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status} & The bool for alive or dead\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_missile_a2ef82438ddc6320bbdfb05227fed047b}\label{class_missile_a2ef82438ddc6320bbdfb05227fed047b}} 
+\index{Missile@{Missile}!update@{update}}
+\index{update@{update}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Missile\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update loop for the missile 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_missile_8h}{Missile.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_missile_8cpp}{Missile.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,254 @@
+\hypertarget{class_g_u_i}{}\section{G\+UI Class Reference}
+\label{class_g_u_i}\index{GUI@{GUI}}
+
+
+{\ttfamily \#include $<$G\+U\+I.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_u_i_a8cbb3140b7d3c9d8e942d6ce6b60a0e8}{G\+UI}} ()
+\item 
+\mbox{\hyperlink{class_g_u_i_ac9cae2328dcb5d83bdfaeca49a2eb695}{$\sim$\+G\+UI}} ()
+\item 
+void \mbox{\hyperlink{class_g_u_i_a350e1e71e62bbb7240c7b1c65adeacf2}{add\+Label}} (\mbox{\hyperlink{class_label}{Label}} $\ast$label)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a2d2a03583ec32ec72c29f77a85e38a60}{add\+Button}} (\mbox{\hyperlink{class_button}{Button}} $\ast$button)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a8fdf8aacbebf66678dc32ab8fb75e35e}{add\+Slider}} (\mbox{\hyperlink{class_slider}{Slider}} $\ast$slider)
+\item 
+void \mbox{\hyperlink{class_g_u_i_ab593b74382f085b7d24f6da0646ed534}{add\+Radio\+Button}} (\mbox{\hyperlink{class_radio_button}{Radio\+Button}} $\ast$radio\+Button)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a9c003774928d3d6febd78713a0ef5943}{add\+Check\+Box}} (\mbox{\hyperlink{class_check_box}{Check\+Box}} $\ast$check\+Box)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a658d7dd36cd27eeedaedecc98ba7e7b4}{add\+Widget}} (\mbox{\hyperlink{class_widget}{Widget}} $\ast$widget)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a055693c460f0441b193681e7f9d52766}{update}} (int \&index, int max\+Items)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a8cea06ea8b346be3b2b261fbec5dee7c}{draw}} (sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a4cc91f9f39059fbe3b4b37ced715854c}{move\+Up}} (int \&index)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a49fba205ba96ff33daa0968be55824f8}{move\+Down}} (int \&index, int max\+Items)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a9b5355f35e5c12d0afea2d3563ab892f}{move\+Up2}} (int \&index)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a9b7f21e20d6a5ace2f1578c5da278786}{move\+Down2}} (int \&index, int max\+Items)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a6110a841f353acfc14a23238a7260df6}{activate}} (int \&index)
+\item 
+void \mbox{\hyperlink{class_g_u_i_ab37a32b8d4f5708d4a5af9a0203c5b40}{increase\+Slider\+Value}} (int \&index)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a254888c78e0e7fb2d633be5bc5ed2661}{decrease\+Slider\+Value}} (int \&index)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a980ac546b0bac5afba4c3224af90b97e}{vertical\+Controls}} (int \&index, int max\+Items)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a1be4ce76c68959d8eb392c1fd23f0a50}{horizontal\+Controls}} (int \&index, int max\+Items)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a5730f413878465634efb65a1602e4ddf}{vert\+And\+Hor\+Controls}} (int \&index, int max\+Items)
+\item 
+void \mbox{\hyperlink{class_g_u_i_ae36c26f75d117499a455ea8890236877}{remove\+All\+Elements}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_g_u_i_a786cc222e797d0f4c241986315b23b90}{vertical}}
+\item 
+bool \mbox{\hyperlink{class_g_u_i_a107c55f2158d60d53870afd68f51f22a}{horizontal}}
+\item 
+bool \mbox{\hyperlink{class_g_u_i_aeeaddd3bde704d167a7c217d36b31bc6}{both}}
+\item 
+sf\+::\+Sound\+Buffer \mbox{\hyperlink{class_g_u_i_ad7a9ebf79685380ef6f0076a04e3f2c1}{m\+\_\+buffer}}
+\item 
+sf\+::\+Sound \mbox{\hyperlink{class_g_u_i_a0904f940304c0028eb4f3a01458d924d}{m\+\_\+gui\+Sound}}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_g_u_i_ae22a27f100774c463aea824a436c295c}{use\+Anim}} = true
+\item 
+static sf\+::\+Clock \mbox{\hyperlink{class_g_u_i_a638d355db4a61b4aee3b63c98e56d213}{m\+\_\+time\+Between\+Clicks}} = sf\+::\+Clock\+::\+Clock()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_u_i_a8cbb3140b7d3c9d8e942d6ce6b60a0e8}\label{class_g_u_i_a8cbb3140b7d3c9d8e942d6ce6b60a0e8}} 
+\index{GUI@{GUI}!GUI@{GUI}}
+\index{GUI@{GUI}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{GUI()}{GUI()}}
+{\footnotesize\ttfamily G\+U\+I\+::\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_ac9cae2328dcb5d83bdfaeca49a2eb695}\label{class_g_u_i_ac9cae2328dcb5d83bdfaeca49a2eb695}} 
+\index{GUI@{GUI}!````~GUI@{$\sim$GUI}}
+\index{````~GUI@{$\sim$GUI}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{$\sim$GUI()}{~GUI()}}
+{\footnotesize\ttfamily G\+U\+I\+::$\sim$\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_u_i_a6110a841f353acfc14a23238a7260df6}\label{class_g_u_i_a6110a841f353acfc14a23238a7260df6}} 
+\index{GUI@{GUI}!activate@{activate}}
+\index{activate@{activate}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{activate()}{activate()}}
+{\footnotesize\ttfamily void G\+U\+I\+::activate (\begin{DoxyParamCaption}\item[{int \&}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a2d2a03583ec32ec72c29f77a85e38a60}\label{class_g_u_i_a2d2a03583ec32ec72c29f77a85e38a60}} 
+\index{GUI@{GUI}!addButton@{addButton}}
+\index{addButton@{addButton}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{addButton()}{addButton()}}
+{\footnotesize\ttfamily void G\+U\+I\+::add\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_button}{Button}} $\ast$}]{button }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a9c003774928d3d6febd78713a0ef5943}\label{class_g_u_i_a9c003774928d3d6febd78713a0ef5943}} 
+\index{GUI@{GUI}!addCheckBox@{addCheckBox}}
+\index{addCheckBox@{addCheckBox}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{addCheckBox()}{addCheckBox()}}
+{\footnotesize\ttfamily void G\+U\+I\+::add\+Check\+Box (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_check_box}{Check\+Box}} $\ast$}]{check\+Box }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a350e1e71e62bbb7240c7b1c65adeacf2}\label{class_g_u_i_a350e1e71e62bbb7240c7b1c65adeacf2}} 
+\index{GUI@{GUI}!addLabel@{addLabel}}
+\index{addLabel@{addLabel}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{addLabel()}{addLabel()}}
+{\footnotesize\ttfamily void G\+U\+I\+::add\+Label (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_label}{Label}} $\ast$}]{label }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_ab593b74382f085b7d24f6da0646ed534}\label{class_g_u_i_ab593b74382f085b7d24f6da0646ed534}} 
+\index{GUI@{GUI}!addRadioButton@{addRadioButton}}
+\index{addRadioButton@{addRadioButton}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{addRadioButton()}{addRadioButton()}}
+{\footnotesize\ttfamily void G\+U\+I\+::add\+Radio\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_radio_button}{Radio\+Button}} $\ast$}]{radio\+Button }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a8fdf8aacbebf66678dc32ab8fb75e35e}\label{class_g_u_i_a8fdf8aacbebf66678dc32ab8fb75e35e}} 
+\index{GUI@{GUI}!addSlider@{addSlider}}
+\index{addSlider@{addSlider}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{addSlider()}{addSlider()}}
+{\footnotesize\ttfamily void G\+U\+I\+::add\+Slider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_slider}{Slider}} $\ast$}]{slider }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a658d7dd36cd27eeedaedecc98ba7e7b4}\label{class_g_u_i_a658d7dd36cd27eeedaedecc98ba7e7b4}} 
+\index{GUI@{GUI}!addWidget@{addWidget}}
+\index{addWidget@{addWidget}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{addWidget()}{addWidget()}}
+{\footnotesize\ttfamily void G\+U\+I\+::add\+Widget (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_widget}{Widget}} $\ast$}]{widget }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a254888c78e0e7fb2d633be5bc5ed2661}\label{class_g_u_i_a254888c78e0e7fb2d633be5bc5ed2661}} 
+\index{GUI@{GUI}!decreaseSliderValue@{decreaseSliderValue}}
+\index{decreaseSliderValue@{decreaseSliderValue}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{decreaseSliderValue()}{decreaseSliderValue()}}
+{\footnotesize\ttfamily void G\+U\+I\+::decrease\+Slider\+Value (\begin{DoxyParamCaption}\item[{int \&}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a8cea06ea8b346be3b2b261fbec5dee7c}\label{class_g_u_i_a8cea06ea8b346be3b2b261fbec5dee7c}} 
+\index{GUI@{GUI}!draw@{draw}}
+\index{draw@{draw}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void G\+U\+I\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a1be4ce76c68959d8eb392c1fd23f0a50}\label{class_g_u_i_a1be4ce76c68959d8eb392c1fd23f0a50}} 
+\index{GUI@{GUI}!horizontalControls@{horizontalControls}}
+\index{horizontalControls@{horizontalControls}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{horizontalControls()}{horizontalControls()}}
+{\footnotesize\ttfamily void G\+U\+I\+::horizontal\+Controls (\begin{DoxyParamCaption}\item[{int \&}]{index,  }\item[{int}]{max\+Items }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_ab37a32b8d4f5708d4a5af9a0203c5b40}\label{class_g_u_i_ab37a32b8d4f5708d4a5af9a0203c5b40}} 
+\index{GUI@{GUI}!increaseSliderValue@{increaseSliderValue}}
+\index{increaseSliderValue@{increaseSliderValue}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{increaseSliderValue()}{increaseSliderValue()}}
+{\footnotesize\ttfamily void G\+U\+I\+::increase\+Slider\+Value (\begin{DoxyParamCaption}\item[{int \&}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a49fba205ba96ff33daa0968be55824f8}\label{class_g_u_i_a49fba205ba96ff33daa0968be55824f8}} 
+\index{GUI@{GUI}!moveDown@{moveDown}}
+\index{moveDown@{moveDown}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{moveDown()}{moveDown()}}
+{\footnotesize\ttfamily void G\+U\+I\+::move\+Down (\begin{DoxyParamCaption}\item[{int \&}]{index,  }\item[{int}]{max\+Items }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a9b7f21e20d6a5ace2f1578c5da278786}\label{class_g_u_i_a9b7f21e20d6a5ace2f1578c5da278786}} 
+\index{GUI@{GUI}!moveDown2@{moveDown2}}
+\index{moveDown2@{moveDown2}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{moveDown2()}{moveDown2()}}
+{\footnotesize\ttfamily void G\+U\+I\+::move\+Down2 (\begin{DoxyParamCaption}\item[{int \&}]{index,  }\item[{int}]{max\+Items }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a4cc91f9f39059fbe3b4b37ced715854c}\label{class_g_u_i_a4cc91f9f39059fbe3b4b37ced715854c}} 
+\index{GUI@{GUI}!moveUp@{moveUp}}
+\index{moveUp@{moveUp}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{moveUp()}{moveUp()}}
+{\footnotesize\ttfamily void G\+U\+I\+::move\+Up (\begin{DoxyParamCaption}\item[{int \&}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a9b5355f35e5c12d0afea2d3563ab892f}\label{class_g_u_i_a9b5355f35e5c12d0afea2d3563ab892f}} 
+\index{GUI@{GUI}!moveUp2@{moveUp2}}
+\index{moveUp2@{moveUp2}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{moveUp2()}{moveUp2()}}
+{\footnotesize\ttfamily void G\+U\+I\+::move\+Up2 (\begin{DoxyParamCaption}\item[{int \&}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_ae36c26f75d117499a455ea8890236877}\label{class_g_u_i_ae36c26f75d117499a455ea8890236877}} 
+\index{GUI@{GUI}!removeAllElements@{removeAllElements}}
+\index{removeAllElements@{removeAllElements}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{removeAllElements()}{removeAllElements()}}
+{\footnotesize\ttfamily void G\+U\+I\+::remove\+All\+Elements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a055693c460f0441b193681e7f9d52766}\label{class_g_u_i_a055693c460f0441b193681e7f9d52766}} 
+\index{GUI@{GUI}!update@{update}}
+\index{update@{update}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void G\+U\+I\+::update (\begin{DoxyParamCaption}\item[{int \&}]{index,  }\item[{int}]{max\+Items }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a5730f413878465634efb65a1602e4ddf}\label{class_g_u_i_a5730f413878465634efb65a1602e4ddf}} 
+\index{GUI@{GUI}!vertAndHorControls@{vertAndHorControls}}
+\index{vertAndHorControls@{vertAndHorControls}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{vertAndHorControls()}{vertAndHorControls()}}
+{\footnotesize\ttfamily void G\+U\+I\+::vert\+And\+Hor\+Controls (\begin{DoxyParamCaption}\item[{int \&}]{index,  }\item[{int}]{max\+Items }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_u_i_a980ac546b0bac5afba4c3224af90b97e}\label{class_g_u_i_a980ac546b0bac5afba4c3224af90b97e}} 
+\index{GUI@{GUI}!verticalControls@{verticalControls}}
+\index{verticalControls@{verticalControls}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{verticalControls()}{verticalControls()}}
+{\footnotesize\ttfamily void G\+U\+I\+::vertical\+Controls (\begin{DoxyParamCaption}\item[{int \&}]{index,  }\item[{int}]{max\+Items }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_g_u_i_aeeaddd3bde704d167a7c217d36b31bc6}\label{class_g_u_i_aeeaddd3bde704d167a7c217d36b31bc6}} 
+\index{GUI@{GUI}!both@{both}}
+\index{both@{both}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{both}{both}}
+{\footnotesize\ttfamily bool G\+U\+I\+::both}
+
+\mbox{\Hypertarget{class_g_u_i_a107c55f2158d60d53870afd68f51f22a}\label{class_g_u_i_a107c55f2158d60d53870afd68f51f22a}} 
+\index{GUI@{GUI}!horizontal@{horizontal}}
+\index{horizontal@{horizontal}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{horizontal}{horizontal}}
+{\footnotesize\ttfamily bool G\+U\+I\+::horizontal}
+
+\mbox{\Hypertarget{class_g_u_i_ad7a9ebf79685380ef6f0076a04e3f2c1}\label{class_g_u_i_ad7a9ebf79685380ef6f0076a04e3f2c1}} 
+\index{GUI@{GUI}!m\_buffer@{m\_buffer}}
+\index{m\_buffer@{m\_buffer}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{m\_buffer}{m\_buffer}}
+{\footnotesize\ttfamily sf\+::\+Sound\+Buffer G\+U\+I\+::m\+\_\+buffer}
+
+\mbox{\Hypertarget{class_g_u_i_a0904f940304c0028eb4f3a01458d924d}\label{class_g_u_i_a0904f940304c0028eb4f3a01458d924d}} 
+\index{GUI@{GUI}!m\_guiSound@{m\_guiSound}}
+\index{m\_guiSound@{m\_guiSound}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{m\_guiSound}{m\_guiSound}}
+{\footnotesize\ttfamily sf\+::\+Sound G\+U\+I\+::m\+\_\+gui\+Sound}
+
+\mbox{\Hypertarget{class_g_u_i_a638d355db4a61b4aee3b63c98e56d213}\label{class_g_u_i_a638d355db4a61b4aee3b63c98e56d213}} 
+\index{GUI@{GUI}!m\_timeBetweenClicks@{m\_timeBetweenClicks}}
+\index{m\_timeBetweenClicks@{m\_timeBetweenClicks}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{m\_timeBetweenClicks}{m\_timeBetweenClicks}}
+{\footnotesize\ttfamily sf\+::\+Clock G\+U\+I\+::m\+\_\+time\+Between\+Clicks = sf\+::\+Clock\+::\+Clock()\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_g_u_i_ae22a27f100774c463aea824a436c295c}\label{class_g_u_i_ae22a27f100774c463aea824a436c295c}} 
+\index{GUI@{GUI}!useAnim@{useAnim}}
+\index{useAnim@{useAnim}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{useAnim}{useAnim}}
+{\footnotesize\ttfamily bool G\+U\+I\+::use\+Anim = true\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_g_u_i_a786cc222e797d0f4c241986315b23b90}\label{class_g_u_i_a786cc222e797d0f4c241986315b23b90}} 
+\index{GUI@{GUI}!vertical@{vertical}}
+\index{vertical@{vertical}!GUI@{GUI}}
+\subsubsection{\texorpdfstring{vertical}{vertical}}
+{\footnotesize\ttfamily bool G\+U\+I\+::vertical}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_g_u_i_8h}{G\+U\+I.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_g_u_i_8cpp}{G\+U\+I.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,365 @@
+\hypertarget{class_player}{}\section{Player Class Reference}
+\label{class_player}\index{Player@{Player}}
+
+
+The player controlled character  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_a590f9fa9624d8734027fa2b290fa909e}{Player}} (sf\+::\+Vector2f pos)
+\begin{DoxyCompactList}\small\item\em Entity the user controls \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a53938857e80374e79726309e78d1c15c}{render}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draw function for the player and its shield powerup \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_aef595f7b4ef7419815b79e80ea0ea0b8}{update}} (sf\+::\+Time dt)
+\begin{DoxyCompactList}\small\item\em Update loop for the player \end{DoxyCompactList}\item 
+sf\+::\+Circle\+Shape \mbox{\hyperlink{class_player_a961473d7916a7e8c47ae1752ba6498bc}{get\+Collision\+Circle}} ()
+\begin{DoxyCompactList}\small\item\em Circle for collision \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a80d38f6cc31168b3a10fad95396baa46}{check\+Collision}} (sf\+::\+Float\+Rect tile\+Rect)
+\begin{DoxyCompactList}\small\item\em Check the collision with a map tile \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a0f6f4bb800443551229331a68c3c3234}{increase\+Rotation}} ()
+\begin{DoxyCompactList}\small\item\em Increase the players rotation \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ad65092429c9fcb4d15f6af2591726b81}{decrease\+Rotation}} ()
+\begin{DoxyCompactList}\small\item\em Decrease the players rotation \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ab7bcb2b3c60dd8a86577ee3c488bc50a}{Set\+Speed}} (float s)
+\begin{DoxyCompactList}\small\item\em Set the speed value for the player \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a58c5d05acd71193708fb9e3f29c4f08c}{Increase\+Speed}} ()
+\begin{DoxyCompactList}\small\item\em Increase the player speed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a0fc0bbed0ac5c2a0e25136b3e83faae6}{Decrease\+Speed}} ()
+\begin{DoxyCompactList}\small\item\em Decrease the player speed \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_player_a23356f99a9de86d3d47eadb679b332dc}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Get the current position of the player \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_player_a63caffe9c0cbb3b776811ad45a545aa9}{get\+Speed}} ()
+\begin{DoxyCompactList}\small\item\em Get the current speed of the player \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_player_aa2890f51b31e33f439f6bd67092168f7}{get\+Rotation}} ()
+\begin{DoxyCompactList}\small\item\em Get the current rotation of the player \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a00aa77d7a95a64308cd5e1967b6aa5db}{Spawn\+Bullet}} ()
+\begin{DoxyCompactList}\small\item\em Create a new bullet and add it to the bullet vector \end{DoxyCompactList}\item 
+sf\+::\+Sprite \& \mbox{\hyperlink{class_player_a408134399497e07b0ba53e82d5c40958}{get\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Get the player sprite object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ad163355044810f54a774431682a1e0ea}{activate\+Shield}} ()
+\begin{DoxyCompactList}\small\item\em Activate the shield powerup \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a5f4304a0c7f0a12489a466d6ab44347d}{activate\+Speed\+Boost}} ()
+\begin{DoxyCompactList}\small\item\em Activate the speed boost powerup \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_abcb15d249bed9a4ab0ab86b52b0d747a}{get\+Health}} ()
+\begin{DoxyCompactList}\small\item\em Get the players current health \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_a8ac0829fa3a82b6aa8ce61d40891afed}{get\+Workers\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em Get the current amount of workers the player has \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a080378b41ec0a6b25496cf1664a9a676}{update\+Health}} (int amount)
+\begin{DoxyCompactList}\small\item\em Update the current health value of the player \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a1a6ae384266f1d99c9333a011d7259a5}{update\+Workers}} (int amount)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} $\ast$ $>$ \& \mbox{\hyperlink{class_player_a4ad45c4c8298531f45ebed48ce001373}{get\+Bullets}} ()
+\begin{DoxyCompactList}\small\item\em Get the bullet vector \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a1af5d39f7bac2aeaa1e30c7dda2332fa}{reset}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The player controlled character 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_player_a590f9fa9624d8734027fa2b290fa909e}\label{class_player_a590f9fa9624d8734027fa2b290fa909e}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})}
+
+
+
+Entity the user controls 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Spawn Position for the player\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_a749d2c00e1fe0f5c2746f7505a58c062}\label{class_player_a749d2c00e1fe0f5c2746f7505a58c062}} 
+\index{Player@{Player}!````~Player@{$\sim$Player}}
+\index{````~Player@{$\sim$Player}!Player@{Player}}
+\subsubsection{\texorpdfstring{$\sim$Player()}{~Player()}}
+{\footnotesize\ttfamily Player\+::$\sim$\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_player_ad163355044810f54a774431682a1e0ea}\label{class_player_ad163355044810f54a774431682a1e0ea}} 
+\index{Player@{Player}!activateShield@{activateShield}}
+\index{activateShield@{activateShield}!Player@{Player}}
+\subsubsection{\texorpdfstring{activateShield()}{activateShield()}}
+{\footnotesize\ttfamily void Player\+::activate\+Shield (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Activate the shield powerup 
+
+\mbox{\Hypertarget{class_player_a5f4304a0c7f0a12489a466d6ab44347d}\label{class_player_a5f4304a0c7f0a12489a466d6ab44347d}} 
+\index{Player@{Player}!activateSpeedBoost@{activateSpeedBoost}}
+\index{activateSpeedBoost@{activateSpeedBoost}!Player@{Player}}
+\subsubsection{\texorpdfstring{activateSpeedBoost()}{activateSpeedBoost()}}
+{\footnotesize\ttfamily void Player\+::activate\+Speed\+Boost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Activate the speed boost powerup 
+
+\mbox{\Hypertarget{class_player_a80d38f6cc31168b3a10fad95396baa46}\label{class_player_a80d38f6cc31168b3a10fad95396baa46}} 
+\index{Player@{Player}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!Player@{Player}}
+\subsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily void Player\+::check\+Collision (\begin{DoxyParamCaption}\item[{sf\+::\+Float\+Rect}]{tile\+Rect }\end{DoxyParamCaption})}
+
+
+
+Check the collision with a map tile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile\+Rect} & \mbox{\hyperlink{class_tile}{Tile}} to be checked\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_ad65092429c9fcb4d15f6af2591726b81}\label{class_player_ad65092429c9fcb4d15f6af2591726b81}} 
+\index{Player@{Player}!decreaseRotation@{decreaseRotation}}
+\index{decreaseRotation@{decreaseRotation}!Player@{Player}}
+\subsubsection{\texorpdfstring{decreaseRotation()}{decreaseRotation()}}
+{\footnotesize\ttfamily void Player\+::decrease\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Decrease the players rotation 
+
+\mbox{\Hypertarget{class_player_a0fc0bbed0ac5c2a0e25136b3e83faae6}\label{class_player_a0fc0bbed0ac5c2a0e25136b3e83faae6}} 
+\index{Player@{Player}!DecreaseSpeed@{DecreaseSpeed}}
+\index{DecreaseSpeed@{DecreaseSpeed}!Player@{Player}}
+\subsubsection{\texorpdfstring{DecreaseSpeed()}{DecreaseSpeed()}}
+{\footnotesize\ttfamily void Player\+::\+Decrease\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Decrease the player speed 
+
+\mbox{\Hypertarget{class_player_a4ad45c4c8298531f45ebed48ce001373}\label{class_player_a4ad45c4c8298531f45ebed48ce001373}} 
+\index{Player@{Player}!getBullets@{getBullets}}
+\index{getBullets@{getBullets}!Player@{Player}}
+\subsubsection{\texorpdfstring{getBullets()}{getBullets()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} $\ast$ $>$ \& Player\+::get\+Bullets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the bullet vector 
+
+\begin{DoxyReturn}{Returns}
+The vector of bullets
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_a961473d7916a7e8c47ae1752ba6498bc}\label{class_player_a961473d7916a7e8c47ae1752ba6498bc}} 
+\index{Player@{Player}!getCollisionCircle@{getCollisionCircle}}
+\index{getCollisionCircle@{getCollisionCircle}!Player@{Player}}
+\subsubsection{\texorpdfstring{getCollisionCircle()}{getCollisionCircle()}}
+{\footnotesize\ttfamily sf\+::\+Circle\+Shape Player\+::get\+Collision\+Circle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Circle for collision 
+
+\begin{DoxyReturn}{Returns}
+Collision Circle
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_abcb15d249bed9a4ab0ab86b52b0d747a}\label{class_player_abcb15d249bed9a4ab0ab86b52b0d747a}} 
+\index{Player@{Player}!getHealth@{getHealth}}
+\index{getHealth@{getHealth}!Player@{Player}}
+\subsubsection{\texorpdfstring{getHealth()}{getHealth()}}
+{\footnotesize\ttfamily int Player\+::get\+Health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the players current health 
+
+\begin{DoxyReturn}{Returns}
+The health of the player
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_a23356f99a9de86d3d47eadb679b332dc}\label{class_player_a23356f99a9de86d3d47eadb679b332dc}} 
+\index{Player@{Player}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Player@{Player}}
+\subsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Player\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the current position of the player 
+
+\begin{DoxyReturn}{Returns}
+the position of the player
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_aa2890f51b31e33f439f6bd67092168f7}\label{class_player_aa2890f51b31e33f439f6bd67092168f7}} 
+\index{Player@{Player}!getRotation@{getRotation}}
+\index{getRotation@{getRotation}!Player@{Player}}
+\subsubsection{\texorpdfstring{getRotation()}{getRotation()}}
+{\footnotesize\ttfamily float Player\+::get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the current rotation of the player 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_a63caffe9c0cbb3b776811ad45a545aa9}\label{class_player_a63caffe9c0cbb3b776811ad45a545aa9}} 
+\index{Player@{Player}!getSpeed@{getSpeed}}
+\index{getSpeed@{getSpeed}!Player@{Player}}
+\subsubsection{\texorpdfstring{getSpeed()}{getSpeed()}}
+{\footnotesize\ttfamily float Player\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the current speed of the player 
+
+\begin{DoxyReturn}{Returns}
+The speed of the player
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_a408134399497e07b0ba53e82d5c40958}\label{class_player_a408134399497e07b0ba53e82d5c40958}} 
+\index{Player@{Player}!getSprite@{getSprite}}
+\index{getSprite@{getSprite}!Player@{Player}}
+\subsubsection{\texorpdfstring{getSprite()}{getSprite()}}
+{\footnotesize\ttfamily sf\+::\+Sprite \& Player\+::get\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the player sprite object 
+
+\begin{DoxyReturn}{Returns}
+The sprite of the player
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_a8ac0829fa3a82b6aa8ce61d40891afed}\label{class_player_a8ac0829fa3a82b6aa8ce61d40891afed}} 
+\index{Player@{Player}!getWorkersAmount@{getWorkersAmount}}
+\index{getWorkersAmount@{getWorkersAmount}!Player@{Player}}
+\subsubsection{\texorpdfstring{getWorkersAmount()}{getWorkersAmount()}}
+{\footnotesize\ttfamily int Player\+::get\+Workers\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the current amount of workers the player has 
+
+\begin{DoxyReturn}{Returns}
+The number of workers
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_a0f6f4bb800443551229331a68c3c3234}\label{class_player_a0f6f4bb800443551229331a68c3c3234}} 
+\index{Player@{Player}!increaseRotation@{increaseRotation}}
+\index{increaseRotation@{increaseRotation}!Player@{Player}}
+\subsubsection{\texorpdfstring{increaseRotation()}{increaseRotation()}}
+{\footnotesize\ttfamily void Player\+::increase\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Increase the players rotation 
+
+\mbox{\Hypertarget{class_player_a58c5d05acd71193708fb9e3f29c4f08c}\label{class_player_a58c5d05acd71193708fb9e3f29c4f08c}} 
+\index{Player@{Player}!IncreaseSpeed@{IncreaseSpeed}}
+\index{IncreaseSpeed@{IncreaseSpeed}!Player@{Player}}
+\subsubsection{\texorpdfstring{IncreaseSpeed()}{IncreaseSpeed()}}
+{\footnotesize\ttfamily void Player\+::\+Increase\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Increase the player speed 
+
+\mbox{\Hypertarget{class_player_a53938857e80374e79726309e78d1c15c}\label{class_player_a53938857e80374e79726309e78d1c15c}} 
+\index{Player@{Player}!render@{render}}
+\index{render@{render}!Player@{Player}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Player\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Draw function for the player and its shield powerup 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Render\+Window for drawing to the screen\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_a1af5d39f7bac2aeaa1e30c7dda2332fa}\label{class_player_a1af5d39f7bac2aeaa1e30c7dda2332fa}} 
+\index{Player@{Player}!reset@{reset}}
+\index{reset@{reset}!Player@{Player}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Player\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_player_ab7bcb2b3c60dd8a86577ee3c488bc50a}\label{class_player_ab7bcb2b3c60dd8a86577ee3c488bc50a}} 
+\index{Player@{Player}!SetSpeed@{SetSpeed}}
+\index{SetSpeed@{SetSpeed}!Player@{Player}}
+\subsubsection{\texorpdfstring{SetSpeed()}{SetSpeed()}}
+{\footnotesize\ttfamily void Player\+::\+Set\+Speed (\begin{DoxyParamCaption}\item[{float}]{s }\end{DoxyParamCaption})}
+
+
+
+Set the speed value for the player 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The value to set speed to\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_a00aa77d7a95a64308cd5e1967b6aa5db}\label{class_player_a00aa77d7a95a64308cd5e1967b6aa5db}} 
+\index{Player@{Player}!SpawnBullet@{SpawnBullet}}
+\index{SpawnBullet@{SpawnBullet}!Player@{Player}}
+\subsubsection{\texorpdfstring{SpawnBullet()}{SpawnBullet()}}
+{\footnotesize\ttfamily void Player\+::\+Spawn\+Bullet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a new bullet and add it to the bullet vector 
+
+\mbox{\Hypertarget{class_player_aef595f7b4ef7419815b79e80ea0ea0b8}\label{class_player_aef595f7b4ef7419815b79e80ea0ea0b8}} 
+\index{Player@{Player}!update@{update}}
+\index{update@{update}!Player@{Player}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Player\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{dt }\end{DoxyParamCaption})}
+
+
+
+Update loop for the player 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Deltatime\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_a080378b41ec0a6b25496cf1664a9a676}\label{class_player_a080378b41ec0a6b25496cf1664a9a676}} 
+\index{Player@{Player}!updateHealth@{updateHealth}}
+\index{updateHealth@{updateHealth}!Player@{Player}}
+\subsubsection{\texorpdfstring{updateHealth()}{updateHealth()}}
+{\footnotesize\ttfamily void Player\+::update\+Health (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})}
+
+
+
+Update the current health value of the player 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount of health to be added or taken away\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_a1a6ae384266f1d99c9333a011d7259a5}\label{class_player_a1a6ae384266f1d99c9333a011d7259a5}} 
+\index{Player@{Player}!updateWorkers@{updateWorkers}}
+\index{updateWorkers@{updateWorkers}!Player@{Player}}
+\subsubsection{\texorpdfstring{updateWorkers()}{updateWorkers()}}
+{\footnotesize\ttfamily void Player\+::update\+Workers (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_player_8h}{Player.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}

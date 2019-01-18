@@ -1,0 +1,250 @@
+\hypertarget{class_button}{}\section{Button Class Reference}
+\label{class_button}\index{Button@{Button}}
+
+
+{\ttfamily \#include $<$Button.\+h$>$}
+
+Inheritance diagram for Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_button}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_button_acb1ad9758a91672b28c6dfc58f7412ba}{Button}} (std\+::string s, float x, float y)
+\item 
+\mbox{\hyperlink{class_button_a5cb3870eebc02523605b4ed4c1f8fbca}{Button}} (std\+::string s, float x, float y, int size)
+\item 
+\mbox{\hyperlink{class_button_a6213f9c96a0bc254c433702c67fea2ca}{Button}} (std\+::string s, float x, float y, sf\+::\+Color color, std\+::string tag)
+\item 
+\mbox{\hyperlink{class_button_a2a001eb9c3cc8ae54768a850dd345002}{$\sim$\+Button}} ()
+\item 
+void \mbox{\hyperlink{class_button_afe48c308771dd21dfa1539e930ca60b9}{get\+Focus}} () override
+\item 
+void \mbox{\hyperlink{class_button_a3b3550244cdb94552631a4582f4d0120}{lose\+Focus}} () override
+\item 
+bool \mbox{\hyperlink{class_button_a73a90ae2e4101b7d28d24c1c8ec905db}{check\+Focus}} () override
+\item 
+void \mbox{\hyperlink{class_button_abda97f1ae8e081da3dbd0b77a27cad9d}{update}} () override
+\item 
+void \mbox{\hyperlink{class_button_a57937c3a08fac52fede0362b8ee6c39e}{draw}} (sf\+::\+Render\+Window \&window) override
+\item 
+void \mbox{\hyperlink{class_button_a16df47cdbf999b65b5c9965650970f12}{set\+Rect\+Color}} (sf\+::\+Color color)
+\item 
+void \mbox{\hyperlink{class_button_ad0356a9996631f350fee4a02c66a4cf5}{end\+Anim}} ()
+\item 
+void \mbox{\hyperlink{class_button_a21ed9f803ceeef9c846191f2ed26a2f3}{change\+Text\+Size}} (int size)
+\item 
+void \mbox{\hyperlink{class_button_a5e814220d9d44922eedded14d5511493}{update\+Position}} (sf\+::\+Vector2f pos)
+\item 
+void \mbox{\hyperlink{class_button_a2b0211c37e877b51695b62a680b1d82a}{update\+Focus\+Color}} (sf\+::\+Color col)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_button_afdd56b2e0647467f01aa57e4fc2740a5}{m\+\_\+rect}}
+\item 
+bool \mbox{\hyperlink{class_button_a209498deead9cc94c21a79416938268a}{m\+\_\+has\+Focus}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{class_button_a40795cda9f045088af44fda67977722a}{m\+\_\+font}}
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_button_adcd0e53c0712aed48b7bd29d33eacf5b}{m\+\_\+text}}
+\item 
+float \mbox{\hyperlink{class_button_a861c3c732eccf933239c65a1b022e2e8}{posX}}
+\item 
+float \mbox{\hyperlink{class_button_ad3067b686215a74985c0b39fbb78972f}{posY}}
+\item 
+sf\+::\+Color \mbox{\hyperlink{class_button_aafa8a827288ccc7413b4e94124dba2a1}{focus\+Color}}
+\item 
+float \mbox{\hyperlink{class_button_acdb4c06383a37922c645c597f8597ab1}{scale}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_button_acb1ad9758a91672b28c6dfc58f7412ba}\label{class_button_acb1ad9758a91672b28c6dfc58f7412ba}} 
+\index{Button@{Button}!Button@{Button}}
+\index{Button@{Button}!Button@{Button}}
+\subsubsection{\texorpdfstring{Button()}{Button()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Button\+::\+Button (\begin{DoxyParamCaption}\item[{std\+::string}]{s = {\ttfamily \char`\"{}\char`\"{}},  }\item[{float}]{x = {\ttfamily 0},  }\item[{float}]{y = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_button_a5cb3870eebc02523605b4ed4c1f8fbca}\label{class_button_a5cb3870eebc02523605b4ed4c1f8fbca}} 
+\index{Button@{Button}!Button@{Button}}
+\index{Button@{Button}!Button@{Button}}
+\subsubsection{\texorpdfstring{Button()}{Button()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Button\+::\+Button (\begin{DoxyParamCaption}\item[{std\+::string}]{s,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_button_a6213f9c96a0bc254c433702c67fea2ca}\label{class_button_a6213f9c96a0bc254c433702c67fea2ca}} 
+\index{Button@{Button}!Button@{Button}}
+\index{Button@{Button}!Button@{Button}}
+\subsubsection{\texorpdfstring{Button()}{Button()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Button\+::\+Button (\begin{DoxyParamCaption}\item[{std\+::string}]{s,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{sf\+::\+Color}]{color,  }\item[{std\+::string}]{tag }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_button_a2a001eb9c3cc8ae54768a850dd345002}\label{class_button_a2a001eb9c3cc8ae54768a850dd345002}} 
+\index{Button@{Button}!````~Button@{$\sim$Button}}
+\index{````~Button@{$\sim$Button}!Button@{Button}}
+\subsubsection{\texorpdfstring{$\sim$Button()}{~Button()}}
+{\footnotesize\ttfamily Button\+::$\sim$\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_button_a21ed9f803ceeef9c846191f2ed26a2f3}\label{class_button_a21ed9f803ceeef9c846191f2ed26a2f3}} 
+\index{Button@{Button}!changeTextSize@{changeTextSize}}
+\index{changeTextSize@{changeTextSize}!Button@{Button}}
+\subsubsection{\texorpdfstring{changeTextSize()}{changeTextSize()}}
+{\footnotesize\ttfamily void Button\+::change\+Text\+Size (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a958763d528cd422de5f248d83530f68b}{Widget}}.
+
+\mbox{\Hypertarget{class_button_a73a90ae2e4101b7d28d24c1c8ec905db}\label{class_button_a73a90ae2e4101b7d28d24c1c8ec905db}} 
+\index{Button@{Button}!checkFocus@{checkFocus}}
+\index{checkFocus@{checkFocus}!Button@{Button}}
+\subsubsection{\texorpdfstring{checkFocus()}{checkFocus()}}
+{\footnotesize\ttfamily bool Button\+::check\+Focus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_ac8121758d9fcfedb4ff119abeb7d0652}{Widget}}.
+
+\mbox{\Hypertarget{class_button_a57937c3a08fac52fede0362b8ee6c39e}\label{class_button_a57937c3a08fac52fede0362b8ee6c39e}} 
+\index{Button@{Button}!draw@{draw}}
+\index{draw@{draw}!Button@{Button}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Button\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_ae33a60123dee736ad8ece7277711f3d4}{Widget}}.
+
+\mbox{\Hypertarget{class_button_ad0356a9996631f350fee4a02c66a4cf5}\label{class_button_ad0356a9996631f350fee4a02c66a4cf5}} 
+\index{Button@{Button}!endAnim@{endAnim}}
+\index{endAnim@{endAnim}!Button@{Button}}
+\subsubsection{\texorpdfstring{endAnim()}{endAnim()}}
+{\footnotesize\ttfamily void Button\+::end\+Anim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_abbbedd98778706d6a7cfe2ecf27413fb}{Widget}}.
+
+\mbox{\Hypertarget{class_button_afe48c308771dd21dfa1539e930ca60b9}\label{class_button_afe48c308771dd21dfa1539e930ca60b9}} 
+\index{Button@{Button}!getFocus@{getFocus}}
+\index{getFocus@{getFocus}!Button@{Button}}
+\subsubsection{\texorpdfstring{getFocus()}{getFocus()}}
+{\footnotesize\ttfamily void Button\+::get\+Focus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a546c3b96bd793596c4902b4df0c41272}{Widget}}.
+
+\mbox{\Hypertarget{class_button_a3b3550244cdb94552631a4582f4d0120}\label{class_button_a3b3550244cdb94552631a4582f4d0120}} 
+\index{Button@{Button}!loseFocus@{loseFocus}}
+\index{loseFocus@{loseFocus}!Button@{Button}}
+\subsubsection{\texorpdfstring{loseFocus()}{loseFocus()}}
+{\footnotesize\ttfamily void Button\+::lose\+Focus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a038576de7f1adf6b29f3ebfd3515f13f}{Widget}}.
+
+\mbox{\Hypertarget{class_button_a16df47cdbf999b65b5c9965650970f12}\label{class_button_a16df47cdbf999b65b5c9965650970f12}} 
+\index{Button@{Button}!setRectColor@{setRectColor}}
+\index{setRectColor@{setRectColor}!Button@{Button}}
+\subsubsection{\texorpdfstring{setRectColor()}{setRectColor()}}
+{\footnotesize\ttfamily void Button\+::set\+Rect\+Color (\begin{DoxyParamCaption}\item[{sf\+::\+Color}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a44295ab8e8a07e8206790dd6b317d2fe}{Widget}}.
+
+\mbox{\Hypertarget{class_button_abda97f1ae8e081da3dbd0b77a27cad9d}\label{class_button_abda97f1ae8e081da3dbd0b77a27cad9d}} 
+\index{Button@{Button}!update@{update}}
+\index{update@{update}!Button@{Button}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Button\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a38aacc92bda1a1e91052873a4a955487}{Widget}}.
+
+\mbox{\Hypertarget{class_button_a2b0211c37e877b51695b62a680b1d82a}\label{class_button_a2b0211c37e877b51695b62a680b1d82a}} 
+\index{Button@{Button}!updateFocusColor@{updateFocusColor}}
+\index{updateFocusColor@{updateFocusColor}!Button@{Button}}
+\subsubsection{\texorpdfstring{updateFocusColor()}{updateFocusColor()}}
+{\footnotesize\ttfamily void Button\+::update\+Focus\+Color (\begin{DoxyParamCaption}\item[{sf\+::\+Color}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_aef48b79ed822a3ad4e5a2b719e57f350}{Widget}}.
+
+\mbox{\Hypertarget{class_button_a5e814220d9d44922eedded14d5511493}\label{class_button_a5e814220d9d44922eedded14d5511493}} 
+\index{Button@{Button}!updatePosition@{updatePosition}}
+\index{updatePosition@{updatePosition}!Button@{Button}}
+\subsubsection{\texorpdfstring{updatePosition()}{updatePosition()}}
+{\footnotesize\ttfamily void Button\+::update\+Position (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a49b72dfbd65f07a616d6e33b04675b9a}{Widget}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_button_aafa8a827288ccc7413b4e94124dba2a1}\label{class_button_aafa8a827288ccc7413b4e94124dba2a1}} 
+\index{Button@{Button}!focusColor@{focusColor}}
+\index{focusColor@{focusColor}!Button@{Button}}
+\subsubsection{\texorpdfstring{focusColor}{focusColor}}
+{\footnotesize\ttfamily sf\+::\+Color Button\+::focus\+Color\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_button_a40795cda9f045088af44fda67977722a}\label{class_button_a40795cda9f045088af44fda67977722a}} 
+\index{Button@{Button}!m\_font@{m\_font}}
+\index{m\_font@{m\_font}!Button@{Button}}
+\subsubsection{\texorpdfstring{m\_font}{m\_font}}
+{\footnotesize\ttfamily sf\+::\+Font Button\+::m\+\_\+font\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_button_a209498deead9cc94c21a79416938268a}\label{class_button_a209498deead9cc94c21a79416938268a}} 
+\index{Button@{Button}!m\_hasFocus@{m\_hasFocus}}
+\index{m\_hasFocus@{m\_hasFocus}!Button@{Button}}
+\subsubsection{\texorpdfstring{m\_hasFocus}{m\_hasFocus}}
+{\footnotesize\ttfamily bool Button\+::m\+\_\+has\+Focus\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_button_afdd56b2e0647467f01aa57e4fc2740a5}\label{class_button_afdd56b2e0647467f01aa57e4fc2740a5}} 
+\index{Button@{Button}!m\_rect@{m\_rect}}
+\index{m\_rect@{m\_rect}!Button@{Button}}
+\subsubsection{\texorpdfstring{m\_rect}{m\_rect}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape Button\+::m\+\_\+rect\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_button_adcd0e53c0712aed48b7bd29d33eacf5b}\label{class_button_adcd0e53c0712aed48b7bd29d33eacf5b}} 
+\index{Button@{Button}!m\_text@{m\_text}}
+\index{m\_text@{m\_text}!Button@{Button}}
+\subsubsection{\texorpdfstring{m\_text}{m\_text}}
+{\footnotesize\ttfamily sf\+::\+Text Button\+::m\+\_\+text\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_button_a861c3c732eccf933239c65a1b022e2e8}\label{class_button_a861c3c732eccf933239c65a1b022e2e8}} 
+\index{Button@{Button}!posX@{posX}}
+\index{posX@{posX}!Button@{Button}}
+\subsubsection{\texorpdfstring{posX}{posX}}
+{\footnotesize\ttfamily float Button\+::posX\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_button_ad3067b686215a74985c0b39fbb78972f}\label{class_button_ad3067b686215a74985c0b39fbb78972f}} 
+\index{Button@{Button}!posY@{posY}}
+\index{posY@{posY}!Button@{Button}}
+\subsubsection{\texorpdfstring{posY}{posY}}
+{\footnotesize\ttfamily float Button\+::posY\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_button_acdb4c06383a37922c645c597f8597ab1}\label{class_button_acdb4c06383a37922c645c597f8597ab1}} 
+\index{Button@{Button}!scale@{scale}}
+\index{scale@{scale}!Button@{Button}}
+\subsubsection{\texorpdfstring{scale}{scale}}
+{\footnotesize\ttfamily float Button\+::scale\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_button_8h}{Button.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_button_8cpp}{Button.\+cpp}}\end{DoxyCompactItemize}

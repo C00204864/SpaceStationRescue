@@ -1,0 +1,151 @@
+\hypertarget{class_world}{}\section{World Class Reference}
+\label{class_world}\index{World@{World}}
+
+
+{\ttfamily \#include $<$World.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_world_a17361a1afdbe590b713a9704244a6d57}{World}} (std\+::string load\+File\+Path, int width, int height, \mbox{\hyperlink{class_player}{Player}} \&player\+In)
+\begin{DoxyCompactList}\small\item\em Constructor Function for \mbox{\hyperlink{class_world}{World}} class \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_world_a8c73fba541a5817fff65147ba47cd827}{$\sim$\+World}} ()
+\begin{DoxyCompactList}\small\item\em Destructor function for the world class \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_aef1be6281463d26f71eec97cb233060d}{reset}} (std\+::string load\+File\+Path)
+\item 
+void \mbox{\hyperlink{class_world_a1c49801c5b871dae1a2713cd146c703a}{load}} (std\+::string load\+File\+Path)
+\item 
+void \mbox{\hyperlink{class_world_a26a44f3778d66147edf6636472c166ba}{update}} (float dt)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_world}{World}} update function, used to check collisions and update the pathfinding flow field \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a6be69ff54f7f29713c0954cabe34aecc}{render}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_world}{World}} render function usd to draw the tiles, handles tile culling also \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_world_a889fd51cb49ca2bf86a00e521f51bc4f}{get\+Tile\+Pointer}} (int x\+Index, int y\+Index)
+\begin{DoxyCompactList}\small\item\em Function gets a pointer to particular tile \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_world_abd388a26fed82873afb8ffcf4e44540a}{get\+Tile\+Width}} ()
+\begin{DoxyCompactList}\small\item\em Function used to get the width of all tiles (tiles have a cpommon width) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_world_a5497532bf3e6e8db8632c653c53507cb}{get\+Alive\+Nests}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_world_a17361a1afdbe590b713a9704244a6d57}\label{class_world_a17361a1afdbe590b713a9704244a6d57}} 
+\index{World@{World}!World@{World}}
+\index{World@{World}!World@{World}}
+\subsubsection{\texorpdfstring{World()}{World()}}
+{\footnotesize\ttfamily World\+::\+World (\begin{DoxyParamCaption}\item[{std\+::string}]{load\+File\+Path,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{player\+In }\end{DoxyParamCaption})}
+
+
+
+Constructor Function for \mbox{\hyperlink{class_world}{World}} class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em load\+File\+Path} & File path to be used for loading the level\\
+\hline
+{\em width} & Width of the world in tiles\\
+\hline
+{\em height} & Height of the world in tiles\\
+\hline
+{\em player\+In} & Reference to the player\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_world_a8c73fba541a5817fff65147ba47cd827}\label{class_world_a8c73fba541a5817fff65147ba47cd827}} 
+\index{World@{World}!````~World@{$\sim$World}}
+\index{````~World@{$\sim$World}!World@{World}}
+\subsubsection{\texorpdfstring{$\sim$World()}{~World()}}
+{\footnotesize\ttfamily World\+::$\sim$\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor function for the world class 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_world_a5497532bf3e6e8db8632c653c53507cb}\label{class_world_a5497532bf3e6e8db8632c653c53507cb}} 
+\index{World@{World}!getAliveNests@{getAliveNests}}
+\index{getAliveNests@{getAliveNests}!World@{World}}
+\subsubsection{\texorpdfstring{getAliveNests()}{getAliveNests()}}
+{\footnotesize\ttfamily int World\+::get\+Alive\+Nests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_a889fd51cb49ca2bf86a00e521f51bc4f}\label{class_world_a889fd51cb49ca2bf86a00e521f51bc4f}} 
+\index{World@{World}!getTilePointer@{getTilePointer}}
+\index{getTilePointer@{getTilePointer}!World@{World}}
+\subsubsection{\texorpdfstring{getTilePointer()}{getTilePointer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tile}{Tile}} $\ast$ World\+::get\+Tile\+Pointer (\begin{DoxyParamCaption}\item[{int}]{x\+Index,  }\item[{int}]{y\+Index }\end{DoxyParamCaption})}
+
+
+
+Function gets a pointer to particular tile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Index} & X index of the desired tile\\
+\hline
+{\em y\+Index} & Y index of the desired tile\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the tile specified by x\+Index and y\+Index
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_world_abd388a26fed82873afb8ffcf4e44540a}\label{class_world_abd388a26fed82873afb8ffcf4e44540a}} 
+\index{World@{World}!getTileWidth@{getTileWidth}}
+\index{getTileWidth@{getTileWidth}!World@{World}}
+\subsubsection{\texorpdfstring{getTileWidth()}{getTileWidth()}}
+{\footnotesize\ttfamily int World\+::get\+Tile\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function used to get the width of all tiles (tiles have a cpommon width) 
+
+\begin{DoxyReturn}{Returns}
+The length of the side of a tile
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_world_a1c49801c5b871dae1a2713cd146c703a}\label{class_world_a1c49801c5b871dae1a2713cd146c703a}} 
+\index{World@{World}!load@{load}}
+\index{load@{load}!World@{World}}
+\subsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void World\+::load (\begin{DoxyParamCaption}\item[{std\+::string}]{load\+File\+Path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_a6be69ff54f7f29713c0954cabe34aecc}\label{class_world_a6be69ff54f7f29713c0954cabe34aecc}} 
+\index{World@{World}!render@{render}}
+\index{render@{render}!World@{World}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void World\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_world}{World}} render function usd to draw the tiles, handles tile culling also 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Reference to the Render\+Window being used\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_world_aef1be6281463d26f71eec97cb233060d}\label{class_world_aef1be6281463d26f71eec97cb233060d}} 
+\index{World@{World}!reset@{reset}}
+\index{reset@{reset}!World@{World}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void World\+::reset (\begin{DoxyParamCaption}\item[{std\+::string}]{load\+File\+Path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_a26a44f3778d66147edf6636472c166ba}\label{class_world_a26a44f3778d66147edf6636472c166ba}} 
+\index{World@{World}!update@{update}}
+\index{update@{update}!World@{World}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void World\+::update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_world}{World}} update function, used to check collisions and update the pathfinding flow field 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & delta time since the last update\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_world_8h}{World.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_world_8cpp}{World.\+cpp}}\end{DoxyCompactItemize}

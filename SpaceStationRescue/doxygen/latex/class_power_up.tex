@@ -1,0 +1,133 @@
+\hypertarget{class_power_up}{}\section{Power\+Up Class Reference}
+\label{class_power_up}\index{PowerUp@{PowerUp}}
+
+
+{\ttfamily \#include $<$Power\+Up.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_power_up_ab2f472d987cbfb8bd72374175ed9b967}{Power\+Up}} (sf\+::\+Vector2f position, \mbox{\hyperlink{_power_up_8h_a0d0e3226055ad5266e487b58fd01cebd}{Power\+Type}} type)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_power_up}{Power\+Up}} constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_power_up_a353053fe27c5a148a2fcd4f5f45e19af}{$\sim$\+Power\+Up}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_power_up_ab96271d08f69d68d022a758836f3c5cd}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update loop for powerup \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_power_up_a79c505ad6dbc8aedeadb7e77a2302503}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draw loop for the Powerup \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_power_up_ab180aaeba2853c15b12df7f0a84f9801}{collision\+Check}} (sf\+::\+Sprite sprite)
+\begin{DoxyCompactList}\small\item\em Check the collision of the parameter sprite \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_power_up_a9cf6bf9fc2727b2ca534b556f2ef062f}{set\+Alive}} (bool b)
+\begin{DoxyCompactList}\small\item\em Alive status for powerup \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_power_up_8h_a0d0e3226055ad5266e487b58fd01cebd}{Power\+Type}} \mbox{\hyperlink{class_power_up_aa59543dd76b1d7e2bd7caccb9c7e954d}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Get the Type of the powerup \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_power_up_ab2f472d987cbfb8bd72374175ed9b967}\label{class_power_up_ab2f472d987cbfb8bd72374175ed9b967}} 
+\index{PowerUp@{PowerUp}!PowerUp@{PowerUp}}
+\index{PowerUp@{PowerUp}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{PowerUp()}{PowerUp()}}
+{\footnotesize\ttfamily Power\+Up\+::\+Power\+Up (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{position,  }\item[{\mbox{\hyperlink{_power_up_8h_a0d0e3226055ad5266e487b58fd01cebd}{Power\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_power_up}{Power\+Up}} constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Position to spawn at\\
+\hline
+{\em type} & type of powerup to spawn as\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_power_up_a353053fe27c5a148a2fcd4f5f45e19af}\label{class_power_up_a353053fe27c5a148a2fcd4f5f45e19af}} 
+\index{PowerUp@{PowerUp}!````~PowerUp@{$\sim$PowerUp}}
+\index{````~PowerUp@{$\sim$PowerUp}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{$\sim$PowerUp()}{~PowerUp()}}
+{\footnotesize\ttfamily Power\+Up\+::$\sim$\+Power\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+destructor 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_power_up_ab180aaeba2853c15b12df7f0a84f9801}\label{class_power_up_ab180aaeba2853c15b12df7f0a84f9801}} 
+\index{PowerUp@{PowerUp}!collisionCheck@{collisionCheck}}
+\index{collisionCheck@{collisionCheck}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{collisionCheck()}{collisionCheck()}}
+{\footnotesize\ttfamily bool Power\+Up\+::collision\+Check (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite}]{sprite }\end{DoxyParamCaption})}
+
+
+
+Check the collision of the parameter sprite 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & Sprite to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool for if a collision happened
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_power_up_a79c505ad6dbc8aedeadb7e77a2302503}\label{class_power_up_a79c505ad6dbc8aedeadb7e77a2302503}} 
+\index{PowerUp@{PowerUp}!draw@{draw}}
+\index{draw@{draw}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Power\+Up\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Draw loop for the Powerup 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Window for drawing the powerup\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_power_up_aa59543dd76b1d7e2bd7caccb9c7e954d}\label{class_power_up_aa59543dd76b1d7e2bd7caccb9c7e954d}} 
+\index{PowerUp@{PowerUp}!getType@{getType}}
+\index{getType@{getType}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_power_up_8h_a0d0e3226055ad5266e487b58fd01cebd}{Power\+Type}} Power\+Up\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Type of the powerup 
+
+\begin{DoxyReturn}{Returns}
+The type of the powerup
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_power_up_a9cf6bf9fc2727b2ca534b556f2ef062f}\label{class_power_up_a9cf6bf9fc2727b2ca534b556f2ef062f}} 
+\index{PowerUp@{PowerUp}!setAlive@{setAlive}}
+\index{setAlive@{setAlive}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{setAlive()}{setAlive()}}
+{\footnotesize\ttfamily void Power\+Up\+::set\+Alive (\begin{DoxyParamCaption}\item[{bool}]{b }\end{DoxyParamCaption})}
+
+
+
+Alive status for powerup 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & bool for if alive or not\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_power_up_ab96271d08f69d68d022a758836f3c5cd}\label{class_power_up_ab96271d08f69d68d022a758836f3c5cd}} 
+\index{PowerUp@{PowerUp}!update@{update}}
+\index{update@{update}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Power\+Up\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update loop for powerup 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_power_up_8h}{Power\+Up.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_power_up_8cpp}{Power\+Up.\+cpp}}\end{DoxyCompactItemize}

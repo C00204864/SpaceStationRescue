@@ -1,16 +1,5 @@
 #include"Slider.h"
 
-/// <summary>
-/// @mainpage Joint Project - 2D racing game.
-#include"Slider.h"
-
-/*
-Created By: Michael Bridgette & David O'Gorman
-Date: 02/03/2017
-Hours Spent: ~15hours
-Summary: A simple sfml game with menu, options that use the common UI elements
-*/
-
 //slider ui element
 Slider::Slider(float x, float y, float &value, std::string s, float valueChange) :
 	Widget()

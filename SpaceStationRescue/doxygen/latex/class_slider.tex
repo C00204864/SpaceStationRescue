@@ -1,0 +1,132 @@
+\hypertarget{class_slider}{}\section{Slider Class Reference}
+\label{class_slider}\index{Slider@{Slider}}
+
+
+{\ttfamily \#include $<$Slider.\+h$>$}
+
+Inheritance diagram for Slider\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_slider}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_slider_a5c41dd3b21735a54ae5d94090bcdcae4}{Slider}} (float x, float y, float \&value, std\+::string s, float value\+Change)
+\item 
+void \mbox{\hyperlink{class_slider_aacedd16fdfd8b44067e0c8fd5b908b69}{get\+Focus}} () override
+\item 
+void \mbox{\hyperlink{class_slider_aae708de41200e777a10c9cc6d9834ce5}{lose\+Focus}} () override
+\item 
+bool \mbox{\hyperlink{class_slider_ab81e90562123cacd8f624b326b9b3f3e}{check\+Focus}} () override
+\item 
+void \mbox{\hyperlink{class_slider_a4ebd527db54ea263c7d0efe4d1f94e1b}{update}} () override
+\item 
+void \mbox{\hyperlink{class_slider_a8d2355aa14e267385d7d0f79300ffc6b}{draw}} (sf\+::\+Render\+Window \&window) override
+\item 
+int \mbox{\hyperlink{class_slider_a9e72ef47f0b78846d776aa75caa4113d}{get\+Value}} ()
+\item 
+void \mbox{\hyperlink{class_slider_a43bb29d29c19b4f0838462a18896660c}{increase\+Value}} ()
+\item 
+void \mbox{\hyperlink{class_slider_ae8bf6bef11bae69bc6a01276b6ad7ddd}{decrease\+Value}} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_slider_a5c41dd3b21735a54ae5d94090bcdcae4}\label{class_slider_a5c41dd3b21735a54ae5d94090bcdcae4}} 
+\index{Slider@{Slider}!Slider@{Slider}}
+\index{Slider@{Slider}!Slider@{Slider}}
+\subsubsection{\texorpdfstring{Slider()}{Slider()}}
+{\footnotesize\ttfamily Slider\+::\+Slider (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float \&}]{value,  }\item[{std\+::string}]{s,  }\item[{float}]{value\+Change }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_slider_ab81e90562123cacd8f624b326b9b3f3e}\label{class_slider_ab81e90562123cacd8f624b326b9b3f3e}} 
+\index{Slider@{Slider}!checkFocus@{checkFocus}}
+\index{checkFocus@{checkFocus}!Slider@{Slider}}
+\subsubsection{\texorpdfstring{checkFocus()}{checkFocus()}}
+{\footnotesize\ttfamily bool Slider\+::check\+Focus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_ac8121758d9fcfedb4ff119abeb7d0652}{Widget}}.
+
+\mbox{\Hypertarget{class_slider_ae8bf6bef11bae69bc6a01276b6ad7ddd}\label{class_slider_ae8bf6bef11bae69bc6a01276b6ad7ddd}} 
+\index{Slider@{Slider}!decreaseValue@{decreaseValue}}
+\index{decreaseValue@{decreaseValue}!Slider@{Slider}}
+\subsubsection{\texorpdfstring{decreaseValue()}{decreaseValue()}}
+{\footnotesize\ttfamily void Slider\+::decrease\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a1e265a65e224ff231f98dfd490c08c3c}{Widget}}.
+
+\mbox{\Hypertarget{class_slider_a8d2355aa14e267385d7d0f79300ffc6b}\label{class_slider_a8d2355aa14e267385d7d0f79300ffc6b}} 
+\index{Slider@{Slider}!draw@{draw}}
+\index{draw@{draw}!Slider@{Slider}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Slider\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_ae33a60123dee736ad8ece7277711f3d4}{Widget}}.
+
+\mbox{\Hypertarget{class_slider_aacedd16fdfd8b44067e0c8fd5b908b69}\label{class_slider_aacedd16fdfd8b44067e0c8fd5b908b69}} 
+\index{Slider@{Slider}!getFocus@{getFocus}}
+\index{getFocus@{getFocus}!Slider@{Slider}}
+\subsubsection{\texorpdfstring{getFocus()}{getFocus()}}
+{\footnotesize\ttfamily void Slider\+::get\+Focus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a546c3b96bd793596c4902b4df0c41272}{Widget}}.
+
+\mbox{\Hypertarget{class_slider_a9e72ef47f0b78846d776aa75caa4113d}\label{class_slider_a9e72ef47f0b78846d776aa75caa4113d}} 
+\index{Slider@{Slider}!getValue@{getValue}}
+\index{getValue@{getValue}!Slider@{Slider}}
+\subsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily int Slider\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a3b53c2690d2b33fceb73e9059458480f}{Widget}}.
+
+\mbox{\Hypertarget{class_slider_a43bb29d29c19b4f0838462a18896660c}\label{class_slider_a43bb29d29c19b4f0838462a18896660c}} 
+\index{Slider@{Slider}!increaseValue@{increaseValue}}
+\index{increaseValue@{increaseValue}!Slider@{Slider}}
+\subsubsection{\texorpdfstring{increaseValue()}{increaseValue()}}
+{\footnotesize\ttfamily void Slider\+::increase\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a4d4df2961aeaa579ef511a546e6276c5}{Widget}}.
+
+\mbox{\Hypertarget{class_slider_aae708de41200e777a10c9cc6d9834ce5}\label{class_slider_aae708de41200e777a10c9cc6d9834ce5}} 
+\index{Slider@{Slider}!loseFocus@{loseFocus}}
+\index{loseFocus@{loseFocus}!Slider@{Slider}}
+\subsubsection{\texorpdfstring{loseFocus()}{loseFocus()}}
+{\footnotesize\ttfamily void Slider\+::lose\+Focus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a038576de7f1adf6b29f3ebfd3515f13f}{Widget}}.
+
+\mbox{\Hypertarget{class_slider_a4ebd527db54ea263c7d0efe4d1f94e1b}\label{class_slider_a4ebd527db54ea263c7d0efe4d1f94e1b}} 
+\index{Slider@{Slider}!update@{update}}
+\index{update@{update}!Slider@{Slider}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Slider\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a38aacc92bda1a1e91052873a4a955487}{Widget}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_slider_8h}{Slider.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_slider_8cpp}{Slider.\+cpp}}\end{DoxyCompactItemize}

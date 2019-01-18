@@ -1,0 +1,101 @@
+\hypertarget{class_predator}{}\section{Predator Class Reference}
+\label{class_predator}\index{Predator@{Predator}}
+
+
+{\ttfamily \#include $<$Predator.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_predator_a0833aeac8e72233831677cc54b61c66f}{Predator}} (\mbox{\hyperlink{class_world}{World}} $\ast$world, \mbox{\hyperlink{class_player}{Player}} \&player)
+\item 
+\mbox{\hyperlink{class_predator_a9ef1a4a3a5988d1d1e5844a235b36b8b}{$\sim$\+Predator}} ()
+\item 
+void \mbox{\hyperlink{class_predator_a596b6e0c600560d7c3dc1bb0bf063f87}{reset}} (sf\+::\+Vector2f position)
+\item 
+void \mbox{\hyperlink{class_predator_a830de5346a893f15b76de907f798138a}{explode}} ()
+\item 
+void \mbox{\hyperlink{class_predator_a7070e47073a2a8f110b31d9cba00b35b}{update}} (float dt)
+\item 
+void \mbox{\hyperlink{class_predator_acf84bdda5a2ad7120ae182fbeac59516}{render}} (sf\+::\+Render\+Window \&window)
+\item 
+bool \mbox{\hyperlink{class_predator_a122ff47e06dce6c782a4ea66b85e5566}{is\+Alive}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_predator_aedebee8eb0a1f05ae209a44a014b3e97}{get\+Position}} ()
+\item 
+void \mbox{\hyperlink{class_predator_a7d1936de3c5d73264546002beecc4923}{seek}} (sf\+::\+Vector2f pos)
+\item 
+void \mbox{\hyperlink{class_predator_a4d2d48c955e92d23f95909e4e1f6a16f}{check\+Collision}} (sf\+::\+Float\+Rect tile\+Rect)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_predator_a0833aeac8e72233831677cc54b61c66f}\label{class_predator_a0833aeac8e72233831677cc54b61c66f}} 
+\index{Predator@{Predator}!Predator@{Predator}}
+\index{Predator@{Predator}!Predator@{Predator}}
+\subsubsection{\texorpdfstring{Predator()}{Predator()}}
+{\footnotesize\ttfamily Predator\+::\+Predator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_world}{World}} $\ast$}]{world,  }\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{player }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_predator_a9ef1a4a3a5988d1d1e5844a235b36b8b}\label{class_predator_a9ef1a4a3a5988d1d1e5844a235b36b8b}} 
+\index{Predator@{Predator}!````~Predator@{$\sim$Predator}}
+\index{````~Predator@{$\sim$Predator}!Predator@{Predator}}
+\subsubsection{\texorpdfstring{$\sim$Predator()}{~Predator()}}
+{\footnotesize\ttfamily Predator\+::$\sim$\+Predator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_predator_a4d2d48c955e92d23f95909e4e1f6a16f}\label{class_predator_a4d2d48c955e92d23f95909e4e1f6a16f}} 
+\index{Predator@{Predator}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!Predator@{Predator}}
+\subsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily void Predator\+::check\+Collision (\begin{DoxyParamCaption}\item[{sf\+::\+Float\+Rect}]{tile\+Rect }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_predator_a830de5346a893f15b76de907f798138a}\label{class_predator_a830de5346a893f15b76de907f798138a}} 
+\index{Predator@{Predator}!explode@{explode}}
+\index{explode@{explode}!Predator@{Predator}}
+\subsubsection{\texorpdfstring{explode()}{explode()}}
+{\footnotesize\ttfamily void Predator\+::explode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_predator_aedebee8eb0a1f05ae209a44a014b3e97}\label{class_predator_aedebee8eb0a1f05ae209a44a014b3e97}} 
+\index{Predator@{Predator}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Predator@{Predator}}
+\subsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Predator\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_predator_a122ff47e06dce6c782a4ea66b85e5566}\label{class_predator_a122ff47e06dce6c782a4ea66b85e5566}} 
+\index{Predator@{Predator}!isAlive@{isAlive}}
+\index{isAlive@{isAlive}!Predator@{Predator}}
+\subsubsection{\texorpdfstring{isAlive()}{isAlive()}}
+{\footnotesize\ttfamily bool Predator\+::is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_predator_acf84bdda5a2ad7120ae182fbeac59516}\label{class_predator_acf84bdda5a2ad7120ae182fbeac59516}} 
+\index{Predator@{Predator}!render@{render}}
+\index{render@{render}!Predator@{Predator}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Predator\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_predator_a596b6e0c600560d7c3dc1bb0bf063f87}\label{class_predator_a596b6e0c600560d7c3dc1bb0bf063f87}} 
+\index{Predator@{Predator}!reset@{reset}}
+\index{reset@{reset}!Predator@{Predator}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Predator\+::reset (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{position }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_predator_a7d1936de3c5d73264546002beecc4923}\label{class_predator_a7d1936de3c5d73264546002beecc4923}} 
+\index{Predator@{Predator}!seek@{seek}}
+\index{seek@{seek}!Predator@{Predator}}
+\subsubsection{\texorpdfstring{seek()}{seek()}}
+{\footnotesize\ttfamily void Predator\+::seek (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_predator_a7070e47073a2a8f110b31d9cba00b35b}\label{class_predator_a7070e47073a2a8f110b31d9cba00b35b}} 
+\index{Predator@{Predator}!update@{update}}
+\index{update@{update}!Predator@{Predator}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Predator\+::update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_predator_8h}{Predator.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_predator_8cpp}{Predator.\+cpp}}\end{DoxyCompactItemize}

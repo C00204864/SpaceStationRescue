@@ -1,0 +1,194 @@
+\hypertarget{class_label}{}\section{Label Class Reference}
+\label{class_label}\index{Label@{Label}}
+
+
+{\ttfamily \#include $<$Label.\+h$>$}
+
+Inheritance diagram for Label\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_label}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_label_aba14ad8fc32c6129f838ed2a80abe2f9}{Label}} (std\+::string s, float x, float y)
+\item 
+\mbox{\hyperlink{class_label_a3abc88d2408df444dc5f2d39ac2f19a2}{Label}} (std\+::string s, float x, float y, std\+::string texture\+Name)
+\item 
+\mbox{\hyperlink{class_label_a8d503e01b3ab97e9f5bd3cb972c7470e}{Label}} (std\+::string s, float x, float y, std\+::string texture\+Name, std\+::string texture\+Name2)
+\item 
+void \mbox{\hyperlink{class_label_acaf5dfeeab3e46b5795b8cd24c9d94fe}{draw}} (sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{class_label_a736aab0e4b280f1a3c86e1566b5eb235}{update}} ()
+\item 
+void \mbox{\hyperlink{class_label_ab653e984b25c9669866924d83cb2bed8}{set\+Under\+Lined}} ()
+\item 
+void \mbox{\hyperlink{class_label_a2a06e54df5c7e7aa3c7c7749fa80817c}{update\+Text}} (std\+::string s)
+\item 
+void \mbox{\hyperlink{class_label_aa3989f512cbeabf9864c090b1d7e0c9b}{change\+Text\+Size}} (int size)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_label_aa36efaf08d314ab5bc4b5b485a39bb0c}{m\+\_\+pos}}
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_label_a0e97995c1e7cb1d39d9551a797c49a0f}{m\+\_\+text}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{class_label_a9d6d24ef859678029cbfa81e9b09bc05}{m\+\_\+font}}
+\item 
+sf\+::\+Texture \mbox{\hyperlink{class_label_a18bb96cd886ac4ce8635eaf4a46520a6}{m\+\_\+texture}}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_label_a6bcd25a3765c114161392d52ffaeec45}{m\+\_\+sprite}}
+\item 
+bool \mbox{\hyperlink{class_label_ac72a1cf18a57732ff75fb9f2b0cdf5dc}{has\+Texture}}
+\item 
+bool \mbox{\hyperlink{class_label_a92252ae476418c9c7a5ed7d9f3b1e4a0}{has2\+Textures}}
+\item 
+int \mbox{\hyperlink{class_label_ac0e8e759648e9a525d968779a3224b98}{text\+Size}}
+\item 
+sf\+::\+Texture \mbox{\hyperlink{class_label_a903ee4e1e531bd4abe5d95651f594249}{m\+\_\+texture2}}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_label_a32ebc8f771cfd06b5f142818c8cc3149}{m\+\_\+sprite2}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_label_aba14ad8fc32c6129f838ed2a80abe2f9}\label{class_label_aba14ad8fc32c6129f838ed2a80abe2f9}} 
+\index{Label@{Label}!Label@{Label}}
+\index{Label@{Label}!Label@{Label}}
+\subsubsection{\texorpdfstring{Label()}{Label()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Label\+::\+Label (\begin{DoxyParamCaption}\item[{std\+::string}]{s,  }\item[{float}]{x = {\ttfamily 0},  }\item[{float}]{y = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_label_a3abc88d2408df444dc5f2d39ac2f19a2}\label{class_label_a3abc88d2408df444dc5f2d39ac2f19a2}} 
+\index{Label@{Label}!Label@{Label}}
+\index{Label@{Label}!Label@{Label}}
+\subsubsection{\texorpdfstring{Label()}{Label()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Label\+::\+Label (\begin{DoxyParamCaption}\item[{std\+::string}]{s,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{std\+::string}]{texture\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_label_a8d503e01b3ab97e9f5bd3cb972c7470e}\label{class_label_a8d503e01b3ab97e9f5bd3cb972c7470e}} 
+\index{Label@{Label}!Label@{Label}}
+\index{Label@{Label}!Label@{Label}}
+\subsubsection{\texorpdfstring{Label()}{Label()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Label\+::\+Label (\begin{DoxyParamCaption}\item[{std\+::string}]{s,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{std\+::string}]{texture\+Name,  }\item[{std\+::string}]{texture\+Name2 }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_label_aa3989f512cbeabf9864c090b1d7e0c9b}\label{class_label_aa3989f512cbeabf9864c090b1d7e0c9b}} 
+\index{Label@{Label}!changeTextSize@{changeTextSize}}
+\index{changeTextSize@{changeTextSize}!Label@{Label}}
+\subsubsection{\texorpdfstring{changeTextSize()}{changeTextSize()}}
+{\footnotesize\ttfamily void Label\+::change\+Text\+Size (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a958763d528cd422de5f248d83530f68b}{Widget}}.
+
+\mbox{\Hypertarget{class_label_acaf5dfeeab3e46b5795b8cd24c9d94fe}\label{class_label_acaf5dfeeab3e46b5795b8cd24c9d94fe}} 
+\index{Label@{Label}!draw@{draw}}
+\index{draw@{draw}!Label@{Label}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Label\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_ae33a60123dee736ad8ece7277711f3d4}{Widget}}.
+
+\mbox{\Hypertarget{class_label_ab653e984b25c9669866924d83cb2bed8}\label{class_label_ab653e984b25c9669866924d83cb2bed8}} 
+\index{Label@{Label}!setUnderLined@{setUnderLined}}
+\index{setUnderLined@{setUnderLined}!Label@{Label}}
+\subsubsection{\texorpdfstring{setUnderLined()}{setUnderLined()}}
+{\footnotesize\ttfamily void Label\+::set\+Under\+Lined (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_label_a736aab0e4b280f1a3c86e1566b5eb235}\label{class_label_a736aab0e4b280f1a3c86e1566b5eb235}} 
+\index{Label@{Label}!update@{update}}
+\index{update@{update}!Label@{Label}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Label\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_a38aacc92bda1a1e91052873a4a955487}{Widget}}.
+
+\mbox{\Hypertarget{class_label_a2a06e54df5c7e7aa3c7c7749fa80817c}\label{class_label_a2a06e54df5c7e7aa3c7c7749fa80817c}} 
+\index{Label@{Label}!updateText@{updateText}}
+\index{updateText@{updateText}!Label@{Label}}
+\subsubsection{\texorpdfstring{updateText()}{updateText()}}
+{\footnotesize\ttfamily void Label\+::update\+Text (\begin{DoxyParamCaption}\item[{std\+::string}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_widget_ad8d574eab88c94919dc01a33703066b3}{Widget}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_label_a92252ae476418c9c7a5ed7d9f3b1e4a0}\label{class_label_a92252ae476418c9c7a5ed7d9f3b1e4a0}} 
+\index{Label@{Label}!has2Textures@{has2Textures}}
+\index{has2Textures@{has2Textures}!Label@{Label}}
+\subsubsection{\texorpdfstring{has2Textures}{has2Textures}}
+{\footnotesize\ttfamily bool Label\+::has2\+Textures\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_label_ac72a1cf18a57732ff75fb9f2b0cdf5dc}\label{class_label_ac72a1cf18a57732ff75fb9f2b0cdf5dc}} 
+\index{Label@{Label}!hasTexture@{hasTexture}}
+\index{hasTexture@{hasTexture}!Label@{Label}}
+\subsubsection{\texorpdfstring{hasTexture}{hasTexture}}
+{\footnotesize\ttfamily bool Label\+::has\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_label_a9d6d24ef859678029cbfa81e9b09bc05}\label{class_label_a9d6d24ef859678029cbfa81e9b09bc05}} 
+\index{Label@{Label}!m\_font@{m\_font}}
+\index{m\_font@{m\_font}!Label@{Label}}
+\subsubsection{\texorpdfstring{m\_font}{m\_font}}
+{\footnotesize\ttfamily sf\+::\+Font Label\+::m\+\_\+font\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_label_aa36efaf08d314ab5bc4b5b485a39bb0c}\label{class_label_aa36efaf08d314ab5bc4b5b485a39bb0c}} 
+\index{Label@{Label}!m\_pos@{m\_pos}}
+\index{m\_pos@{m\_pos}!Label@{Label}}
+\subsubsection{\texorpdfstring{m\_pos}{m\_pos}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Label\+::m\+\_\+pos\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_label_a6bcd25a3765c114161392d52ffaeec45}\label{class_label_a6bcd25a3765c114161392d52ffaeec45}} 
+\index{Label@{Label}!m\_sprite@{m\_sprite}}
+\index{m\_sprite@{m\_sprite}!Label@{Label}}
+\subsubsection{\texorpdfstring{m\_sprite}{m\_sprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite Label\+::m\+\_\+sprite\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_label_a32ebc8f771cfd06b5f142818c8cc3149}\label{class_label_a32ebc8f771cfd06b5f142818c8cc3149}} 
+\index{Label@{Label}!m\_sprite2@{m\_sprite2}}
+\index{m\_sprite2@{m\_sprite2}!Label@{Label}}
+\subsubsection{\texorpdfstring{m\_sprite2}{m\_sprite2}}
+{\footnotesize\ttfamily sf\+::\+Sprite Label\+::m\+\_\+sprite2\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_label_a0e97995c1e7cb1d39d9551a797c49a0f}\label{class_label_a0e97995c1e7cb1d39d9551a797c49a0f}} 
+\index{Label@{Label}!m\_text@{m\_text}}
+\index{m\_text@{m\_text}!Label@{Label}}
+\subsubsection{\texorpdfstring{m\_text}{m\_text}}
+{\footnotesize\ttfamily sf\+::\+Text Label\+::m\+\_\+text\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_label_a18bb96cd886ac4ce8635eaf4a46520a6}\label{class_label_a18bb96cd886ac4ce8635eaf4a46520a6}} 
+\index{Label@{Label}!m\_texture@{m\_texture}}
+\index{m\_texture@{m\_texture}!Label@{Label}}
+\subsubsection{\texorpdfstring{m\_texture}{m\_texture}}
+{\footnotesize\ttfamily sf\+::\+Texture Label\+::m\+\_\+texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_label_a903ee4e1e531bd4abe5d95651f594249}\label{class_label_a903ee4e1e531bd4abe5d95651f594249}} 
+\index{Label@{Label}!m\_texture2@{m\_texture2}}
+\index{m\_texture2@{m\_texture2}!Label@{Label}}
+\subsubsection{\texorpdfstring{m\_texture2}{m\_texture2}}
+{\footnotesize\ttfamily sf\+::\+Texture Label\+::m\+\_\+texture2\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_label_ac0e8e759648e9a525d968779a3224b98}\label{class_label_ac0e8e759648e9a525d968779a3224b98}} 
+\index{Label@{Label}!textSize@{textSize}}
+\index{textSize@{textSize}!Label@{Label}}
+\subsubsection{\texorpdfstring{textSize}{textSize}}
+{\footnotesize\ttfamily int Label\+::text\+Size\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_label_8h}{Label.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_label_8cpp}{Label.\+cpp}}\end{DoxyCompactItemize}

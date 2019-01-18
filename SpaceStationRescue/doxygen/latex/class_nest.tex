@@ -1,0 +1,133 @@
+\hypertarget{class_nest}{}\section{Nest Class Reference}
+\label{class_nest}\index{Nest@{Nest}}
+
+
+{\ttfamily \#include $<$Nest.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_nest_a15cb83b4a3d124d5179f8ed2fefb4829}{Nest}} (sf\+::\+Vector2f pos, \mbox{\hyperlink{class_player}{Player}} \&player, \mbox{\hyperlink{class_world}{World}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_nest}{Nest}} object that spawns missiles and predators \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nest_a3e879ba15acd31717b1dc9bdc87488d5}{$\sim$\+Nest}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the nest \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nest_a42c809be88cca1c736a446314386c703}{update}} (float dt)
+\begin{DoxyCompactList}\small\item\em Update loop for the nest \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nest_a92f137e594ffd5b06b7dd9c2c3b5f975}{render}} (sf\+::\+Render\+Window \&m\+\_\+window)
+\begin{DoxyCompactList}\small\item\em Draw loop for the \mbox{\hyperlink{class_nest}{Nest}} \end{DoxyCompactList}\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_nest_a5e2be5f916b9c19e48ad93b1b6d67f56}{get\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Get the Sprite of the nest \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_predator}{Predator}} $\ast$ $>$ \& \mbox{\hyperlink{class_nest_acbc88a9cff28534b03754a48b820b10b}{get\+Predator\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Get the vector of the predators \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_nest_a3f0d0175e349409ef2cab7e9bae0fb81}{is\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em Get whether the nest is alive or dead \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_nest_a15cb83b4a3d124d5179f8ed2fefb4829}\label{class_nest_a15cb83b4a3d124d5179f8ed2fefb4829}} 
+\index{Nest@{Nest}!Nest@{Nest}}
+\index{Nest@{Nest}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{Nest()}{Nest()}}
+{\footnotesize\ttfamily Nest\+::\+Nest (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{pos,  }\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{player,  }\item[{\mbox{\hyperlink{class_world}{World}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_nest}{Nest}} object that spawns missiles and predators 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Position to spawn at\\
+\hline
+{\em player} & Ref to the player\\
+\hline
+{\em world} & The world object\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_nest_a3e879ba15acd31717b1dc9bdc87488d5}\label{class_nest_a3e879ba15acd31717b1dc9bdc87488d5}} 
+\index{Nest@{Nest}!````~Nest@{$\sim$Nest}}
+\index{````~Nest@{$\sim$Nest}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{$\sim$Nest()}{~Nest()}}
+{\footnotesize\ttfamily Nest\+::$\sim$\+Nest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for the nest 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_nest_acbc88a9cff28534b03754a48b820b10b}\label{class_nest_acbc88a9cff28534b03754a48b820b10b}} 
+\index{Nest@{Nest}!getPredatorVector@{getPredatorVector}}
+\index{getPredatorVector@{getPredatorVector}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{getPredatorVector()}{getPredatorVector()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_predator}{Predator}} $\ast$ $>$ \& Nest\+::get\+Predator\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the vector of the predators 
+
+\begin{DoxyReturn}{Returns}
+The vector of predators
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_nest_a5e2be5f916b9c19e48ad93b1b6d67f56}\label{class_nest_a5e2be5f916b9c19e48ad93b1b6d67f56}} 
+\index{Nest@{Nest}!getSprite@{getSprite}}
+\index{getSprite@{getSprite}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{getSprite()}{getSprite()}}
+{\footnotesize\ttfamily sf\+::\+Sprite Nest\+::get\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Sprite of the nest 
+
+\begin{DoxyReturn}{Returns}
+The sprite of the nest
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_nest_a3f0d0175e349409ef2cab7e9bae0fb81}\label{class_nest_a3f0d0175e349409ef2cab7e9bae0fb81}} 
+\index{Nest@{Nest}!isAlive@{isAlive}}
+\index{isAlive@{isAlive}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{isAlive()}{isAlive()}}
+{\footnotesize\ttfamily bool Nest\+::is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get whether the nest is alive or dead 
+
+\begin{DoxyReturn}{Returns}
+the bool for alive or dead
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_nest_a92f137e594ffd5b06b7dd9c2c3b5f975}\label{class_nest_a92f137e594ffd5b06b7dd9c2c3b5f975}} 
+\index{Nest@{Nest}!render@{render}}
+\index{render@{render}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Nest\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Draw loop for the \mbox{\hyperlink{class_nest}{Nest}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Window for drawing\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_nest_a42c809be88cca1c736a446314386c703}\label{class_nest_a42c809be88cca1c736a446314386c703}} 
+\index{Nest@{Nest}!update@{update}}
+\index{update@{update}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Nest\+::update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
+
+
+
+Update loop for the nest 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Deltatime\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_nest_8h}{Nest.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_nest_8cpp}{Nest.\+cpp}}\end{DoxyCompactItemize}

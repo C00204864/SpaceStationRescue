@@ -1,0 +1,358 @@
+\hypertarget{class_widget}{}\section{Widget Class Reference}
+\label{class_widget}\index{Widget@{Widget}}
+
+
+{\ttfamily \#include $<$Widget.\+h$>$}
+
+Inheritance diagram for Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_widget}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::function$<$ void()$>$ \mbox{\hyperlink{class_widget_af75970041184b1a72bceff618e142a09}{Callback}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_widget_ab0f05949f1fa8ca233137fc4119c7401}{Widget}} ()
+\item 
+virtual void \mbox{\hyperlink{class_widget_a546c3b96bd793596c4902b4df0c41272}{get\+Focus}} ()
+\item 
+virtual void \mbox{\hyperlink{class_widget_a038576de7f1adf6b29f3ebfd3515f13f}{lose\+Focus}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_widget_ac8121758d9fcfedb4ff119abeb7d0652}{check\+Focus}} ()
+\item 
+virtual void \mbox{\hyperlink{class_widget_a38aacc92bda1a1e91052873a4a955487}{update}} ()
+\item 
+virtual void \mbox{\hyperlink{class_widget_a255e13ebf55d19f93a37b7a1aec9a87f}{get\+Active}} ()
+\item 
+virtual void \mbox{\hyperlink{class_widget_a8d15d94eb8e41a82e9c4c0ee70a449b6}{lose\+Active}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_widget_ac87a7f54a06b9a2329884175f6a9c837}{check\+Active}} ()
+\item 
+virtual void \mbox{\hyperlink{class_widget_ae33a60123dee736ad8ece7277711f3d4}{draw}} (sf\+::\+Render\+Window \&window)
+\item 
+std\+::string \mbox{\hyperlink{class_widget_aa7145e34616230d24adbf8bf9f8194e2}{get\+ID}} ()
+\item 
+virtual void \mbox{\hyperlink{class_widget_a4d4df2961aeaa579ef511a546e6276c5}{increase\+Value}} ()
+\item 
+virtual void \mbox{\hyperlink{class_widget_a1e265a65e224ff231f98dfd490c08c3c}{decrease\+Value}} ()
+\item 
+virtual void \mbox{\hyperlink{class_widget_a44295ab8e8a07e8206790dd6b317d2fe}{set\+Rect\+Color}} (sf\+::\+Color color)
+\item 
+void \mbox{\hyperlink{class_widget_a9133f09cce2bcc645d23f36599c180f3}{activate\+Call\+Back}} ()
+\item 
+virtual void \mbox{\hyperlink{class_widget_ad8d574eab88c94919dc01a33703066b3}{update\+Text}} (std\+::string s)
+\item 
+std\+::string \mbox{\hyperlink{class_widget_aea8a06cb0344180c07346dbad25a8fdf}{check\+Tag}} ()
+\item 
+virtual void \mbox{\hyperlink{class_widget_a958763d528cd422de5f248d83530f68b}{change\+Text\+Size}} (int size)
+\item 
+virtual void \mbox{\hyperlink{class_widget_a49b72dfbd65f07a616d6e33b04675b9a}{update\+Position}} (sf\+::\+Vector2f pos)
+\item 
+virtual void \mbox{\hyperlink{class_widget_aef48b79ed822a3ad4e5a2b719e57f350}{update\+Focus\+Color}} (sf\+::\+Color col)
+\item 
+virtual void \mbox{\hyperlink{class_widget_abbbedd98778706d6a7cfe2ecf27413fb}{end\+Anim}} ()
+\item 
+virtual int \mbox{\hyperlink{class_widget_a3b53c2690d2b33fceb73e9059458480f}{get\+Value}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_widget_af75970041184b1a72bceff618e142a09}{Callback}} \mbox{\hyperlink{class_widget_ac1f5bd0e5692a897ee3b3b5ec2345336}{Enter}}
+\item 
+\mbox{\hyperlink{class_widget_af75970041184b1a72bceff618e142a09}{Callback}} \mbox{\hyperlink{class_widget_a64087ac2bd8c3c298015688d0b4fc9e1}{Adjust\+Add}}
+\item 
+\mbox{\hyperlink{class_widget_af75970041184b1a72bceff618e142a09}{Callback}} \mbox{\hyperlink{class_widget_ad542bffdf09356c763dcc0ab8cd7916c}{Adjust\+Minus}}
+\item 
+bool \mbox{\hyperlink{class_widget_a64b854e95ea9c7483c01b278f3ce417b}{is\+Active}}
+\item 
+bool \mbox{\hyperlink{class_widget_a7deb9286ee1faafbe8e988877d4d3ab3}{anim\+End}}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_widget_af647702f170f76cd1698b749f6ca2faa}{m\+\_\+rect}}
+\item 
+bool \mbox{\hyperlink{class_widget_a214eddd764f01e626e7098fec1aa0deb}{m\+\_\+has\+Focus}}
+\item 
+std\+::string \mbox{\hyperlink{class_widget_a1c75da927843305835b9913101c9a701}{m\+\_\+id}}
+\item 
+std\+::string \mbox{\hyperlink{class_widget_ae0b0fc817eb62bdc9dd3aa5459020887}{m\+\_\+tag}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_widget_af75970041184b1a72bceff618e142a09}\label{class_widget_af75970041184b1a72bceff618e142a09}} 
+\index{Widget@{Widget}!Callback@{Callback}}
+\index{Callback@{Callback}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{Callback}{Callback}}
+{\footnotesize\ttfamily typedef std\+::function$<$void()$>$ \mbox{\hyperlink{class_widget_af75970041184b1a72bceff618e142a09}{Widget\+::\+Callback}}}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_widget_ab0f05949f1fa8ca233137fc4119c7401}\label{class_widget_ab0f05949f1fa8ca233137fc4119c7401}} 
+\index{Widget@{Widget}!Widget@{Widget}}
+\index{Widget@{Widget}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{Widget()}{Widget()}}
+{\footnotesize\ttfamily Widget\+::\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_widget_a9133f09cce2bcc645d23f36599c180f3}\label{class_widget_a9133f09cce2bcc645d23f36599c180f3}} 
+\index{Widget@{Widget}!activateCallBack@{activateCallBack}}
+\index{activateCallBack@{activateCallBack}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{activateCallBack()}{activateCallBack()}}
+{\footnotesize\ttfamily void Widget\+::activate\+Call\+Back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_widget_a958763d528cd422de5f248d83530f68b}\label{class_widget_a958763d528cd422de5f248d83530f68b}} 
+\index{Widget@{Widget}!changeTextSize@{changeTextSize}}
+\index{changeTextSize@{changeTextSize}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{changeTextSize()}{changeTextSize()}}
+{\footnotesize\ttfamily void Widget\+::change\+Text\+Size (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_button_a21ed9f803ceeef9c846191f2ed26a2f3}{Button}}, and \mbox{\hyperlink{class_label_aa3989f512cbeabf9864c090b1d7e0c9b}{Label}}.
+
+\mbox{\Hypertarget{class_widget_ac87a7f54a06b9a2329884175f6a9c837}\label{class_widget_ac87a7f54a06b9a2329884175f6a9c837}} 
+\index{Widget@{Widget}!checkActive@{checkActive}}
+\index{checkActive@{checkActive}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{checkActive()}{checkActive()}}
+{\footnotesize\ttfamily bool Widget\+::check\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_check_box_a7c03915fe705fd35e2d1934c00d2c3e8}{Check\+Box}}, and \mbox{\hyperlink{class_radio_button_ad4e47880a03d6854e5664817015187a2}{Radio\+Button}}.
+
+\mbox{\Hypertarget{class_widget_ac8121758d9fcfedb4ff119abeb7d0652}\label{class_widget_ac8121758d9fcfedb4ff119abeb7d0652}} 
+\index{Widget@{Widget}!checkFocus@{checkFocus}}
+\index{checkFocus@{checkFocus}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{checkFocus()}{checkFocus()}}
+{\footnotesize\ttfamily bool Widget\+::check\+Focus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_button_a73a90ae2e4101b7d28d24c1c8ec905db}{Button}}, \mbox{\hyperlink{class_check_box_acc7a00bdaa6ee316e7622a52733be294}{Check\+Box}}, \mbox{\hyperlink{class_slider_ab81e90562123cacd8f624b326b9b3f3e}{Slider}}, and \mbox{\hyperlink{class_radio_button_a693581ddb77b4f4c5f8e133eb1369390}{Radio\+Button}}.
+
+\mbox{\Hypertarget{class_widget_aea8a06cb0344180c07346dbad25a8fdf}\label{class_widget_aea8a06cb0344180c07346dbad25a8fdf}} 
+\index{Widget@{Widget}!checkTag@{checkTag}}
+\index{checkTag@{checkTag}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{checkTag()}{checkTag()}}
+{\footnotesize\ttfamily std\+::string Widget\+::check\+Tag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_widget_a1e265a65e224ff231f98dfd490c08c3c}\label{class_widget_a1e265a65e224ff231f98dfd490c08c3c}} 
+\index{Widget@{Widget}!decreaseValue@{decreaseValue}}
+\index{decreaseValue@{decreaseValue}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{decreaseValue()}{decreaseValue()}}
+{\footnotesize\ttfamily void Widget\+::decrease\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_slider_ae8bf6bef11bae69bc6a01276b6ad7ddd}{Slider}}.
+
+\mbox{\Hypertarget{class_widget_ae33a60123dee736ad8ece7277711f3d4}\label{class_widget_ae33a60123dee736ad8ece7277711f3d4}} 
+\index{Widget@{Widget}!draw@{draw}}
+\index{draw@{draw}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Widget\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_check_box_ade6c518dbbed2d24f101af024b08495f}{Check\+Box}}, \mbox{\hyperlink{class_slider_a8d2355aa14e267385d7d0f79300ffc6b}{Slider}}, \mbox{\hyperlink{class_button_a57937c3a08fac52fede0362b8ee6c39e}{Button}}, \mbox{\hyperlink{class_radio_button_aa8efb2e8d54a0293fd1058a7e49ca526}{Radio\+Button}}, and \mbox{\hyperlink{class_label_acaf5dfeeab3e46b5795b8cd24c9d94fe}{Label}}.
+
+\mbox{\Hypertarget{class_widget_abbbedd98778706d6a7cfe2ecf27413fb}\label{class_widget_abbbedd98778706d6a7cfe2ecf27413fb}} 
+\index{Widget@{Widget}!endAnim@{endAnim}}
+\index{endAnim@{endAnim}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{endAnim()}{endAnim()}}
+{\footnotesize\ttfamily void Widget\+::end\+Anim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_button_ad0356a9996631f350fee4a02c66a4cf5}{Button}}.
+
+\mbox{\Hypertarget{class_widget_a255e13ebf55d19f93a37b7a1aec9a87f}\label{class_widget_a255e13ebf55d19f93a37b7a1aec9a87f}} 
+\index{Widget@{Widget}!getActive@{getActive}}
+\index{getActive@{getActive}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{getActive()}{getActive()}}
+{\footnotesize\ttfamily void Widget\+::get\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_check_box_a40948ae138e422b4b025c225e1c532b5}{Check\+Box}}, and \mbox{\hyperlink{class_radio_button_a168305da89d8c859e170fbc50abbe5b3}{Radio\+Button}}.
+
+\mbox{\Hypertarget{class_widget_a546c3b96bd793596c4902b4df0c41272}\label{class_widget_a546c3b96bd793596c4902b4df0c41272}} 
+\index{Widget@{Widget}!getFocus@{getFocus}}
+\index{getFocus@{getFocus}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{getFocus()}{getFocus()}}
+{\footnotesize\ttfamily void Widget\+::get\+Focus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_button_afe48c308771dd21dfa1539e930ca60b9}{Button}}, \mbox{\hyperlink{class_check_box_a86a6399e17216849708c07ed51df3510}{Check\+Box}}, \mbox{\hyperlink{class_slider_aacedd16fdfd8b44067e0c8fd5b908b69}{Slider}}, and \mbox{\hyperlink{class_radio_button_a74c525b924c233535c3ee6a03fe89e3d}{Radio\+Button}}.
+
+\mbox{\Hypertarget{class_widget_aa7145e34616230d24adbf8bf9f8194e2}\label{class_widget_aa7145e34616230d24adbf8bf9f8194e2}} 
+\index{Widget@{Widget}!getID@{getID}}
+\index{getID@{getID}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily std\+::string Widget\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_widget_a3b53c2690d2b33fceb73e9059458480f}\label{class_widget_a3b53c2690d2b33fceb73e9059458480f}} 
+\index{Widget@{Widget}!getValue@{getValue}}
+\index{getValue@{getValue}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily int Widget\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_slider_a9e72ef47f0b78846d776aa75caa4113d}{Slider}}.
+
+\mbox{\Hypertarget{class_widget_a4d4df2961aeaa579ef511a546e6276c5}\label{class_widget_a4d4df2961aeaa579ef511a546e6276c5}} 
+\index{Widget@{Widget}!increaseValue@{increaseValue}}
+\index{increaseValue@{increaseValue}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{increaseValue()}{increaseValue()}}
+{\footnotesize\ttfamily void Widget\+::increase\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_slider_a43bb29d29c19b4f0838462a18896660c}{Slider}}.
+
+\mbox{\Hypertarget{class_widget_a8d15d94eb8e41a82e9c4c0ee70a449b6}\label{class_widget_a8d15d94eb8e41a82e9c4c0ee70a449b6}} 
+\index{Widget@{Widget}!loseActive@{loseActive}}
+\index{loseActive@{loseActive}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{loseActive()}{loseActive()}}
+{\footnotesize\ttfamily void Widget\+::lose\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_check_box_aa4eb44d9c99f24b566233ec7d0504808}{Check\+Box}}, and \mbox{\hyperlink{class_radio_button_a2a2c14c31db623a8cbe71dd82b12e01b}{Radio\+Button}}.
+
+\mbox{\Hypertarget{class_widget_a038576de7f1adf6b29f3ebfd3515f13f}\label{class_widget_a038576de7f1adf6b29f3ebfd3515f13f}} 
+\index{Widget@{Widget}!loseFocus@{loseFocus}}
+\index{loseFocus@{loseFocus}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{loseFocus()}{loseFocus()}}
+{\footnotesize\ttfamily void Widget\+::lose\+Focus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_button_a3b3550244cdb94552631a4582f4d0120}{Button}}, \mbox{\hyperlink{class_check_box_a071873f266cc4b88eb077bc7d0ec7524}{Check\+Box}}, \mbox{\hyperlink{class_slider_aae708de41200e777a10c9cc6d9834ce5}{Slider}}, and \mbox{\hyperlink{class_radio_button_a5cc3b7a4eb1a2ac7aead0cf4a589baca}{Radio\+Button}}.
+
+\mbox{\Hypertarget{class_widget_a44295ab8e8a07e8206790dd6b317d2fe}\label{class_widget_a44295ab8e8a07e8206790dd6b317d2fe}} 
+\index{Widget@{Widget}!setRectColor@{setRectColor}}
+\index{setRectColor@{setRectColor}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{setRectColor()}{setRectColor()}}
+{\footnotesize\ttfamily void Widget\+::set\+Rect\+Color (\begin{DoxyParamCaption}\item[{sf\+::\+Color}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_button_a16df47cdbf999b65b5c9965650970f12}{Button}}.
+
+\mbox{\Hypertarget{class_widget_a38aacc92bda1a1e91052873a4a955487}\label{class_widget_a38aacc92bda1a1e91052873a4a955487}} 
+\index{Widget@{Widget}!update@{update}}
+\index{update@{update}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Widget\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_check_box_a02e3ede9dd393fd232f1655205a3c51a}{Check\+Box}}, \mbox{\hyperlink{class_slider_a4ebd527db54ea263c7d0efe4d1f94e1b}{Slider}}, \mbox{\hyperlink{class_button_abda97f1ae8e081da3dbd0b77a27cad9d}{Button}}, \mbox{\hyperlink{class_radio_button_add936c8d72748870cdb8f8d0416e8068}{Radio\+Button}}, and \mbox{\hyperlink{class_label_a736aab0e4b280f1a3c86e1566b5eb235}{Label}}.
+
+\mbox{\Hypertarget{class_widget_aef48b79ed822a3ad4e5a2b719e57f350}\label{class_widget_aef48b79ed822a3ad4e5a2b719e57f350}} 
+\index{Widget@{Widget}!updateFocusColor@{updateFocusColor}}
+\index{updateFocusColor@{updateFocusColor}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{updateFocusColor()}{updateFocusColor()}}
+{\footnotesize\ttfamily void Widget\+::update\+Focus\+Color (\begin{DoxyParamCaption}\item[{sf\+::\+Color}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_button_a2b0211c37e877b51695b62a680b1d82a}{Button}}.
+
+\mbox{\Hypertarget{class_widget_a49b72dfbd65f07a616d6e33b04675b9a}\label{class_widget_a49b72dfbd65f07a616d6e33b04675b9a}} 
+\index{Widget@{Widget}!updatePosition@{updatePosition}}
+\index{updatePosition@{updatePosition}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{updatePosition()}{updatePosition()}}
+{\footnotesize\ttfamily void Widget\+::update\+Position (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_button_a5e814220d9d44922eedded14d5511493}{Button}}.
+
+\mbox{\Hypertarget{class_widget_ad8d574eab88c94919dc01a33703066b3}\label{class_widget_ad8d574eab88c94919dc01a33703066b3}} 
+\index{Widget@{Widget}!updateText@{updateText}}
+\index{updateText@{updateText}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{updateText()}{updateText()}}
+{\footnotesize\ttfamily void Widget\+::update\+Text (\begin{DoxyParamCaption}\item[{std\+::string}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_label_a2a06e54df5c7e7aa3c7c7749fa80817c}{Label}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_widget_a64087ac2bd8c3c298015688d0b4fc9e1}\label{class_widget_a64087ac2bd8c3c298015688d0b4fc9e1}} 
+\index{Widget@{Widget}!AdjustAdd@{AdjustAdd}}
+\index{AdjustAdd@{AdjustAdd}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{AdjustAdd}{AdjustAdd}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_widget_af75970041184b1a72bceff618e142a09}{Callback}} Widget\+::\+Adjust\+Add}
+
+\mbox{\Hypertarget{class_widget_ad542bffdf09356c763dcc0ab8cd7916c}\label{class_widget_ad542bffdf09356c763dcc0ab8cd7916c}} 
+\index{Widget@{Widget}!AdjustMinus@{AdjustMinus}}
+\index{AdjustMinus@{AdjustMinus}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{AdjustMinus}{AdjustMinus}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_widget_af75970041184b1a72bceff618e142a09}{Callback}} Widget\+::\+Adjust\+Minus}
+
+\mbox{\Hypertarget{class_widget_a7deb9286ee1faafbe8e988877d4d3ab3}\label{class_widget_a7deb9286ee1faafbe8e988877d4d3ab3}} 
+\index{Widget@{Widget}!animEnd@{animEnd}}
+\index{animEnd@{animEnd}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{animEnd}{animEnd}}
+{\footnotesize\ttfamily bool Widget\+::anim\+End}
+
+\mbox{\Hypertarget{class_widget_ac1f5bd0e5692a897ee3b3b5ec2345336}\label{class_widget_ac1f5bd0e5692a897ee3b3b5ec2345336}} 
+\index{Widget@{Widget}!Enter@{Enter}}
+\index{Enter@{Enter}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{Enter}{Enter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_widget_af75970041184b1a72bceff618e142a09}{Callback}} Widget\+::\+Enter}
+
+\mbox{\Hypertarget{class_widget_a64b854e95ea9c7483c01b278f3ce417b}\label{class_widget_a64b854e95ea9c7483c01b278f3ce417b}} 
+\index{Widget@{Widget}!isActive@{isActive}}
+\index{isActive@{isActive}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{isActive}{isActive}}
+{\footnotesize\ttfamily bool Widget\+::is\+Active}
+
+\mbox{\Hypertarget{class_widget_a214eddd764f01e626e7098fec1aa0deb}\label{class_widget_a214eddd764f01e626e7098fec1aa0deb}} 
+\index{Widget@{Widget}!m\_hasFocus@{m\_hasFocus}}
+\index{m\_hasFocus@{m\_hasFocus}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{m\_hasFocus}{m\_hasFocus}}
+{\footnotesize\ttfamily bool Widget\+::m\+\_\+has\+Focus\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_widget_a1c75da927843305835b9913101c9a701}\label{class_widget_a1c75da927843305835b9913101c9a701}} 
+\index{Widget@{Widget}!m\_id@{m\_id}}
+\index{m\_id@{m\_id}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{m\_id}{m\_id}}
+{\footnotesize\ttfamily std\+::string Widget\+::m\+\_\+id\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_widget_af647702f170f76cd1698b749f6ca2faa}\label{class_widget_af647702f170f76cd1698b749f6ca2faa}} 
+\index{Widget@{Widget}!m\_rect@{m\_rect}}
+\index{m\_rect@{m\_rect}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{m\_rect}{m\_rect}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape Widget\+::m\+\_\+rect\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_widget_ae0b0fc817eb62bdc9dd3aa5459020887}\label{class_widget_ae0b0fc817eb62bdc9dd3aa5459020887}} 
+\index{Widget@{Widget}!m\_tag@{m\_tag}}
+\index{m\_tag@{m\_tag}!Widget@{Widget}}
+\subsubsection{\texorpdfstring{m\_tag}{m\_tag}}
+{\footnotesize\ttfamily std\+::string Widget\+::m\+\_\+tag\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_widget_8h}{Widget.\+h}}\item 
+C\+:/\+Users/liamh/\+Desktop/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\+Space\+Station\+Rescue/\mbox{\hyperlink{_widget_8cpp}{Widget.\+cpp}}\end{DoxyCompactItemize}
