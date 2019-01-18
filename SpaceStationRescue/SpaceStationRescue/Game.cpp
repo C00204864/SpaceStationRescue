@@ -51,10 +51,6 @@ Game::Game() :
 	powerUps.push_back(new PowerUp(sf::Vector2f(500,500), PowerType::SPEED));
 	powerUps.push_back(new PowerUp(sf::Vector2f(600, 600), PowerType::SHIELD));
 
-	worker = new Worker(sf::Vector2f(500, 400));
-
-
-
 	menu = new Menu(SCREEN_WIDTH, SCREEN_HEIGHT, *this, m_window);
 	m_state = State::MAINMENU;
 
@@ -206,10 +202,9 @@ void Game::render()
 		// Draw Main Game
 		m_window.setView(m_mainView);
 		m_window.draw(m_backgroundSprite);
-		//m_window.draw(m_emptyShaderSprite, &m_shader);
+		m_window.draw(m_emptyShaderSprite, &m_shader);
 		m_world.render(m_window);
 		m_player.render(m_window);
-		worker->draw(m_window);
 
 		for (auto & p : powerUps)
 		{

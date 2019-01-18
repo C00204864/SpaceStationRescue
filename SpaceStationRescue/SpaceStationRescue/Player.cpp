@@ -254,6 +254,14 @@ void Player::updateHealth(int amount)
 		m_health = 0;
 	}
 }
+void Player::updateWorkers(int amount)
+{
+	m_amountOfWorkers += amount;
+	if (m_amountOfWorkers < 0)
+	{
+		m_amountOfWorkers = 0;
+	}
+}
 
 std::vector<Bullet *> & Player::getBullets()
 {

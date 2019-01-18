@@ -66,11 +66,6 @@ private:
 
 	std::vector<PowerUp *> powerUps;
 
-	Nest * m_nest;
-	Missile * missile;
-	//Predator pred;
-	Worker * worker;
-
 	State m_state;
 
 	Menu * menu;

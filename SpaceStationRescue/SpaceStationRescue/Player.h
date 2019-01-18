@@ -36,6 +36,7 @@ public:
 	int getHealth();
 	int getWorkersAmount();
 	void updateHealth(int amount);
+	void updateWorkers(int amount);
 	std::vector<Bullet *> & getBullets();
 
 private:

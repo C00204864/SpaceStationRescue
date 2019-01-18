@@ -55,6 +55,10 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 					{
 						nestPosList.push_back(entityPos);
 					}
+					else if ('w' == levelLine[i])
+					{
+						m_workers.push_back(new Worker(entityPos, m_refPlayer));
+					}
 				}
 			}
 		}
@@ -137,6 +141,30 @@ void World::update(float dt)
 			}
 		}
 	}
+	for (auto & worker : m_workers)
+	{
+		worker->update(dt);
+		sf::Vector2f workerPos = worker->getPosition();
+		int workerIndexX = workerPos.x / TILE_SIDE_LENGTH;
+		int workerIndexY = workerPos.y / TILE_SIDE_LENGTH;
+		for (int i = workerIndexX - 1; i <= workerIndexX + 1; ++i)
+		{
+			if (i >= 0 && i < m_dimensions.x)
+			{
+				for (int j = workerIndexY - 1; j <= workerIndexY + 1; ++j)
+				{
+					if (j >= 0 && j < m_dimensions.y)
+					{
+						Tile & tile = m_worldGrid[i][j];
+						if (tile.isWall())
+						{
+							worker->checkCollision(tile.getGlobalBounds());
+						}
+					}
+				}
+			}
+		}
+	}
 
 	// Set flow field for AI
 	setFlowField(indexX, indexY, false); 
@@ -170,6 +198,10 @@ void World::render(sf::RenderWindow & window)
 	for (auto & nest : m_nests)
 	{
 		nest->render(window);
+	}
+	for (auto & worker : m_workers)
+	{
+		worker->render(window);
 	}
 }
 
