@@ -30,7 +30,7 @@ void Bullet::update()
 	float BulletY = m_sprite.getPosition().y + sin(m_sprite.getRotation()*(acos(-1) / 180)) * SPEED;
 	m_sprite.setPosition(BulletX, BulletY);
 	m_collisionCircle.setPosition(BulletX, BulletY);
-	if (timer.asSeconds() > 2)
+	if (timer.asSeconds() > 2.f)
 	{
 		m_isAlive = false;
 	}

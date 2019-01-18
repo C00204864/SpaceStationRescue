@@ -13,6 +13,7 @@ class World;
 // Project Includes
 #include "World.h"
 #include "Player.h"
+#include "Bullet.h"
 
 class Predator
 {
@@ -36,12 +37,14 @@ private:
 	sf::Sprite m_sprite;
 	sf::CircleShape m_collisionCircle;
 	sf::Vector2f m_velocity;
+	std::vector<Bullet *> m_bullets;
 	float rotation;
-	float timer;
+	float bulletTimer;
 	const float MAX_SPEED = 5.f;
 	const float MAX_ROTATION = 5.f;
 	const float TILE_DISTANCE_THRESHOLD = 50.f;
 	const float PLAYER_DISTANCE_THRESHOLD = 250.f;
+	const float TIME_BETWEEN_SHOTS = 3.5f;
 };
 
 #endif // !PREADTOR_H

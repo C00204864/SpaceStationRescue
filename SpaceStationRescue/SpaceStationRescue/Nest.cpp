@@ -100,6 +100,11 @@ void Nest::update(float dt)
 		{
 			m_refPlayer.updateHealth(-5);
 		}
+		if (m_missile->isAlive() && checkCircleCollision(m_missile->getCollisionCircle(), m_refPlayer.getCollisionCircle()))
+		{
+			m_missile->setAliveStatus(false);
+			m_refPlayer.updateHealth(-5);
+		}
 		for (auto & bullet : m_refPlayer.getBullets())
 		{
 			if (checkCircleCollision(m_collisionCircle, bullet->getCollisionCircle()))

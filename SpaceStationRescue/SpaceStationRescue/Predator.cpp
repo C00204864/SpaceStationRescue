@@ -36,13 +36,34 @@ void Predator::explode()
 
 void Predator::update(float dt)
 {
+	for (auto b : m_bullets)
+	{
+		b->update();
+	}
+
+	for (int i = 0; i < m_bullets.size(); i++)
+	{
+		if (m_bullets.at(i)->isAlive() == false)
+		{
+			m_bullets.at(i)->~Bullet();
+			m_bullets.erase(m_bullets.begin() + i);
+		}
+	}
+
+
 	if (m_isAlive)
 	{
 		sf::Vector2f position = m_sprite.getPosition();
 		sf::Vector2f playerPos = m_refPlayer.getPosition();
 		if (getDistance(playerPos, m_sprite.getPosition()) < PLAYER_DISTANCE_THRESHOLD)
 		{
+			bulletTimer += dt;
 			seek(playerPos);
+			if (bulletTimer > TIME_BETWEEN_SHOTS)
+			{
+				m_bullets.push_back(new Bullet(m_sprite.getPosition(), m_sprite.getRotation()));
+				bulletTimer = 0.f;
+			}
 			Tile * nextTile = p_world->getTilePointer(position.x / p_world->getTileWidth(), position.y / p_world->getTileWidth());
 			if (nullptr != nextTile)
 			{
@@ -77,14 +98,26 @@ void Predator::update(float dt)
 				bullet->setAliveStatus(false);
 			}
 		}
+		for (auto & bullet : m_bullets)
+		{
+			if (checkCircleCollision(m_refPlayer.getCollisionCircle(), bullet->getCollisionCircle()))
+			{
+				m_refPlayer.updateHealth(-5);
+				bullet->setAliveStatus(false);
+			}
+		}
 	}
 }
 
 void Predator::render(sf::RenderWindow & window)
 {
+	for (auto b : m_bullets)
+	{
+		b->draw(window);
+	}
 	if (m_isAlive)
 	{
-		window.draw(m_collisionCircle);
+		//window.draw(m_collisionCircle);
 		window.draw(m_sprite);
 	}
 }

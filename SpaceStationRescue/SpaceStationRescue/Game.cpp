@@ -206,7 +206,7 @@ void Game::render()
 		// Draw Main Game
 		m_window.setView(m_mainView);
 		m_window.draw(m_backgroundSprite);
-		m_window.draw(m_emptyShaderSprite, &m_shader);
+		//m_window.draw(m_emptyShaderSprite, &m_shader);
 		m_world.render(m_window);
 		m_player.render(m_window);
 		worker->draw(m_window);

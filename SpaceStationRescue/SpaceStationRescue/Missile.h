@@ -20,6 +20,8 @@ public:
 	void update();
 	void render(sf::RenderWindow & window);
 	bool isAlive();
+	void setAliveStatus(bool status);
+	sf::CircleShape getCollisionCircle();
 
 private:
 	// Private Methods
@@ -29,11 +31,12 @@ private:
 	Player & m_refPlayer;
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
-	sf::CircleShape m_shape;
+	sf::CircleShape m_collisionCircle;
 	sf::Vector2f m_velocity;
 	sf::Clock lifeClock;
 	bool m_isAlive;
 	float rotation;
+	const float HIT_RADIUS = 15.f;
 };
 
 #endif // !MISSILE_H
