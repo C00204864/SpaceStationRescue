@@ -1,6 +1,6 @@
 #include "Sweeper.h"
 
-Sweeper::Sweeper(sf::Vector2f pos, Player & player, std::vector<Worker *> & workers) : m_refPlayer(player), m_refWorkers(workers), timer(0.f)
+Sweeper::Sweeper(sf::Vector2f pos, Player & player, std::vector<Worker *> & workers) : m_refPlayer(player), m_refWorkers(workers), timer(0.f), workerCount(0)
 {
 	if (!m_texture.loadFromFile("Assets\\Images\\Sweeper.png"))
 	{
@@ -37,11 +37,50 @@ void Sweeper::update(float dt)
 	}
 	if (m_alive)
 	{
-		seek(m_targetPosition);
+		sf::Vector2f pos = m_sprite.getPosition();
+		sf::Vector2f playerPos = m_refPlayer.getPosition();
+		if (getDistance(playerPos, pos) < ENTITY_DISTANCE_THRESHOLD)
+		{
+			seek(pos + (pos - playerPos));
+		}
+		else
+		{
+			bool wander = true;
+			for (auto & worker : m_refWorkers)
+			{
+				sf::Vector2f workerPos = worker->getPosition();
+				if (getDistance(workerPos, pos) < ENTITY_DISTANCE_THRESHOLD && worker->isAlive())
+				{
+					wander = false;
+					seek(pos + (workerPos - pos));
+					break;
+				}
+			}
+			if (wander)
+			{
+				seek(m_targetPosition);
+			}
+		}
 		if (checkCircleCollision(m_collisionCircle, m_refPlayer.getCollisionCircle()))
 		{
-			m_refPlayer.updateWorkers(1);
-			m_alive = false;
+			m_refPlayer.updateHealth(-5);
+
+		}
+		for (auto & bullet : m_refPlayer.getBullets())
+		{
+			if (checkCircleCollision(m_collisionCircle, bullet->getCollisionCircle()))
+			{
+				m_refPlayer.updateWorkers(workerCount);
+				m_alive = false;
+			}
+		}
+		for (auto & worker : m_refWorkers)
+		{
+			if (worker->isAlive() && checkCircleCollision(worker->getCollisionCircle(), m_collisionCircle))
+			{
+				++workerCount;
+				worker->setAliveStatus(false);
+			}
 		}
 	}
 

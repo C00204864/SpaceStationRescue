@@ -16,6 +16,8 @@ public:
 	bool isAlive();
 	sf::Vector2f getPosition();
 	void checkCollision(sf::FloatRect tileRect);
+	void setAliveStatus(bool status);
+	sf::CircleShape getCollisionCircle();
 private:
 	void seek(sf::Vector2f pos);
 	Player & m_refPlayer;

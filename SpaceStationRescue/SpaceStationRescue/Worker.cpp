@@ -101,6 +101,16 @@ sf::Vector2f Worker::getPosition()
 	return m_sprite.getPosition();
 }
 
+void Worker::setAliveStatus(bool status)
+{
+	m_alive = status;
+}
+
+sf::CircleShape Worker::getCollisionCircle()
+{
+	return m_collisionCircle;
+}
+
 void Worker::checkCollision(sf::FloatRect tileRect)
 {
 	if (checkCircleRectangleCollision(m_collisionCircle, tileRect))
