@@ -34,6 +34,7 @@ public:
 	void render(sf::RenderWindow & window);
 	Tile * getTilePointer(int xIndex, int yIndex);
 	int getTileWidth();
+	int getAliveNests();
 private:
 	// Private Functions
 	void setFlowField(int playerIndexX, int playerIndexY, bool processToCompletion);

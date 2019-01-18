@@ -143,6 +143,7 @@
     <ClCompile Include="Sweeper.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Widget.cpp" />
+    <ClCompile Include="WinScreen.cpp" />
     <ClCompile Include="Worker.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="XBOX360CONTROLLER.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Sweeper.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Widget.h" />
+    <ClInclude Include="WinScreen.h" />
     <ClInclude Include="Worker.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="XBOX360CONTROLLER.h" />

@@ -257,6 +257,19 @@ int World::getTileWidth()
 	return TILE_SIDE_LENGTH;
 }
 
+int World::getAliveNests()
+{
+	int counter = 0;
+	for (int i = 0; i < m_nests.size(); i++)
+	{
+		if (m_nests.at(i)->isAlive())
+		{
+			counter++;
+		}
+	}
+	return counter;
+}
+
 /// <summary>
 /// Function sets the flow field that is used by AI for pathfinding,
 /// this can be done either fully or partially, partially allows the 

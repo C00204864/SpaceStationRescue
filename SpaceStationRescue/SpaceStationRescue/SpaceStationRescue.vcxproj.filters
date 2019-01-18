@@ -93,6 +93,9 @@
     <ClCompile Include="Sweeper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WinScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -165,6 +168,9 @@
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
     <ClInclude Include="Sweeper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

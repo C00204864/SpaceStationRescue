@@ -27,7 +27,7 @@ public:
 	void render(sf::RenderWindow & m_window);
 	sf::Sprite getSprite();
 	std::vector<Predator *> & getPredatorVector();
-
+	bool isAlive();
 private:
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;

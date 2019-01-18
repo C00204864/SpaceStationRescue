@@ -172,3 +172,8 @@ std::vector<Predator *> & Nest::getPredatorVector()
 {
 	return m_predators;
 }
+
+bool Nest::isAlive()
+{
+	return m_alive;
+}
