@@ -59,6 +59,10 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 					{
 						m_workers.push_back(new Worker(entityPos, m_refPlayer));
 					}
+					else if ('s' == levelLine[i])
+					{
+						m_sweepers.push_back(new Sweeper(entityPos, m_refPlayer, m_workers));
+					}
 				}
 			}
 		}
@@ -165,6 +169,30 @@ void World::update(float dt)
 			}
 		}
 	}
+	for (auto & sweeper : m_sweepers)
+	{
+		sweeper->update(dt);
+		sf::Vector2f sweeperPos = sweeper->getPosition();
+		int sweeperIndexX = sweeperPos.x / TILE_SIDE_LENGTH;
+		int sweeperIndexY = sweeperPos.y / TILE_SIDE_LENGTH;
+		for (int i = sweeperIndexX - 1; i <= sweeperIndexX + 1; ++i)
+		{
+			if (i >= 0 && i < m_dimensions.x)
+			{
+				for (int j = sweeperIndexY - 1; j <= sweeperIndexY + 1; ++j)
+				{
+					if (j >= 0 && j < m_dimensions.y)
+					{
+						Tile & tile = m_worldGrid[i][j];
+						if (tile.isWall())
+						{
+							sweeper->checkCollision(tile.getGlobalBounds());
+						}
+					}
+				}
+			}
+		}
+	}
 
 	// Set flow field for AI
 	setFlowField(indexX, indexY, false);
@@ -202,6 +230,10 @@ void World::render(sf::RenderWindow & window)
 	for (auto & worker : m_workers)
 	{
 		worker->render(window);
+	}
+	for (auto & sweeper : m_sweepers)
+	{
+		sweeper->render(window);
 	}
 }
 

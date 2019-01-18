@@ -20,6 +20,7 @@ class Predator;
 #include "Player.h"
 #include "Nest.h"
 #include "Worker.h"
+#include "Sweeper.h"
 
 class Predator;
 
@@ -50,6 +51,7 @@ private:
 	Player & m_refPlayer;
 	std::vector<Nest *> m_nests;
 	std::vector<Worker *> m_workers;
+	std::vector<Sweeper *> m_sweepers;
 };
 
 #endif // !WORLD_H
