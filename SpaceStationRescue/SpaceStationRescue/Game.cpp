@@ -220,7 +220,7 @@ void Game::update(sf::Time t_deltaTime)
 		break;
 
 	case WIN:
-		winScreen->update();
+		winScreen->update(m_player);
 		break;
 	default:
 		break;
