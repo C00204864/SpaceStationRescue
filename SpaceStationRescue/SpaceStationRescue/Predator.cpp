@@ -14,6 +14,17 @@ Predator::Predator(World * world, Player & player) : p_world(world), m_isAlive(f
 	m_collisionCircle.setRadius(sqrt((spriteBounds.width / 2.f) * (spriteBounds.width / 2.f) + (spriteBounds.height / 2.f) * (spriteBounds.height / 2.f)));
 	m_collisionCircle.setFillColor(sf::Color(255, 0, 0, 125));
 	m_collisionCircle.setOrigin(m_collisionCircle.getRadius(), m_collisionCircle.getRadius());
+
+	if (!m_explosion.loadFromFile("Assets\\Images\\Explosion.png"))
+	{
+		std::cout << "Error: Could not load explosion texture" << std::endl;
+	}
+	m_animation = new Animation(&m_explosion, sf::Vector2u(14, 1), 0.05f);
+	m_animation->PlayAnimationOnce(true);
+	m_animating = false;
+	
+
+	rect = m_sprite.getTextureRect();
 }
 
 Predator::~Predator() {}
@@ -21,6 +32,13 @@ Predator::~Predator() {}
 void Predator::reset(sf::Vector2f positionIn)
 {
 	m_isAlive = true;
+	m_animating = false;
+	m_animation->reset();
+	m_sprite.setTexture(m_texture);
+	m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2, m_sprite.getGlobalBounds().height / 2);
+	m_sprite.setTextureRect(rect);
+	m_sprite.setRotation(0);
+	m_sprite.setScale(0.06, 0.06);
 	m_sprite.setPosition(positionIn);
 	Tile * nextTile = p_world->getTilePointer(positionIn.x / p_world->getTileWidth(), positionIn.y / p_world->getTileWidth());
 	if (nullptr != nextTile)
@@ -31,7 +49,8 @@ void Predator::reset(sf::Vector2f positionIn)
 
 void Predator::explode()
 {
-	m_isAlive = false;
+	//m_isAlive = false;
+	m_animating = true;
 }
 
 void Predator::update(float dt)
@@ -50,8 +69,21 @@ void Predator::update(float dt)
 		}
 	}
 
+	if (m_animating)
+	{
+		if (m_animation->isAnimFinished())
+		{
+			m_animating = false;
+			m_isAlive = false;
+		}
+		m_animation->update(0, dt);
+		m_sprite.setScale(1, 1);
+		m_sprite.setTexture(m_explosion);
+		m_sprite.setTextureRect(m_animation->uvRect);
+		m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2.f, m_sprite.getLocalBounds().height / 2.f);
+	}
 
-	if (m_isAlive)
+	if (m_isAlive && !m_animating)
 	{
 		sf::Vector2f position = m_sprite.getPosition();
 		sf::Vector2f playerPos = m_refPlayer.getPosition();

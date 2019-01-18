@@ -57,8 +57,10 @@ void Nest::update(float dt)
 	m_missile->update();
 	if (!m_missile->isAlive() && getDistance(m_refPlayer.getPosition(), m_sprite.getPosition()) < m_circle.getRadius())
 	{
-		if (m_alive)
+		missileSpawnSeconds += dt;
+		if (m_alive && MISSILE_SPAWN_TIME < missileSpawnSeconds)
 		{
+			missileSpawnSeconds = 0;
 			m_missile->reset(m_sprite.getPosition(), m_sprite.getRotation());
 		}
 	}
@@ -85,6 +87,7 @@ void Nest::update(float dt)
 		if (m_animation->isAnimFinished())
 		{
 			m_animating = false;
+			m_alive = false;
 		}
 		m_animation->update(0, dt);
 		m_sprite.setScale(1, 1);
@@ -113,7 +116,8 @@ void Nest::update(float dt)
 				--m_health;
 				if (0 == m_health)
 				{
-					m_alive = false;
+					//m_alive = false;
+					m_animating = true;
 				}
 			}
 		}

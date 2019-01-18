@@ -39,6 +39,10 @@ private:
 	const int PREADTOR_COUNT = 2;
 	float predatorSpawnSeconds;
 	const float PREDATOR_SPAWN_TIME = 10.f;
+
+	const float MISSILE_SPAWN_TIME = 3.5f;
+	float missileSpawnSeconds;
+
 	sf::Texture m_explosion;
 	Animation * m_animation;
 	bool m_animating;

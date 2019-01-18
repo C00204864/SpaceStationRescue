@@ -151,7 +151,7 @@ void Game::update(sf::Time t_deltaTime)
 
 			timeElapsed = bulletClock.getElapsedTime();
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && timeElapsed.asSeconds() > 0.5f)
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && timeElapsed.asSeconds() > 0.25f)
 			{
 				bulletClock.restart();
 				m_player.SpawnBullet();

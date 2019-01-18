@@ -14,6 +14,8 @@ class World;
 #include "World.h"
 #include "Player.h"
 #include "Bullet.h"
+#include "Predator.h"
+#include "Animation.h"
 
 class Predator
 {
@@ -45,6 +47,15 @@ private:
 	const float TILE_DISTANCE_THRESHOLD = 50.f;
 	const float PLAYER_DISTANCE_THRESHOLD = 250.f;
 	const float TIME_BETWEEN_SHOTS = 3.5f;
+
+	sf::Sprite m_explos;
+	sf::Texture m_explosion;
+	Animation * m_animation;
+	bool m_animating;
+	//int m_health;
+	//bool m_alive;
+	sf::IntRect rect;
+
 };
 
 #endif // !PREADTOR_H
