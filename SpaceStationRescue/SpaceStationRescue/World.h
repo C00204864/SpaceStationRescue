@@ -30,6 +30,8 @@ public:
 	// Public Functions
 	World(std::string loadFilePath, int width, int height, Player & playerIn);
 	~World();
+	void reset(std::string loadFilePath);
+	void load(std::string loadFilePath);
 	void update(float dt);
 	void render(sf::RenderWindow & window);
 	Tile * getTilePointer(int xIndex, int yIndex);

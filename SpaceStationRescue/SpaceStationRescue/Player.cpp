@@ -5,6 +5,7 @@
 /// <param name="pos"> Spawn Position for the player</param>
 Player::Player(sf::Vector2f pos)
 {
+	m_startPos = pos;
 	position = pos;
 	speed = 0;
 	if (!texture.loadFromFile("Assets\\Images\\PlayerShip.png"))
@@ -342,4 +343,11 @@ void Player::updateHealth(int amount)
 std::vector<Bullet *> & Player::getBullets()
 {
 	return m_bullets;
+}
+
+void Player::reset()
+{
+	m_health = 100;
+	m_amountOfWorkers = 0;
+	sprite.setPosition(m_startPos);
 }
