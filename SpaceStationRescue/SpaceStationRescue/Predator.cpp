@@ -10,16 +10,13 @@ Predator::Predator(World * world, Player & player) : p_world(world), m_isAlive(f
 	m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2, m_sprite.getGlobalBounds().height / 2);
 	m_sprite.setRotation(0);
 	m_sprite.setScale(0.06, 0.06);
-
 	sf::FloatRect spriteBounds = m_sprite.getGlobalBounds();
 	m_collisionCircle.setRadius(sqrt((spriteBounds.width / 2.f) * (spriteBounds.width / 2.f) + (spriteBounds.height / 2.f) * (spriteBounds.height / 2.f)));
 	m_collisionCircle.setFillColor(sf::Color(255, 0, 0, 125));
 	m_collisionCircle.setOrigin(m_collisionCircle.getRadius(), m_collisionCircle.getRadius());
 }
 
-Predator::~Predator()
-{
-}
+Predator::~Predator() {}
 
 void Predator::reset(sf::Vector2f positionIn)
 {
@@ -65,6 +62,21 @@ void Predator::update(float dt)
 				targetTile = targetTile->getNext();
 			}
 		}
+
+		// Check Collisions with the player and player bullets
+		if(checkCircleCollision(m_collisionCircle, m_refPlayer.getCollisionCircle()))
+		{
+			m_refPlayer.updateHealth(-10);
+			explode();
+		}
+		for (auto & bullet : m_refPlayer.getBullets())
+		{
+			if (checkCircleCollision(m_collisionCircle, bullet->getCollisionCircle()))
+			{
+				explode();
+				bullet->setAliveStatus(false);
+			}
+		}
 	}
 }
 
@@ -86,7 +98,7 @@ void Predator::seek(sf::Vector2f targetPosition)
 {
 	sf::Vector2f position = m_sprite.getPosition();
 	sf::Vector2f vectorBetween = targetPosition - position;
-	float orientation = m_sprite.getRotation();// / 180.f * acos(-1);
+	float orientation = m_sprite.getRotation();
 	if (orientation < 0)
 	{
 		orientation += 360.f;

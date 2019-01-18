@@ -173,11 +173,11 @@ void Game::update(sf::Time t_deltaTime)
 
 					if (p->getType() == PowerType::SHIELD)
 					{
-						m_player.activateTheShield();
+						m_player.activateShield();
 					}
 					else
 					{
-						m_player.activateTheSpeedBoost();
+						m_player.activateSpeedBoost();
 					}
 				}
 			}

@@ -9,6 +9,8 @@
 /// <param name="playerIn">Reference to the player</param>
 World::World(std::string loadFilePath, int width, int height, Player & playerIn) : m_dimensions(sf::Vector2i(width, height)), m_refPlayer(playerIn)
 {
+	srand(time(NULL));
+
 	// Load textures for all the tiles, don't do this in the tile class itself to save memory
 	for (int i = 1; i <= TILE_TYPES; ++i)
 	{
@@ -34,6 +36,7 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 	std::string levelLine;
 	int yCounter = 0;
 	loader.open(loadFilePath);
+	std::vector<sf::Vector2f> nestPosList;
 	while (!loader.eof() && yCounter < m_dimensions.y)
 	{
 		std::getline(loader, levelLine);
@@ -50,12 +53,22 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 					sf::Vector2f entityPos = sf::Vector2f(i * TILE_SIDE_LENGTH + TILE_SIDE_LENGTH / 2.f, yCounter * TILE_SIDE_LENGTH + TILE_SIDE_LENGTH / 2.f);
 					if ('n' == levelLine[i])
 					{
-						m_nests.push_back(new Nest(entityPos, m_refPlayer, this));
+						nestPosList.push_back(entityPos);
 					}
 				}
 			}
 		}
 		++yCounter;
+	}
+
+	if (0 != nestPosList.size())
+	{
+		for (int i = 0; i < NEST_COUNT; ++i)
+		{
+			int randNestPos = rand() % nestPosList.size();
+			m_nests.push_back(new Nest(nestPosList.at(randNestPos), m_refPlayer, this));
+			nestPosList.erase(nestPosList.begin() + randNestPos);
+		}
 	}
 
 	// Set a flow field for pathfinding

@@ -19,6 +19,7 @@ public:
 	~Player();
 	void render(sf::RenderWindow &window);
 	void update(sf::Time dt);
+	sf::CircleShape getCollisionCircle();
 	void checkCollision(sf::FloatRect tileRect);
 	void increaseRotation();
 	void decreaseRotation();
@@ -30,39 +31,32 @@ public:
 	float getRotation();
 	void SpawnBullet();
 	sf::Sprite & getSprite();
-	void activateTheShield();
-	void activateTheSpeedBoost();
+	void activateShield();
+	void activateSpeedBoost();
 	int getHealth();
 	int getWorkersAmount();
 	void updateHealth(int amount);
+	std::vector<Bullet *> & getBullets();
 
 private:
 	sf::Vector2f position;
 	sf::Vector2f m_lastPosition;
 	float speed;
-
 	sf::Vector2f velocity;
 	sf::Texture texture;
 	sf::Sprite sprite;
 	sf::CircleShape m_collisionCircle;
 	float rotation;
 	float orientation;
-
 	std::vector<Bullet *> m_bullets;
-
 	sf::Clock m_shieldClock;
 	sf::Time m_shieldTime;
-	bool activateShield;
-
+	bool m_shieldActive;
 	sf::Clock m_speedClock;
 	sf::Time m_speedTime;
-	bool activateSpeedBoost;
-
+	bool m_speedBoostActive;
 	sf::CircleShape m_shieldShape;
-
-
 	int maxSpeed;
-
 	int m_health;
 	int m_amountOfWorkers;
 };

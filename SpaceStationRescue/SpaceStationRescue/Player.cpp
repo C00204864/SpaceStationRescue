@@ -22,15 +22,13 @@ Player::Player(sf::Vector2f pos)
 
 	m_collisionCircle.setFillColor(sf::Color(125, 125, 125, 125));
 	m_collisionCircle.setOrigin(m_collisionCircle.getRadius(), m_collisionCircle.getRadius());
+	m_shieldActive = false;
 
-	activateShield = false;
-
-
-	m_shieldShape.setRadius(50);
+	m_shieldShape.setRadius(m_collisionCircle.getRadius());
 	m_shieldShape.setFillColor(sf::Color(0, 0, 255, 125));
 	m_shieldShape.setOutlineThickness(2);
 	m_shieldShape.setOutlineColor(sf::Color(255,0,255,125));
-	m_shieldShape.setOrigin(m_shieldShape.getGlobalBounds().width / 2, m_shieldShape.getGlobalBounds().height / 2);
+	m_shieldShape.setOrigin(m_collisionCircle.getOrigin());
 	m_shieldShape.setPosition(sprite.getPosition());
 
 	maxSpeed = 5;
@@ -49,16 +47,12 @@ void Player::render(sf::RenderWindow & window)
 	{
 		b->draw(window);
 	}
-
 	window.draw(m_collisionCircle);
-
 	window.draw(sprite);
-
-	if (activateShield)
+	if (m_shieldActive)
 	{
 		window.draw(m_shieldShape);
 	}
-	
 }
 
 void Player::update(sf::Time dt)
@@ -74,7 +68,6 @@ void Player::update(sf::Time dt)
 		b->update();
 	}
 
-
 	for (int i = 0; i < m_bullets.size(); i++)
 	{
 		if (m_bullets.at(i)->isAlive() == false)
@@ -84,30 +77,25 @@ void Player::update(sf::Time dt)
 		}
 	}
 
-
-
-	if (activateShield)
+	if (m_shieldActive)
 	{
 		m_shieldTime = m_shieldClock.getElapsedTime();
 
 		if (m_shieldTime.asSeconds() > 15)
 		{
 			m_shieldClock.restart();
-			activateShield = false;
+			m_shieldActive = false;
 		}
 	}
 
-
-
-	//std::cout << "Speed Time: " << m_speedTime.asSeconds() << std::endl;
-	if (activateSpeedBoost)
+	if (m_speedBoostActive)
 	{
 		m_speedTime = m_speedClock.getElapsedTime();
 
 		if (m_speedTime.asSeconds() > 15)
 		{
 			m_speedClock.restart();
-			activateSpeedBoost = false;
+			m_speedBoostActive = false;
 			maxSpeed = 5;
 
 
@@ -124,6 +112,11 @@ void Player::update(sf::Time dt)
 	}
 
 	m_shieldShape.setPosition(sprite.getPosition());
+}
+
+sf::CircleShape Player::getCollisionCircle()
+{
+	return m_collisionCircle;
 }
 
 void Player::checkCollision(sf::FloatRect tileRect)
@@ -207,7 +200,7 @@ float Player::getRotation()
 
 void Player::SpawnBullet()
 {
-	m_bullets.push_back(new Bullet(sprite));
+	m_bullets.push_back(new Bullet(sprite.getPosition(), sprite.getRotation()));
 }
 
 sf::Sprite & Player::getSprite()
@@ -215,12 +208,12 @@ sf::Sprite & Player::getSprite()
 	return sprite;
 }
 
-void Player::activateTheShield()
+void Player::activateShield()
 {
-	if (activateShield == false)
+	if (m_shieldActive == false)
 	{
 		m_shieldClock.restart();
-		activateShield = true;
+		m_shieldActive = true;
 	}
 	else
 	{
@@ -228,12 +221,12 @@ void Player::activateTheShield()
 	}
 }
 
-void Player::activateTheSpeedBoost()
+void Player::activateSpeedBoost()
 {
-	if (activateSpeedBoost == false)
+	if (m_speedBoostActive == false)
 	{
 		m_speedClock.restart();
-		activateSpeedBoost = true;
+		m_speedBoostActive = true;
 		maxSpeed = 20;
 	}
 	else
@@ -255,10 +248,14 @@ int Player::getWorkersAmount()
 
 void Player::updateHealth(int amount)
 {
-
 	m_health += amount;
 	if (m_health < 0)
 	{
 		m_health = 0;
 	}
+}
+
+std::vector<Bullet *> & Player::getBullets()
+{
+	return m_bullets;
 }

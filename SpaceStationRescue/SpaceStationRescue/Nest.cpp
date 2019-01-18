@@ -1,7 +1,9 @@
 #include "Nest.h"
 
 Nest::Nest(sf::Vector2f pos, Player & player, World * world):
-	m_refPlayer{player}
+	m_refPlayer{player},
+	m_health{4},
+	m_alive{true}
 {
 	// Setup Nest
 	if (!m_texture.loadFromFile("Assets\\Images\\Nest.png"))
@@ -19,6 +21,11 @@ Nest::Nest(sf::Vector2f pos, Player & player, World * world):
 	m_circle.setOrigin(m_circle.getGlobalBounds().width / 2.f, m_circle.getGlobalBounds().height / 2.f);
 	m_circle.setPosition(m_sprite.getPosition());
 
+	float collisionRadius = m_sprite.getGlobalBounds().width / 2.f;
+	m_collisionCircle.setRadius(collisionRadius);
+	m_collisionCircle.setOrigin(collisionRadius, collisionRadius);
+	m_collisionCircle.setPosition(pos);
+
 	// Setup Missiles and Predators
 	m_missile = new Missile(m_refPlayer);
 	for (int i = 0; i < PREADTOR_COUNT; ++i)
@@ -26,19 +33,23 @@ Nest::Nest(sf::Vector2f pos, Player & player, World * world):
 		m_predators.push_back(new Predator(world, player));
 	}
 
-
-	if (m_explos.loadFromFile("Assets\\Images\\boom.png"))
+	if (!m_explosion.loadFromFile("Assets\\Images\\Explosion.png"))
 	{
-
+		std::cout << "Error: Could not load explosion texture" << std::endl;
 	}
-	m_animation = new Animation(&m_explos, sf::Vector2u(14, 1), 0.05f);
+	m_animation = new Animation(&m_explosion, sf::Vector2u(14, 1), 0.05f);
 	m_animation->PlayAnimationOnce(true);
 	m_animating = false;
 }
 
 Nest::~Nest() 
 {
+	delete m_animation;
 	delete m_missile;
+	for (int i = 0; i < m_predators.size(); ++i)
+	{
+		delete m_predators.at(i);
+	}
 }
 
 void Nest::update(float dt)
@@ -46,14 +57,18 @@ void Nest::update(float dt)
 	m_missile->update();
 	if (!m_missile->isAlive() && getDistance(m_refPlayer.getPosition(), m_sprite.getPosition()) < m_circle.getRadius())
 	{
-		m_missile->reset(m_sprite.getPosition(), m_sprite.getRotation());
+		if (m_alive)
+		{
+			m_missile->reset(m_sprite.getPosition(), m_sprite.getRotation());
+		}
 	}
+
 	for (auto & predator : m_predators)
 	{
-		if (!predator->isAlive())
+		if (m_alive && !predator->isAlive())
 		{
 			predatorSpawnSeconds += dt;
-			if(PREDATOR_SPAWN_TIME < predatorSpawnSeconds)
+			if( PREDATOR_SPAWN_TIME < predatorSpawnSeconds)
 			{
 				predatorSpawnSeconds = 0.f;
 				predator->reset(m_sprite.getPosition());
@@ -65,7 +80,6 @@ void Nest::update(float dt)
 		}
 	}
 
-
 	if (m_animating)
 	{
 		if (m_animation->isAnimFinished())
@@ -74,30 +88,46 @@ void Nest::update(float dt)
 		}
 		m_animation->update(0, dt);
 		m_sprite.setScale(1, 1);
-		m_sprite.setTexture(m_explos);
+		m_sprite.setTexture(m_explosion);
 		m_sprite.setTextureRect(m_animation->uvRect);
 		m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2.f, m_sprite.getLocalBounds().height / 2.f);
-
 	}
 
+	if (m_alive)
+	{
+		// Check Collisions with the player and player bullets
+		if (checkCircleCollision(m_collisionCircle, m_refPlayer.getCollisionCircle()))
+		{
+			m_refPlayer.updateHealth(-5);
+		}
+		for (auto & bullet : m_refPlayer.getBullets())
+		{
+			if (checkCircleCollision(m_collisionCircle, bullet->getCollisionCircle()))
+			{
+				bullet->setAliveStatus(false);
+				--m_health;
+				if (0 == m_health)
+				{
+					m_alive = false;
+				}
+			}
+		}
+	}
 }
 
 void Nest::render(sf::RenderWindow & window)
 {
-	window.draw(m_circle);
-	window.draw(m_sprite);
+	if (m_alive)
+	{
+		window.draw(m_circle);
+		window.draw(m_sprite);
+	}
 	m_missile->render(window);
 	for (auto & predator : m_predators)
 	{
 		predator->render(window);
 	}
 }
-
-void Nest::spawnNewPredator()
-{
-
-}
-
 
 sf::Sprite Nest::getSprite()
 {

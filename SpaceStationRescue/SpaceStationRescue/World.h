@@ -45,6 +45,7 @@ private:
 	const int TILE_SIDE_LENGTH = 60;
 	const int TILE_TYPES = 9;
 	const int FLOW_FIELD_LOOP_COUNT = 1000;
+	const int NEST_COUNT = 2;
 	Player & m_refPlayer;
 	std::vector<Nest *> m_nests;
 };

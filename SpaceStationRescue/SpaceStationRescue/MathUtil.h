@@ -33,5 +33,10 @@ static sf::Vector2f setVecSize(sf::Vector2f vec, float size)
 	return sf::Vector2f(vec.x / magnitude * size, vec.y / magnitude * size);
 }
 
+static bool checkCircleCollision(sf::CircleShape c1, sf::CircleShape c2)
+{
+	return getDistance(c1.getPosition(), c2.getPosition()) < c1.getRadius() + c2.getRadius();
+}
+
 
 #endif // !MATHUTIL_H
