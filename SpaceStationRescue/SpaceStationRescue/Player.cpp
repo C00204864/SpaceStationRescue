@@ -350,4 +350,8 @@ void Player::reset()
 	m_health = 100;
 	m_amountOfWorkers = 0;
 	sprite.setPosition(m_startPos);
+	m_shieldActive = false;
+	m_speedBoostActive = false;
+	m_shieldClock.restart();
+	m_speedClock.restart();
 }
