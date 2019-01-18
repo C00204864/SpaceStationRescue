@@ -13,12 +13,14 @@
 #include "MainMenuScreen.h"
 
 #include "Hud.h"
+#include "DieScreen.h"
 
 class Menu;
-
+class DieScreen;
 enum State{
 	MAINMENU,
-	PLAY
+	PLAY,
+	DIE
 };
 
 class Game
@@ -76,6 +78,9 @@ private:
 	Menu * menu;
 
 	Hud * hud;
+
+	DieScreen * dieScreen;
+
 
 };
 

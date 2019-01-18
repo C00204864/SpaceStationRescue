@@ -19,6 +19,10 @@ Menu::Menu(float width, float height, Game & game, sf::RenderWindow &window) :
 
 	m_gui.vertical = true; //control scheme
 
+
+	m_widgets[0]->updateFocusColor(sf::Color(0, 255, 0, 255));
+	m_widgets[1]->updateFocusColor(sf::Color(0, 255, 0, 255));
+
 	if (!m_texture.loadFromFile("Assets\\Images\\background.png"))
 	{
 		//handle

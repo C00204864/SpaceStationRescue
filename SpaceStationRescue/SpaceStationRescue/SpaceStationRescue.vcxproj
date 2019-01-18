@@ -126,6 +126,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CheckBox.cpp" />
+    <ClCompile Include="DieScreen.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Hud.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="CheckBox.h" />
+    <ClInclude Include="DieScreen.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="Hud.h" />

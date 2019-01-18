@@ -12,6 +12,8 @@ Game::Game() :
 	m_miniMapView.setViewport(sf::FloatRect(0.735f, 0.025f, 0.25f, 0.25f));
 	m_window.setView(m_mainView);
 
+	
+
 	// Background and Shader
 	if (!m_backgroundTexture.loadFromFile("Assets\\Images\\Background.png"))
 	{
@@ -56,6 +58,7 @@ Game::Game() :
 
 
 	menu = new Menu(SCREEN_WIDTH, SCREEN_HEIGHT, *this, m_window);
+	dieScreen = new DieScreen(SCREEN_WIDTH, SCREEN_HEIGHT, *this, m_window);
 	m_state = State::MAINMENU;
 
 	hud = new Hud(m_player);
@@ -183,6 +186,13 @@ void Game::update(sf::Time t_deltaTime)
 			}
 		}
 		hud->update(m_mainView.getCenter());
+		if (m_player.getHealth() <= 0)
+		{
+			m_state = State::DIE;
+		}
+		break;
+	case DIE:
+		dieScreen->update();
 		break;
 	default:
 		break;
@@ -199,6 +209,7 @@ void Game::render()
 	switch (m_state)
 	{
 	case MAINMENU:
+		m_window.setView(m_window.getDefaultView());
 		menu->draw();
 		m_window.display();
 		break;
@@ -222,6 +233,24 @@ void Game::render()
 		m_window.draw(m_minimapBackground);
 		m_world.render(m_window);
 		m_player.render(m_window);
+		m_window.display();
+		break;
+
+	case DIE:
+		// Draw Main Game
+		m_window.setView(m_mainView);
+		m_window.draw(m_backgroundSprite);
+		m_window.draw(m_emptyShaderSprite, &m_shader);
+		m_world.render(m_window);
+		m_player.render(m_window);
+		worker->draw(m_window);
+
+		for (auto & p : powerUps)
+		{
+			p->draw(m_window);
+		}
+
+		dieScreen->draw();
 		m_window.display();
 		break;
 	default:
