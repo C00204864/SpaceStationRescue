@@ -58,6 +58,7 @@ Game::Game() :
 
 	menu = new Menu(SCREEN_WIDTH, SCREEN_HEIGHT, *this, m_window);
 	dieScreen = new DieScreen(SCREEN_WIDTH, SCREEN_HEIGHT, *this, m_window);
+	winScreen = new WinScreen(SCREEN_WIDTH, SCREEN_HEIGHT, *this, m_window);
 	m_state = State::MAINMENU;
 
 	hud = new Hud(m_player);
@@ -209,9 +210,17 @@ void Game::update(sf::Time t_deltaTime)
 		{
 			m_state = State::DIE;
 		}
+		if (m_world.getAliveNests() <= 0)
+		{
+			m_state = State::WIN;
+		}
 		break;
 	case DIE:
 		dieScreen->update();
+		break;
+
+	case WIN:
+		winScreen->update();
 		break;
 	default:
 		break;
@@ -271,6 +280,22 @@ void Game::render()
 		}
 
 		dieScreen->draw();
+		m_window.display();
+		break;
+	case WIN:
+		// Draw Main Game
+		m_window.setView(m_mainView);
+		m_window.draw(m_backgroundSprite);
+		m_window.draw(m_emptyShaderSprite, &m_shader);
+		m_world.render(m_window);
+		m_player.render(m_window);
+
+		for (auto & p : powerUps)
+		{
+			p->draw(m_window);
+		}
+
+		winScreen->draw();
 		m_window.display();
 		break;
 	default:
