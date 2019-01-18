@@ -151,8 +151,6 @@ void Game::processEvents()
 /// <param name="t_deltaTime">deltatime</param>
 void Game::update(sf::Time t_deltaTime)
 {
-
-	std::cout << m_player.getPosition().x << "," << m_player.getPosition().y << std::endl;
 	switch (m_state)
 	{
 	case MAINMENU:
