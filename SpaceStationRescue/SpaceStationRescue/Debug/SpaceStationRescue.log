@@ -1,51 +1,9 @@
-﻿  World.cpp
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(43): warning C4018: '<': signed/unsigned mismatch
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(49): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(84): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(100): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(101): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(127): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(128): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(152): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(153): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(176): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(177): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\world.cpp(263): warning C4018: '<': signed/unsigned mismatch
-  SpaceStationRescue.vcxproj -> C:\Users\micha\Documents\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
+﻿  Player.cpp
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(18): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(75): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(84): warning C4018: '<': signed/unsigned mismatch
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(118): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(122): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(206): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\player.cpp(217): warning C4305: '-=': truncation from 'double' to 'float'
+  SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe

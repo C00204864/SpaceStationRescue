@@ -32,7 +32,9 @@ private:
 	const float MAX_SPEED = 2.5f;
 	const float SEEK_DISTANCE = 1200.f;
 	const float SEEK_THRESHOLD = 20.f;
+	const float ENTITY_DISTANCE_THRESHOLD = 200.f;
 	float timer;
+	int workerCount;
 };
 
 #endif // !SWEEPER_H

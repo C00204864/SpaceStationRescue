@@ -56,7 +56,6 @@ void Player::render(sf::RenderWindow & window)
 	{
 		b->draw(window);
 	}
-	window.draw(m_collisionCircle);
 	window.draw(sprite);
 	if (m_shieldActive)
 	{
