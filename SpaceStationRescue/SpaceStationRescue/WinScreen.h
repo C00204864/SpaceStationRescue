@@ -27,7 +27,7 @@ public:
 	WinScreen(float width, float height, Game& game, sf::RenderWindow &window);
 	~WinScreen();
 	void draw(); //draw
-	void update();//update
+	void update(Player & player);//update
 	void EndGame(); //end the game
 	void tryAgain();
 private:
@@ -42,6 +42,8 @@ private:
 	float transparency2;
 	sf::Text m_text;
 	sf::Font m_font;
+	sf::Text m_text2;
+
 	int m_count;
 };
 
