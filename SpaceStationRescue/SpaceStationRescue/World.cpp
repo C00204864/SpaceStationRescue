@@ -15,7 +15,7 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 	for (int i = 1; i <= TILE_TYPES; ++i)
 	{
 		m_tileTextures.push_back(sf::Texture());
-		if (!m_tileTextures[i - 1].loadFromFile("Assets\\Images\\Tiles\\Tile" + std::to_string(i) +  ".png"))
+		if (!m_tileTextures[i - 1].loadFromFile("Assets\\Images\\Tiles\\Tile" + std::to_string(i) + ".png"))
 		{
 			std::cout << "Error: could not load tile texture number:" << i << std::endl;
 		}
@@ -54,6 +54,10 @@ World::World(std::string loadFilePath, int width, int height, Player & playerIn)
 					if ('n' == levelLine[i])
 					{
 						nestPosList.push_back(entityPos);
+					}
+					else if ('w' == levelLine[i])
+					{
+						m_workers.push_back(new Worker(entityPos, m_refPlayer));
 					}
 				}
 			}
@@ -113,7 +117,7 @@ void World::update(float dt)
 	for (auto & nest : m_nests)
 	{
 		nest->update(dt);
-		for(auto & predator : nest->getPredatorVector())
+		for (auto & predator : nest->getPredatorVector())
 		{
 			sf::Vector2f predatorPos = predator->getPosition();
 			int predIndexX = predatorPos.x / TILE_SIDE_LENGTH;
@@ -137,9 +141,33 @@ void World::update(float dt)
 			}
 		}
 	}
+	for (auto & worker : m_workers)
+	{
+		worker->update(dt);
+		sf::Vector2f workerPos = worker->getPosition();
+		int workerIndexX = workerPos.x / TILE_SIDE_LENGTH;
+		int workerIndexY = workerPos.y / TILE_SIDE_LENGTH;
+		for (int i = workerIndexX - 1; i <= workerIndexX + 1; ++i)
+		{
+			if (i >= 0 && i < m_dimensions.x)
+			{
+				for (int j = workerIndexY - 1; j <= workerIndexY + 1; ++j)
+				{
+					if (j >= 0 && j < m_dimensions.y)
+					{
+						Tile & tile = m_worldGrid[i][j];
+						if (tile.isWall())
+						{
+							worker->checkCollision(tile.getGlobalBounds());
+						}
+					}
+				}
+			}
+		}
+	}
 
 	// Set flow field for AI
-	setFlowField(indexX, indexY, false); 
+	setFlowField(indexX, indexY, false);
 }
 
 /// <summary>
@@ -171,6 +199,10 @@ void World::render(sf::RenderWindow & window)
 	{
 		nest->render(window);
 	}
+	for (auto & worker : m_workers)
+	{
+		worker->render(window);
+	}
 }
 
 /// <summary>
@@ -181,7 +213,7 @@ void World::render(sf::RenderWindow & window)
 /// <returns>Pointer to the tile specified by xIndex and yIndex</returns>
 Tile * World::getTilePointer(int xIndex, int yIndex)
 {
-	return & m_worldGrid[xIndex][yIndex]; // This can throw out of bounds exceptions for X and Y
+	return &m_worldGrid[xIndex][yIndex]; // This can throw out of bounds exceptions for X and Y
 }
 
 /// <summary>

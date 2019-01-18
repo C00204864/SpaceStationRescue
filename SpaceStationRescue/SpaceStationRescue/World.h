@@ -1,7 +1,7 @@
 #ifndef WORLD_H
 #define WORLD_H
 
-// Predefinitions to deal woth circular references
+// Predefinitions to deal with circular references
 class Nest;
 class Predator;
 
@@ -19,6 +19,7 @@ class Predator;
 #include "Tile.h"
 #include "Player.h"
 #include "Nest.h"
+#include "Worker.h"
 
 class Predator;
 
@@ -48,6 +49,7 @@ private:
 	const int NEST_COUNT = 2;
 	Player & m_refPlayer;
 	std::vector<Nest *> m_nests;
+	std::vector<Worker *> m_workers;
 };
 
 #endif // !WORLD_H

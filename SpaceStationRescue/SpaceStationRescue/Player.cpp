@@ -253,6 +253,15 @@ void Player::SpawnBullet()
 	m_bullets.push_back(new Bullet(sprite.getPosition(), sprite.getRotation()));
 }
 
+void Player::updateWorkers(int amount)
+{
+	m_amountOfWorkers += amount;
+	if (m_amountOfWorkers < 0)
+	{
+		m_amountOfWorkers = 0;
+	}
+}
+
 /// <summary>
 /// Get the player sprite object
 /// </summary>
