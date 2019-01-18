@@ -81,6 +81,7 @@ bool Menu::itemSelected()
 
 void Menu::GoToPlay()
 {
+	m_game->reset();
 	m_game->setGameState(State::PLAY);
 }
 

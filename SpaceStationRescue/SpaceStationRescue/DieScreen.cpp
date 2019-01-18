@@ -114,7 +114,8 @@ void DieScreen::tryAgain()
 	m_background.setFillColor(sf::Color(255, 0, 0, transparency));
 	m_text.setFillColor(sf::Color(255, 255, 255, transparency2));
 	//m_game->loadLevel("");
-	//m_game->setGameState(GameState::Play);
+	m_game->setGameState(State::PLAY);
+	m_game->reset();
 	m_count = 0;
 	m_selectedItemIndex = 0;
 }

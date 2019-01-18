@@ -110,6 +110,17 @@ void Game::endGame()
 	m_window.close();
 }
 
+void Game::reset()
+{
+	m_world.reset("Assets\\Levels\\Level.txt");
+	m_player.reset();
+	for (auto & p : powerUps)
+	{
+		p->setAlive(true);
+	}
+	m_mainView.setCenter(m_player.getPosition());
+}
+
 /// <summary>
 /// Process the game events
 /// </summary>
@@ -170,15 +181,6 @@ void Game::update(sf::Time t_deltaTime)
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 			{
 				m_player.IncreaseSpeed();
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
-			{
-				m_world.reset("Assets\\Levels\\Level.txt");
-				m_player.reset();
-				for (auto & p : powerUps)
-				{
-					p->setAlive(true);
-				}
 			}
 
 			timeElapsed = bulletClock.getElapsedTime();

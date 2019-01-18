@@ -354,4 +354,6 @@ void Player::reset()
 	m_speedBoostActive = false;
 	m_shieldClock.restart();
 	m_speedClock.restart();
+	speed = 0;
+	maxSpeed = 5;
 }

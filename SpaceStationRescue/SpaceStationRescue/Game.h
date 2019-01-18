@@ -36,6 +36,7 @@ public:
 	void run();
 	void setGameState(State state);
 	void endGame();
+	void reset();
 private:
 	// Private Methods
 	void processEvents();
