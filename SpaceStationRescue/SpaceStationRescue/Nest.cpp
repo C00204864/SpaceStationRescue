@@ -174,6 +174,10 @@ std::vector<Predator *> & Nest::getPredatorVector()
 	return m_predators;
 }
 
+/// <summary>
+/// Get whether the nest is alive or dead
+/// </summary>
+/// <returns>the bool for alive or dead</returns>
 bool Nest::isAlive()
 {
 	return m_alive;

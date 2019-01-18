@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Worker.h"
 #include "MathUtil.h"
+#include "Animation.h"
 
 class Sweeper
 {
@@ -35,6 +36,13 @@ private:
 	const float ENTITY_DISTANCE_THRESHOLD = 200.f;
 	float timer;
 	int workerCount;
+
+	sf::Texture m_explosion;
+	Animation * m_animation;
+	bool m_animating;
+	//int m_health;
+	//bool m_alive;
+	sf::IntRect rect;
 };
 
 #endif // !SWEEPER_H

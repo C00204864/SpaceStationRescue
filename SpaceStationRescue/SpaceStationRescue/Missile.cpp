@@ -1,5 +1,9 @@
 #include "Missile.h"
 
+/// <summary>
+/// Missile Contructor
+/// </summary>
+/// <param name="player">Ref to the player</param>
 Missile::Missile(Player & player) : m_refPlayer(player), m_isAlive(false)
 {
 	float bulletRotation = m_sprite.getRotation();
@@ -20,8 +24,16 @@ Missile::Missile(Player & player) : m_refPlayer(player), m_isAlive(false)
 	m_sprite.setScale(0.1, 0.1);
 }
 
+/// <summary>
+/// Destructor
+/// </summary>
 Missile::~Missile() {}
 
+/// <summary>
+/// Reset Function
+/// </summary>
+/// <param name="positionIn">reset pos</param>
+/// <param name="rotationIn">reset rotation</param>
 void Missile::reset(sf::Vector2f positionIn, float rotationIn)
 {
 	m_sprite.setPosition(positionIn);
@@ -36,11 +48,17 @@ void Missile::reset(sf::Vector2f positionIn, float rotationIn)
 	lifeClock.restart();
 }
 
+/// <summary>
+/// Set the missile dead
+/// </summary>
 void Missile::explode()
 {
 	m_isAlive = false;
 }
 
+/// <summary>
+/// Update loop for the missile
+/// </summary>
 void Missile::update()
 {
 	if (m_isAlive)
@@ -56,6 +74,10 @@ void Missile::update()
 	}
 }
 
+/// <summary>
+/// Draw loop for the missile
+/// </summary>
+/// <param name="window">Window for drawing the sprite</param>
 void Missile::render(sf::RenderWindow & window)
 {
 	if (m_isAlive)
@@ -64,11 +86,19 @@ void Missile::render(sf::RenderWindow & window)
 	}
 }
 
+/// <summary>
+/// Get the alive state of the missile
+/// </summary>
+/// <returns>bool for alive or dead</returns>
 bool Missile::isAlive()
 {
 	return m_isAlive;
 }
 
+/// <summary>
+/// Seek the position
+/// </summary>
+/// <param name="pos">Position to seek to</param>
 void Missile::seek(sf::Vector2f pos)
 {
 	float dx = pos.x - m_sprite.getPosition().x;
@@ -86,11 +116,19 @@ void Missile::seek(sf::Vector2f pos)
 	m_sprite.setRotation(std::round(rotation));
 }
 
+/// <summary>
+/// Get the collision circle of the missile
+/// </summary>
+/// <returns>The collision circle of the missile</returns>
 sf::CircleShape Missile::getCollisionCircle()
 {
 	return m_collisionCircle;
 }
 
+/// <summary>
+/// Set whether the missile is alive or dead
+/// </summary>
+/// <param name="status">The bool for alive or dead</param>
 void Missile::setAliveStatus(bool status)
 {
 	m_isAlive = status;

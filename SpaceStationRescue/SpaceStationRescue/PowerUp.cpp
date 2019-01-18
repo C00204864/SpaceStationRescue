@@ -1,5 +1,9 @@
 #include "PowerUp.h"
-
+/// <summary>
+/// PowerUp constructor
+/// </summary>
+/// <param name="position">Position to spawn at</param>
+/// <param name="type">type of powerup to spawn as</param>
 PowerUp::PowerUp(sf::Vector2f position, PowerType type)
 {
 	
@@ -34,15 +38,25 @@ PowerUp::PowerUp(sf::Vector2f position, PowerType type)
 	m_isAlive = true;
 }
 
+/// <summary>
+/// destructor
+/// </summary>
 PowerUp::~PowerUp()
 {
 }
 
+/// <summary>
+/// Update loop for powerup
+/// </summary>
 void PowerUp::update()
 {
 	m_sprite.setRotation(m_sprite.getRotation() + 1);
 }
 
+/// <summary>
+/// Draw loop for the Powerup
+/// </summary>
+/// <param name="window">Window for drawing the powerup</param>
 void PowerUp::draw(sf::RenderWindow & window)
 {
 	if (m_isAlive)
@@ -51,6 +65,11 @@ void PowerUp::draw(sf::RenderWindow & window)
 	}	
 }
 
+/// <summary>
+/// Check the collision of the parameter sprite
+/// </summary>
+/// <param name="sprite">Sprite to check</param>
+/// <returns>bool for if a collision happened</returns>
 bool PowerUp::collisionCheck(sf::Sprite sprite)
 {
 	if (m_isAlive)
@@ -63,11 +82,19 @@ bool PowerUp::collisionCheck(sf::Sprite sprite)
 	}
 }
 
+/// <summary>
+/// Alive status for powerup
+/// </summary>
+/// <param name="b">bool for if alive or not</param>
 void PowerUp::setAlive(bool b)
 {
 	m_isAlive = b;
 }
 
+/// <summary>
+/// Get the Type of the powerup
+/// </summary>
+/// <returns>The type of the powerup</returns>
 PowerType PowerUp::getType()
 {
 	return m_type;

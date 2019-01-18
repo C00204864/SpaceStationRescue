@@ -1,5 +1,9 @@
 #include "Bullet.h"
-
+/// <summary>
+/// Constructor for Bullet Object
+/// </summary>
+/// <param name="position">position to spawn at</param>
+/// <param name="rotation">rotation to spawn with</param>
 Bullet::Bullet(sf::Vector2f position, float rotation)
 {
 	m_sprite.setRotation(rotation);
@@ -20,9 +24,14 @@ Bullet::Bullet(sf::Vector2f position, float rotation)
 	m_collisionCircle.setPosition(position);
 	m_collisionCircle.setFillColor(sf::Color::Red);
 }
-
+/// <summary>
+/// destructor
+/// </summary>
 Bullet::~Bullet() {}
 
+/// <summary>
+/// Update loop
+/// </summary>
 void Bullet::update()
 {
 	timer = lifeClock.getElapsedTime();
@@ -36,21 +45,37 @@ void Bullet::update()
 	}
 }
 
+/// <summary>
+/// Draw loop
+/// </summary>
+/// <param name="window">Window to draw sprite</param>
 void Bullet::draw(sf::RenderWindow & window)
 {
 	window.draw(m_sprite);
 }
 
+/// <summary>
+/// Returns the bullets alive state
+/// </summary>
+/// <returns>bool for if alive or not</returns>
 bool Bullet::isAlive()
 {
 	return m_isAlive;
 }
 
+/// <summary>
+/// Get the collision circle
+/// </summary>
+/// <returns>the collision circle</returns>
 sf::CircleShape Bullet::getCollisionCircle()
 {
 	return m_collisionCircle;
 }
 
+/// <summary>
+/// Set whether the bullet is alive or not
+/// </summary>
+/// <param name="status">the bool for alive or dead</param>
 void Bullet::setAliveStatus(bool status)
 {
 	m_isAlive = status;
