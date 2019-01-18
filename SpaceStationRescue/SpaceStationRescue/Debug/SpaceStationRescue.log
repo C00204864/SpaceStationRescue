@@ -1,50 +1,6 @@
-﻿  WinScreen.cpp
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(14): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(44): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(44): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(45): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(49): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(50): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(80): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(88): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(89): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(114): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(115): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(116): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(126): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(127): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\micha\documents\spacestationrescue\spacestationrescue\spacestationrescue\winscreen.cpp(128): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-  SpaceStationRescue.vcxproj -> C:\Users\micha\Documents\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
+﻿  Game.cpp
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(33): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(61): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(62): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
+c:\users\liamh\desktop\spacestationrescue\spacestationrescue\spacestationrescue\game.cpp(63): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
+  SpaceStationRescue.vcxproj -> C:\Users\liamh\Desktop\SpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe

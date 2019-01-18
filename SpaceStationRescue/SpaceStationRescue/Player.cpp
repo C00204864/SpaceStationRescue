@@ -329,10 +329,13 @@ int Player::getWorkersAmount()
 /// <param name="amount">The amount of health to be added or taken away</param>
 void Player::updateHealth(int amount)
 {
-	m_health += amount;
-	if (m_health < 0)
+	if (!m_shieldActive)
 	{
-		m_health = 0;
+		m_health += amount;
+		if (m_health < 0)
+		{
+			m_health = 0;
+		}
 	}
 }
 

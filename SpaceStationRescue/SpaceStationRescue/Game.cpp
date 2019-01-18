@@ -53,8 +53,10 @@ Game::Game() :
 
 
 	// Powerups
-	powerUps.push_back(new PowerUp(sf::Vector2f(500,500), PowerType::SPEED));
-	powerUps.push_back(new PowerUp(sf::Vector2f(600, 600), PowerType::SHIELD));
+	powerUps.push_back(new PowerUp(sf::Vector2f(2000,2800), PowerType::SPEED));
+	powerUps.push_back(new PowerUp(sf::Vector2f(3870, 2850), PowerType::SHIELD));
+	powerUps.push_back(new PowerUp(sf::Vector2f(2920, 1400), PowerType::SPEED));
+	powerUps.push_back(new PowerUp(sf::Vector2f(2920, 4250), PowerType::SHIELD));
 
 	menu = new Menu(SCREEN_WIDTH, SCREEN_HEIGHT, *this, m_window);
 	dieScreen = new DieScreen(SCREEN_WIDTH, SCREEN_HEIGHT, *this, m_window);
@@ -150,7 +152,7 @@ void Game::processEvents()
 void Game::update(sf::Time t_deltaTime)
 {
 
-
+	std::cout << m_player.getPosition().x << "," << m_player.getPosition().y << std::endl;
 	switch (m_state)
 	{
 	case MAINMENU:
